@@ -1,74 +1,72 @@
 import pygame
 from plane import Plane
-from airport import initialise_graph, draw_nodes, draw_edges
+from airport import initialise_graph, render_airport
 from utils import *
-from configuration import WIDTH, HEIGHT, AIRPORT_ICAO, FPS
 import configuration as config
 
-pygame.init()
 
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Airport Simulation")
-config.FONT = pygame.font.Font(None, 36)
+def setup():
+    pygame.init()
 
-config.NODE_LIST, config.EDGE_LIST = initialise_graph(
-    f"data/airport_{AIRPORT_ICAO}.json"
-)
-config.NODE_DICT = {node.id: node for node in config.NODE_LIST}
-config.EDGE_DICT = {edge.id: edge for edge in config.EDGE_LIST}
+    screen = pygame.display.set_mode((config.WIDTH, config.HEIGHT))
+    pygame.display.set_caption(f"Airport Simulation - {config.AIRPORT_ICAO}")
+    config.MARK_FONT = pygame.font.Font(None, 12)
+    config.DATA_FONT = pygame.font.Font(None, 14)
 
-test_plane = Plane(
-    config.NODE_DICT["V2"].x, config.NODE_DICT["V2"].y, config.EDGE_DICT["V2-V1"].heading
-)
-dijkstra_path, distance = dijkstra(config.NODE_LIST, config.EDGE_LIST, "V2", "S1")
+    initialise_graph(f"data/airport_{config.AIRPORT_ICAO}.json")
 
-test_plane.path = dijkstra_path
+    return screen
 
-# Main game loop
-running = True
-clock = pygame.time.Clock()
 
-while running:
-    # keys = pygame.key.get_pressed()
-    # if keys[pygame.K_UP]:
-    #     test_plane.thrust_up()
-    # elif keys[pygame.K_DOWN]:
-    #     test_plane.thrust_down()
-    # if keys[pygame.K_LEFT]:
-    #     test_plane.turn_left()
-    # elif keys[pygame.K_RIGHT]:
-    #     test_plane.turn_right()
-
-    # test_plane.move()
-
-    test_plane.move_along_path()
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-
-    # Fill the background
-    screen.blit(pygame.image.load(f"images/airport_{AIRPORT_ICAO}.jpg"), (0, 0))
-    draw_nodes(screen)
-    draw_edges(screen)
-
-    # Draw the plane
-    test_plane.draw(screen)
-
-    # Render thrust and speed text
-    thrust_text = config.FONT.render(f"Thrust: {test_plane.thrust:.0f}%", True, (0, 0, 0))
-    speed_text = config.FONT.render(
-        f"Speed: {test_plane.speed:.1f} m/s", True, (0, 0, 0)
+def spawn_plane():
+    test_plane = Plane(
+        config.STAND_DICT["41"].x,
+        config.STAND_DICT["41"].y,
+        config.STAND_DICT["41"].heading,
+        config.STAND_DICT["41"],
     )
-    knotts_text = config.FONT.render(
-        f"Speed: {to_knotts(test_plane.speed):.1f} knotts", True, (0, 0, 0)
-    )
-    screen.blit(thrust_text, (WIDTH - 200, 20))  # Position text top-right
-    screen.blit(speed_text, (WIDTH - 200, 60))
-    screen.blit(knotts_text, (WIDTH - 200, 100))
+    dijkstra_path, distance = dijkstra("V1", "S1")
+    test_plane.path = dijkstra_path
+    return test_plane
 
-    pygame.display.update()
-    clock.tick(FPS)
 
-# Quit Pygame
-pygame.quit()
+def main():
+    screen = setup()
+
+    test_plane = spawn_plane()
+
+    # Main game loop
+    running = True
+    clock = pygame.time.Clock()
+
+    while running:
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_UP]:
+            test_plane.thrust_up()
+        elif keys[pygame.K_DOWN]:
+            test_plane.thrust_down()
+        if keys[pygame.K_LEFT]:
+            test_plane.turn_left()
+        elif keys[pygame.K_RIGHT]:
+            test_plane.turn_right()
+
+        # test_plane.move_manual()
+        test_plane.auto_move()
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+        render_airport(screen)
+
+        test_plane.draw(screen)
+
+        pygame.display.update()
+        clock.tick(config.FPS)
+
+    # Quit Pygame
+    pygame.quit()
+
+
+if __name__ == "__main__":
+    main()

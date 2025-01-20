@@ -1,11 +1,11 @@
 import math
 import pygame
 from configuration import *
-from utils import get_node_object, distance_between, to_knotts, to_mps
+from utils import *
 
 
 class Plane:
-    def __init__(self, x, y, heading):
+    def __init__(self, x, y, heading, stand):
         self.image = pygame.image.load("images/plane.png")
         self.x = x
         self.y = y
@@ -14,11 +14,18 @@ class Plane:
         self.speed = 0
         self.path = []
         self.visited = []
+        self.state = "pushback"
+        self.stand = stand
 
     def draw(self, window):
         rotated_image = pygame.transform.rotate(self.image, -self.heading)
         rotated_rect = rotated_image.get_rect(center=(self.x, self.y))
         window.blit(rotated_image, rotated_rect.topleft)
+        
+        data = config.DATA_FONT.render(
+            f"{to_knots(self.speed):.0f} kts", True, (255, 255, 0)
+        )
+        window.blit(data, (self.x - 15, self.y - 30))
 
     def thrust_up(self):
         self.thrust += THRUST_CHANGE_RATE
@@ -50,18 +57,20 @@ class Plane:
         elif self.speed < 0:
             self.speed = 0
 
-    def move(self):
+    def move_manual(self):
         # Update speed based on thrust and drag
         self.update_speed()
 
         # Update position based on speed
         radian_heading = math.radians(self.heading)
-        self.x += (
-            (self.speed / PIXEL_TO_METRE) * math.sin(radian_heading) * TIME_STEP
-        )
-        self.y -= (
-            (self.speed / PIXEL_TO_METRE) * math.cos(radian_heading) * TIME_STEP
-        )
+        self.x += (self.speed / PIXEL_TO_METRE) * math.sin(radian_heading) * TIME_STEP
+        self.y -= (self.speed / PIXEL_TO_METRE) * math.cos(radian_heading) * TIME_STEP
+
+    def auto_move(self):
+        if self.state == "pushback":
+            self.pushback()
+        if self.state == "taxiing":
+            self.taxi()
 
     def get_turn_angle(self):
         # Calculate turn angle based on speed
@@ -77,7 +86,7 @@ class Plane:
         turn_angle = self.get_turn_angle()
         self.heading = (self.heading + turn_angle) % 360
 
-    def move_along_path(self):
+    def taxi(self):
         if not self.path:
             return
 
@@ -87,7 +96,11 @@ class Plane:
 
         # Calculate the distance to the next waypoint
         distance_next = distance_between(self, end_node)
-        distance_prev = distance_between(self, end_node) if not self.visited else distance_between(self, get_node_object(self.visited[-1]))
+        distance_prev = (
+            distance_between(self, end_node)
+            if not self.visited
+            else distance_between(self, get_node_object(self.visited[-1]))
+        )
 
         # Adjust speed based on distance
         if distance_next < SLOW_DISTANCE or distance_prev < SLOW_DISTANCE:
@@ -109,3 +122,28 @@ class Plane:
             self.y = end_y
             self.speed = 0
             self.visited.append(self.path.pop(0))
+
+    def pushback(self):
+        pushback_line_start = self.stand.parent.start
+        pushback_line_end = self.stand.parent.end
+        point_x, point_y, distance = closest_point_on_line(
+            self.x,
+            self.y,
+            pushback_line_start.x,
+            pushback_line_start.y,
+            pushback_line_end.x,
+            pushback_line_end.y,
+        )
+
+        # TODO: Add pathfinding to takeoff node
+        if distance <= 1:
+            self.x = point_x
+            self.y = point_y
+            self.state = "taxiing"
+            return
+
+        # Move 1 pixel towards the pushback line backwards
+        radian_heading = math.radians(self.heading)
+        self.x -= math.sin(radian_heading) / 10
+        self.y += math.cos(radian_heading) / 10
+

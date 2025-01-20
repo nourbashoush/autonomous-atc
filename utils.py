@@ -3,12 +3,12 @@ import heapq
 import configuration as config
 
 
-def to_knotts(mps):
+def to_knots(mps):
     return mps * 1.94384
 
 
-def to_mps(knotts):
-    return knotts / 1.94384
+def to_mps(knots):
+    return knots / 1.94384
 
 
 def distance_between(point1, point2):
@@ -23,20 +23,22 @@ def get_edge_object(edge_id):
     return config.EDGE_DICT[edge_id]
 
 
-def get_edge_object(node1, node2):
-    return config.EDGE_DICT[f"{node1}-{node2}"]
+# def get_edge_object(node1, node2):
+#     return config.EDGE_DICT[f"{node1}-{node2}"]
 
 
-def dijkstra(nodes, edges, start_node_id, end_node_id):
+def dijkstra(start_node_id, end_node_id):
     """
     Dijkstra's algorithm for finding the shortest path in a graph.
-    :param nodes: List of Node objects.
-    :param edges: List of Edge objects.
     :param start_node_id: The ID of the starting Node.
     :param end_node_id: The ID of the target Node.
     :return: A tuple (path, distance) where path is a list of node IDs in the shortest path,
              and distance is the total distance of the path.
     """
+
+    nodes = config.NODE_LIST
+    edges = config.EDGE_LIST
+    
     # Map nodes by their IDs for quick lookup
     node_map = {node.id: node for node in nodes}
     adjacency_list = {node.id: [] for node in nodes}
