@@ -18,8 +18,8 @@ class Node:
 class Edge:
     def __init__(self, start_node, end_node, distance, heading):
         self.id = f"{start_node.id}-{end_node.id}"
-        self.start = start_node
-        self.end = end_node
+        self.start = start_node # Node object
+        self.end = end_node # Node object
         self.distance = distance
         self.heading = heading
 
@@ -33,7 +33,8 @@ class Stand:
         self.x = x
         self.y = y
         self.heading = heading
-        self.parent = parent
+        self.parent = parent # Edge object with order to follow to leave the stand
+        self.available = True
 
     def __repr__(self):
         return f"Stand({self.id})"

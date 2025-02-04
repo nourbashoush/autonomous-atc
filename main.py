@@ -1,3 +1,4 @@
+import random
 import pygame
 from plane import Plane
 from airport import initialise_graph, render_airport
@@ -17,49 +18,58 @@ def setup():
 
     return screen
 
+def spawn_planes_at_stands():
+    available_stands = [stand for stand in config.STAND_LIST if stand.available]
+    selected_stands = random.sample(available_stands, min(10, len(available_stands)))
 
-def spawn_plane():
-    test_plane = Plane(
-        config.STAND_DICT["41"].x,
-        config.STAND_DICT["41"].y,
-        config.STAND_DICT["41"].heading,
-        config.STAND_DICT["41"],
-    )
-    dijkstra_path, distance = dijkstra("V1", "S1")
-    test_plane.path = dijkstra_path
-    return test_plane
+    for stand in selected_stands:
+        new_plane = Plane(stand.x, stand.y, stand.heading, stand)
+        dijkstra_path, distance = dijkstra(stand.parent.end.id, get_edge_object(config.RUNWAY_IN_USE).start.id)
+        new_plane.path = dijkstra_path
+        config.PLANES.append(new_plane)
+        stand.available = False
+
+
+def simulate_frame(screen):
+    for plane in config.PLANES:
+        if plane.state == "preparing":
+            if random.randint(1,config.PUSHBACK_PROBABILITY) == 1:
+                plane.update_state("pushback")
+        
+        plane.auto_move()
+        plane.draw(screen)
 
 
 def main():
     screen = setup()
 
-    test_plane = spawn_plane()
+    spawn_planes_at_stands()
 
-    # Main game loop
     running = True
     clock = pygame.time.Clock()
 
-    while running:
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_UP]:
-            test_plane.thrust_up()
-        elif keys[pygame.K_DOWN]:
-            test_plane.thrust_down()
-        if keys[pygame.K_LEFT]:
-            test_plane.turn_left()
-        elif keys[pygame.K_RIGHT]:
-            test_plane.turn_right()
+    # test_plane = Plane(100, 100, 0, None)
 
-        # test_plane.move_manual()
-        test_plane.auto_move()
+    while running:
+        # keys = pygame.key.get_pressed()
+        # if keys[pygame.K_UP]:
+        #     test_plane.thrust_up()
+        # elif keys[pygame.K_DOWN]:
+        #     test_plane.thrust_down()
+        # if keys[pygame.K_LEFT]:
+        #     test_plane.turn_left()
+        # elif keys[pygame.K_RIGHT]:
+        #     test_plane.turn_right()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
 
         render_airport(screen)
+        simulate_frame(screen)
 
-        test_plane.draw(screen)
+        # test_plane.move_manual()
+        # test_plane.draw(screen)
 
         pygame.display.update()
         clock.tick(config.FPS)
