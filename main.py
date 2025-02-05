@@ -48,8 +48,6 @@ def main():
     running = True
     clock = pygame.time.Clock()
 
-    # test_plane = Plane(100, 100, 0, None)
-
     while running:
         # keys = pygame.key.get_pressed()
         # if keys[pygame.K_UP]:
