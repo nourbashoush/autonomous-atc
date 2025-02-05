@@ -1,5 +1,7 @@
 import math
 import pygame
+import numpy as np
+import torch
 from configuration import *
 from utils import *
 
@@ -58,7 +60,7 @@ class Plane:
         elif self.speed < 0:
             self.speed = 0
 
-    def move_manual(self):
+    def move(self):
         self.update_speed()
 
         radian_heading = math.radians(self.heading)
@@ -86,35 +88,52 @@ class Plane:
         turn_angle = self.get_turn_angle()
         self.heading = (self.heading + turn_angle) % 360
 
+    # def taxi(self):
+    #     if not self.path:
+    #         return
+
+    #     end_node = get_node_object(self.path[0])
+    #     end_x, end_y = end_node.x, end_node.y
+
+    #     distance_next = distance_between(self, end_node)
+    #     distance_prev = (
+    #         distance_between(self, end_node)
+    #         if not self.visited
+    #         else distance_between(self, get_node_object(self.visited[-1]))
+    #     )
+
+    #     if distance_next < SLOW_DISTANCE or distance_prev < SLOW_DISTANCE:
+    #         self.speed = to_mps(SLOW_SPEED)
+    #     else:
+    #         self.speed = to_mps(TAXI_SPEED)
+
+    #     radian_heading = math.atan2(end_y - self.y, end_x - self.x)
+    #     self.heading = (math.degrees(radian_heading) + 90) % 360
+
+    #     self.x += (self.speed / PIXEL_TO_METRE) * math.cos(radian_heading) * TIME_STEP
+    #     self.y += (self.speed / PIXEL_TO_METRE) * math.sin(radian_heading) * TIME_STEP
+
+    #     if distance_next < self.speed * TIME_STEP:
+    #         self.x = end_x
+    #         self.y = end_y
+    #         self.speed = 0
+    #         self.visited.append(self.path.pop(0))
+
+    #         runway_path = get_edge_object(config.RUNWAY_IN_USE)
+
+    #         if self.visited[-1] == runway_path.start.id:
+    #             self.state = "takeoff"
+    #             self.heading = runway_path.heading
+    #             self.x = runway_path.start.x
+    #             self.y = runway_path.start.y
+
     def taxi(self):
         if not self.path:
             return
 
-        end_node = get_node_object(self.path[0])
-        end_x, end_y = end_node.x, end_node.y
+        distance_next = distance_between(self, get_node_object(self.path[0]))
 
-        distance_next = distance_between(self, end_node)
-        distance_prev = (
-            distance_between(self, end_node)
-            if not self.visited
-            else distance_between(self, get_node_object(self.visited[-1]))
-        )
-
-        if distance_next < SLOW_DISTANCE or distance_prev < SLOW_DISTANCE:
-            self.speed = to_mps(SLOW_SPEED)
-        else:
-            self.speed = to_mps(TAXI_SPEED)
-
-        radian_heading = math.atan2(end_y - self.y, end_x - self.x)
-        self.heading = (math.degrees(radian_heading) + 90) % 360
-
-        self.x += (self.speed / PIXEL_TO_METRE) * math.cos(radian_heading) * TIME_STEP
-        self.y += (self.speed / PIXEL_TO_METRE) * math.sin(radian_heading) * TIME_STEP
-
-        if distance_next < self.speed * TIME_STEP:
-            self.x = end_x
-            self.y = end_y
-            self.speed = 0
+        if distance_next <= MAX_DEVIATION:
             self.visited.append(self.path.pop(0))
 
             runway_path = get_edge_object(config.RUNWAY_IN_USE)
@@ -122,8 +141,30 @@ class Plane:
             if self.visited[-1] == runway_path.start.id:
                 self.state = "takeoff"
                 self.heading = runway_path.heading
-                self.x = runway_path.start.x
-                self.y = runway_path.start.y
+                # self.x = runway_path.start.x
+                # self.y = runway_path.start.y
+                return
+
+        state = np.array(get_taxi_state(self)).astype(np.float32)
+        state_tensor = torch.tensor(state, dtype=torch.float).unsqueeze(0)
+
+        with torch.no_grad():
+            steering_q_values, throttle_q_values = config.TAXI_MODEL(state_tensor)
+
+        steering_action = torch.argmax(steering_q_values, dim=1).item()
+        throttle_action = torch.argmax(throttle_q_values, dim=1).item()
+
+        if steering_action == 1:
+            self.turn_left()
+        elif steering_action == 2:
+            self.turn_right()
+
+        if throttle_action == 1:
+            self.thrust_up()
+        elif throttle_action == 2:
+            self.thrust_down()
+
+        self.move()
 
     def pushback(self):
         pushback_line_start = self.stand.parent.start
@@ -141,6 +182,7 @@ class Plane:
             self.x = point_x
             self.y = point_y
             self.state = "taxiing"
+            self.visited.append(self.path.pop(0))
             self.stand.available = True
             self.stand = None
             return
@@ -152,4 +194,4 @@ class Plane:
     def takeoff(self):
         self.thrust = 100
         self.drag = config.FLIGHT_DRAG
-        self.move_manual()
+        self.move()

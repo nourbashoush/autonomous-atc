@@ -4,6 +4,7 @@ from plane import Plane
 from airport import initialise_graph, render_airport
 from utils import *
 import configuration as config
+from taxi_model import TaxiNet
 
 
 def setup():
@@ -16,7 +17,12 @@ def setup():
 
     initialise_graph(f"data/airport_{config.AIRPORT_ICAO}.json")
 
+    taxi = TaxiNet()
+    taxi.load()
+    config.TAXI_MODEL = taxi
+
     return screen
+
 
 def spawn_planes_at_stands():
     available_stands = [stand for stand in config.STAND_LIST if stand.available]
@@ -24,7 +30,16 @@ def spawn_planes_at_stands():
 
     for stand in selected_stands:
         new_plane = Plane(stand.x, stand.y, stand.heading, stand)
-        dijkstra_path, distance = dijkstra(stand.parent.end.id, get_edge_object(config.RUNWAY_IN_USE).start.id)
+        dijkstra_path_start, path_distance_start = dijkstra(
+            stand.parent.start.id, get_edge_object(config.RUNWAY_IN_USE).start.id
+        )
+        dijkstra_path_end, path_distance_end = dijkstra(
+            stand.parent.end.id, get_edge_object(config.RUNWAY_IN_USE).start.id
+        )
+        if path_distance_start < path_distance_end:
+            dijkstra_path = [stand.parent.end.id] + dijkstra_path_start
+        else:
+            dijkstra_path = [stand.parent.start.id] + dijkstra_path_end
         new_plane.path = dijkstra_path
         config.PLANES.append(new_plane)
         stand.available = False
@@ -33,9 +48,9 @@ def spawn_planes_at_stands():
 def simulate_frame(screen):
     for plane in config.PLANES:
         if plane.state == "preparing":
-            if random.randint(1,config.PUSHBACK_PROBABILITY) == 1:
+            if random.randint(1, config.PUSHBACK_PROBABILITY) == 1:
                 plane.update_state("pushback")
-        
+
         plane.auto_move()
         plane.draw(screen)
 
