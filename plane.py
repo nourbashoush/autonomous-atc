@@ -75,13 +75,13 @@ class Plane:
             self.takeoff()
         if self.state == "pushback":
             self.pushback()
-        if self.state == "taxiing":
+        if self.state == "taxiing" or self.state == "parking":
             self.taxi()
         if self.state == "landing":
             self.land()
         if self.state == "rollout":
             self.roll()
-        if self.state == "parking":
+        if self.state == "parked":
             self.park()
 
     def get_turn_angle(self):
@@ -138,7 +138,6 @@ class Plane:
 
     def taxi(self):
         if not self.path:
-            self.brake()
             return
 
         distance_next = distance_between(self, get_node_object(self.path[0]))
@@ -146,12 +145,18 @@ class Plane:
         if distance_next <= MAX_DEVIATION:
             self.visited.append(self.path.pop(0))
 
-            runway_path = get_edge_object(config.RUNWAY_IN_USE)
+            if self.state == "taxiing":
+                runway_path = get_edge_object(config.RUNWAY_IN_USE)
 
-            if self.visited[-1] == runway_path.start.id:
-                self.state = "takeoff"
-                self.heading = runway_path.heading
-                return
+                if self.visited[-1] == runway_path.start.id:
+                    self.state = "takeoff"
+                    self.heading = runway_path.heading
+                    return
+
+            elif self.state == "parking":
+                if self.visited[-1] == self.stand:
+                    self.state = "parked"
+                    return
 
         state = np.array(get_taxi_state(self)).astype(np.float32)
         state_tensor = torch.tensor(state, dtype=torch.float).unsqueeze(0)
@@ -243,7 +248,7 @@ class Plane:
                 exits_ahead[0], self.stand.parent.end.id
             )
 
-            self.visited = exits_passed[-1]
+            self.visited = [exits_passed[-1]]
 
 
             if path_distance_start < path_distance_end:
@@ -257,8 +262,14 @@ class Plane:
             self.state = "parking"
             self.drag = config.GROUND_DRAG
 
-            print(self.path)
-            print(self.visited)
-
     def park(self):
-        pass
+        if self.speed == 0:
+            return
+        
+        self.heading = self.stand.heading
+        self.thrust = 0
+        self.visited = []
+        self.path = []
+        
+        self.brake()
+        self.move()

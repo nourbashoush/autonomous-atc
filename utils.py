@@ -57,7 +57,7 @@ def distance_between_points(point1_x, point1_y, point2_x, point2_y):
 
 
 def get_node_object(node_id):
-    if isinstance(node_id, Node):
+    if isinstance(node_id, Node) or isinstance(node_id, Stand):
         return node_id
     return config.NODE_DICT[node_id]
 
