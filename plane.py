@@ -7,8 +7,7 @@ from utils import *
 
 
 class Plane:
-    def __init__(self, x, y, heading, stand):
-        self.image = pygame.image.load("images/plane.png")
+    def __init__(self, x, y, heading, stand, state="preparing"):
         self.x = x
         self.y = y
         self.heading = heading
@@ -16,9 +15,13 @@ class Plane:
         self.speed = 0
         self.path = []
         self.visited = []
-        self.state = "preparing"
+        self.state = state
         self.stand = stand
         self.drag = config.GROUND_DRAG
+        if self.state == "preparing":
+            self.image = pygame.image.load(config.GROUND_IMG)
+        else:
+            self.image = pygame.image.load(config.AIRBORNE_IMG)
 
     def draw(self, window):
         rotated_image = pygame.transform.rotate(self.image, -self.heading)
@@ -74,6 +77,12 @@ class Plane:
             self.pushback()
         if self.state == "taxiing":
             self.taxi()
+        if self.state == "landing":
+            self.land()
+        if self.state == "rollout":
+            self.roll()
+        if self.state == "parking":
+            self.park()
 
     def get_turn_angle(self):
         if self.speed == 0:
@@ -129,6 +138,7 @@ class Plane:
 
     def taxi(self):
         if not self.path:
+            self.brake()
             return
 
         distance_next = distance_between(self, get_node_object(self.path[0]))
@@ -141,8 +151,6 @@ class Plane:
             if self.visited[-1] == runway_path.start.id:
                 self.state = "takeoff"
                 self.heading = runway_path.heading
-                # self.x = runway_path.start.x
-                # self.y = runway_path.start.y
                 return
 
         state = np.array(get_taxi_state(self)).astype(np.float32)
@@ -195,3 +203,62 @@ class Plane:
         self.thrust = 100
         self.drag = config.FLIGHT_DRAG
         self.move()
+
+    def land(self, touch_down_deviation=120):
+        self.move()
+
+        runway_path = get_edge_object(config.RUNWAY_IN_USE)
+
+        x_touchdown = runway_path.start.x + touch_down_deviation * math.sin(
+            math.radians(runway_path.heading)
+        )
+        y_touchdown = runway_path.start.y - touch_down_deviation * math.cos(
+            math.radians(runway_path.heading)
+        )
+
+        distance_to_touchdown = distance_between_points(
+            self.x, self.y, x_touchdown, y_touchdown
+        )
+
+        if distance_to_touchdown < touch_down_deviation * 2:
+            self.thrust = max(0, self.thrust - 1)
+
+        if distance_to_touchdown < 1:
+            self.state = "rollout"
+            self.image = pygame.image.load(config.GROUND_IMG)
+            self.thrust = 0
+            # self.drag = config.GROUND_DRAG
+
+    def roll(self):
+        self.move()
+        exits = config.EXIT_DICT[config.RUNWAY_IN_USE]
+        exits_ahead = [exit for exit in exits if is_exit_ahead(self, exit)]
+        exits_passed = [exit for exit in exits if not is_exit_ahead(self, exit)]
+
+        if self.speed < to_mps(30):
+            dijkstra_path_start, path_distance_start = dijkstra(
+                exits_ahead[0], self.stand.parent.start.id
+            )
+            dijkstra_path_end, path_distance_end = dijkstra(
+                exits_ahead[0], self.stand.parent.end.id
+            )
+
+            self.visited = exits_passed[-1]
+
+
+            if path_distance_start < path_distance_end:
+                self.path = dijkstra_path_start
+            else:
+                self.path = dijkstra_path_end
+
+            stand_entrance = get_stand_entrance(self.stand)
+            self.path = self.path + [stand_entrance, self.stand]
+            
+            self.state = "parking"
+            self.drag = config.GROUND_DRAG
+
+            print(self.path)
+            print(self.visited)
+
+    def park(self):
+        pass

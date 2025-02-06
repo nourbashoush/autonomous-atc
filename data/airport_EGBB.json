@@ -101,5 +101,9 @@
         { "id": "32", "x": 909, "y": 124, "heading": 90, "parent": "W3-W2" },
         { "id": "21", "x": 963, "y": 138, "heading": 270, "parent": "Y3-Y2" },
         { "id": "22", "x": 963, "y": 120, "heading": 270, "parent": "Y3-Y2" }
+    ],
+    "runway_exits": [
+        { "id": "RNWY33-RNWY15", "exits": ["S1", "E1", "C1", "T1", "B1", "A1"]},
+        { "id": "RNWY15-RNWY33", "exits": ["A1", "B1", "T1", "C1", "E1", "S1"]}
     ]
 }

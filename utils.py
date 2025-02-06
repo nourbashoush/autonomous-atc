@@ -2,6 +2,42 @@ import math
 import heapq
 import configuration as config
 import numpy as np
+import random
+
+
+class Node:
+    def __init__(self, node_id, x, y):
+        self.id = node_id
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return f"Node({self.id}, x={self.x}, y={self.y})"
+
+
+class Edge:
+    def __init__(self, start_node, end_node, distance, heading):
+        self.id = f"{start_node.id}-{end_node.id}"
+        self.start = start_node  # Node object
+        self.end = end_node  # Node object
+        self.distance = distance
+        self.heading = heading
+
+    def __repr__(self):
+        return f"Edge({self.start.id} -> {self.end.id}, distance={self.distance:.2f}, heading={self.heading:.2f})"
+
+
+class Stand:
+    def __init__(self, stand_id, x, y, heading, parent):
+        self.id = stand_id
+        self.x = x
+        self.y = y
+        self.heading = heading
+        self.parent = parent  # Edge object with order to follow to leave the stand
+        self.available = True
+
+    def __repr__(self):
+        return f"Stand({self.id})"
 
 
 def to_knots(mps):
@@ -21,6 +57,8 @@ def distance_between_points(point1_x, point1_y, point2_x, point2_y):
 
 
 def get_node_object(node_id):
+    if isinstance(node_id, Node):
+        return node_id
     return config.NODE_DICT[node_id]
 
 
@@ -43,7 +81,7 @@ def dijkstra(start_node_id, end_node_id):
 
     nodes = config.NODE_LIST
     edges = config.EDGE_LIST
-    
+
     # Map nodes by their IDs for quick lookup
     node_map = {node.id: node for node in nodes}
     adjacency_list = {node.id: [] for node in nodes}
@@ -148,7 +186,9 @@ def get_taxi_state(plane):
             if distance_to_path >= config.MAX_DEVIATION:
                 break
 
-        distance_to_boundary = distance_between_points(plane_x, plane_y, current_x, current_y)
+        distance_to_boundary = distance_between_points(
+            plane_x, plane_y, current_x, current_y
+        )
         distances.append(distance_to_boundary)
 
     distances = np.array(distances) / 150.0
@@ -176,3 +216,37 @@ def get_taxi_state(plane):
     )
 
     return state.astype(np.float32)
+
+
+def find_available_stand():
+    available_stands = [stand for stand in config.STAND_LIST if stand.available]
+    if available_stands:
+        return random.choice(available_stands)
+    return False
+
+
+def is_exit_ahead(plane, exit):
+    exit_node = get_node_object(exit)
+    radian_heading = math.radians(plane.heading)
+    plane_to_exit_x = exit_node.x - plane.x
+    plane_to_exit_y = exit_node.y - plane.y
+    dot_product = plane_to_exit_x * math.sin(
+        radian_heading
+    ) + plane_to_exit_y * -math.cos(radian_heading)
+    return dot_product > 0
+
+
+def get_stand_entrance(stand):
+    if stand is None:
+        return None
+
+    x, y, _ = closest_point_on_line(
+        stand.x,
+        stand.y,
+        stand.parent.start.x,
+        stand.parent.start.y,
+        stand.parent.end.x,
+        stand.parent.end.y,
+    )
+
+    return Node(f"{stand.id}-entrance", x, y)

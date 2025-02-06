@@ -5,7 +5,6 @@ FPS = 30
 AIRPORT_ICAO = "EGBB"
 RUNWAY_IN_USE = "RNWY33-RNWY15"
 PLANES = []
-PUSHBACK_PROBABILITY = 2000
 
 # airport.py
 MARK_FONT = None
@@ -16,12 +15,18 @@ STAND_LIST = []
 NODE_DICT = {}
 EDGE_DICT = {}
 STAND_DICT = {}
+EXIT_DICT = {}
 
 RENDER_NODES = True
 RENDER_EDGES = True
 RENDER_STANDS = True
+PUSHBACK_PROBABILITY = 2000
+LANDING_PROBABILITY = 200
 
 # plane.py
+GROUND_IMG = "images/plane_ground.png"
+AIRBORNE_IMG = "images/plane_airborne.png"
+
 THRUST_CHANGE_RATE = 2      # Rate of thrust adjustment
 MAX_SPEED = 150             # Maximum velocity in m/s
 FLIGHT_DRAG = 0.05          # DRAG_COEFFICIENT = 0.25  # Air drag proportional to v²

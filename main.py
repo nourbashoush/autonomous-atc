@@ -45,7 +45,37 @@ def spawn_planes_at_stands():
         stand.available = False
 
 
+def spawn_planes_for_landing(distance_from_runway=1000):
+    if find_available_stand() and random.randint(1, config.LANDING_PROBABILITY) == 1:
+        runway_path = get_edge_object(config.RUNWAY_IN_USE)
+        x_spawn = runway_path.start.x - distance_from_runway * math.sin(
+            math.radians(runway_path.heading)
+        )
+        y_spawn = runway_path.start.y + distance_from_runway * math.cos(
+            math.radians(runway_path.heading)
+        )
+
+        available_stand = find_available_stand()
+        available_stand.available = False
+
+        landing_plane = Plane(
+            x_spawn,
+            y_spawn,
+            runway_path.heading,
+            available_stand,
+            state="landing",
+        )
+
+        landing_plane.drag = config.FLIGHT_DRAG
+        landing_plane.speed = to_mps(150)
+        landing_plane.thrust = 100
+        config.PLANES.append(landing_plane)
+
+
 def simulate_frame(screen):
+
+    spawn_planes_for_landing()
+
     for plane in config.PLANES:
         if plane.state == "preparing":
             if random.randint(1, config.PUSHBACK_PROBABILITY) == 1:

@@ -2,43 +2,7 @@ import json
 import math
 import pygame
 import configuration as config
-from utils import get_edge_object
-
-
-class Node:
-    def __init__(self, node_id, x, y):
-        self.id = node_id
-        self.x = x
-        self.y = y
-
-    def __repr__(self):
-        return f"Node({self.id}, x={self.x}, y={self.y})"
-
-
-class Edge:
-    def __init__(self, start_node, end_node, distance, heading):
-        self.id = f"{start_node.id}-{end_node.id}"
-        self.start = start_node # Node object
-        self.end = end_node # Node object
-        self.distance = distance
-        self.heading = heading
-
-    def __repr__(self):
-        return f"Edge({self.start.id} -> {self.end.id}, distance={self.distance:.2f}, heading={self.heading:.2f})"
-
-
-class Stand:
-    def __init__(self, stand_id, x, y, heading, parent):
-        self.id = stand_id
-        self.x = x
-        self.y = y
-        self.heading = heading
-        self.parent = parent # Edge object with order to follow to leave the stand
-        self.available = True
-
-    def __repr__(self):
-        return f"Stand({self.id})"
-
+from utils import Node, Edge, Stand, get_edge_object
 
 def initialise_graph(json_file):
     nodes = {}
@@ -79,6 +43,10 @@ def initialise_graph(json_file):
         config.STAND_LIST = list(stands.values())
         config.STAND_DICT = stands
 
+    def load_runway_exits(data):
+        for runway in data["runway_exits"]:
+            config.EXIT_DICT[runway["id"]] = runway["exits"]
+
     def calculate_distance(node1, node2):
         return math.sqrt((node2.x - node1.x) ** 2 + (node2.y - node1.y) ** 2)
 
@@ -91,6 +59,7 @@ def initialise_graph(json_file):
         load_nodes(data)
         load_edges(data)
         load_stands(data)
+        load_runway_exits(data)
 
 
 def render_airport(screen):
