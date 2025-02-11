@@ -21,6 +21,7 @@ class Plane:
         self.drag = config.GROUND_DRAG
         if self.state == "preparing":
             self.image = pygame.image.load(config.GROUND_IMG)
+            self.visited = [stand, get_stand_entrance(stand)]
         else:
             self.image = pygame.image.load(config.AIRBORNE_IMG)
         self.memory = deque(maxlen=30)
@@ -32,23 +33,25 @@ class Plane:
         )
 
     def draw(self, window):
-        if self.future:
-            opacities = [153, 102, 51]  # 60%, 40%, 20% of 255
-            for i, pred in enumerate(self.future[:3]):
-                x, y, heading = pred
-                rotated_image = pygame.transform.rotate(self.image, -heading)
-                rotated_image.set_alpha(opacities[i])
-                rotated_rect = rotated_image.get_rect(center=(x, y))
-                window.blit(rotated_image, rotated_rect.topleft)
+        if config.RENDER_PREDICTION:
+            if self.future:
+                opacities = [123, 82, 31]  # 60%, 40%, 20% of 255
+                for i, pred in enumerate(self.future[:3]):
+                    x, y, heading = pred
+                    rotated_image = pygame.transform.rotate(self.image, -heading)
+                    rotated_image.set_alpha(opacities[i])
+                    rotated_rect = rotated_image.get_rect(center=(x, y))
+                    window.blit(rotated_image, rotated_rect.topleft)
 
         rotated_image = pygame.transform.rotate(self.image, -self.heading)
         rotated_rect = rotated_image.get_rect(center=(self.x, self.y))
         window.blit(rotated_image, rotated_rect.topleft)
 
-        data = config.DATA_FONT.render(
-            f"{to_knots(self.speed):.0f} kts {self.thrust}%", True, (255, 255, 0)
-        )
-        window.blit(data, (self.x - 15, self.y - 20))
+        if config.RENDER_DATA:
+            data = config.DATA_FONT.render(
+                f"{to_knots(self.speed):.0f} kts {self.thrust}%", True, (255, 255, 0)
+            )
+            window.blit(data, (self.x - 15, self.y - 20))
 
     def update_state(self, state):
         self.state = state
@@ -212,7 +215,7 @@ class Plane:
             self.x = point_x
             self.y = point_y
             self.state = "taxiing"
-            self.visited.append(self.path.pop(0))
+            self.visited = [self.path.pop(0)]
             self.stand.available = True
             self.stand = None
             return
@@ -300,6 +303,10 @@ class Plane:
         self.brake()
         self.move()
 
+    def hold(self):
+        self.thrust = 0
+        self.brake()
+
     def unload(self):
         if self in config.PLANES:
             config.PLANES.remove(self)
@@ -307,6 +314,9 @@ class Plane:
 
     def predict_future_positions(self):
         if len(self.memory) < 10:
+            return
+        elif self.state == "parked":
+            self.future = None
             return
 
         input_sequence = torch.tensor(
@@ -328,5 +338,14 @@ class Plane:
             ]
             for pred in predictions
         ]
+
+        if self.state in ["taxiing", "parking", "pushback", "preparing", "rollout"]:
+            for i in range(len(real_predictions)):
+                x, y = snap_to_path(
+                    self.visited + self.path,
+                    real_predictions[i][0],
+                    real_predictions[i][1],
+                )
+                real_predictions[i] = [x, y, real_predictions[i][2]]
 
         self.future = real_predictions

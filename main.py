@@ -51,7 +51,11 @@ def spawn_planes_at_stands():
 
 
 def spawn_planes_for_landing(distance_from_runway=1000):
+    if config.FRAME - config.LAST_SPAWN < 2000:
+        return
+    
     if find_available_stand() and random.randint(1, config.LANDING_PROBABILITY) == 1:
+        config.LAST_SPAWN = config.FRAME
         runway_path = get_edge_object(config.RUNWAY_IN_USE)
         x_spawn = runway_path.start.x - distance_from_runway * math.sin(
             math.radians(runway_path.heading)
@@ -90,6 +94,31 @@ def simulate_frame(screen):
         plane.draw(screen)
 
 
+def check_future_conflicts():
+    for plane in config.PLANES:
+        for other_plane in config.PLANES:
+            if plane != other_plane and plane.future and other_plane.future:
+                if any(
+                    check_collision(
+                        plane.future[i][0],
+                        plane.future[i][1],
+                        other_plane.future[i][0],
+                        other_plane.future[i][1],
+                    )
+                    for i in range(3)
+                ):
+                    plane_path_distance = get_distance_to_end(
+                        [Node("", plane.x, plane.y)] + plane.path
+                    )
+                    other_plane_path = get_distance_to_end(
+                        [Node("", other_plane.x, other_plane.y)] + other_plane.path
+                    )
+                    if plane_path_distance < other_plane_path:
+                        other_plane.hold()
+                    else:
+                        plane.hold()
+
+
 def main():
     screen = setup()
 
@@ -97,19 +126,20 @@ def main():
 
     running = True
     clock = pygame.time.Clock()
-    frame = 0
 
     while running:
+        config.FRAME += 1
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
 
-        if frame % (config.FPS // 2) == 0:
+        if config.FRAME % (config.FPS // 2) == 0:
             save_states_to_memory()
             for plane in config.PLANES:
                 plane.predict_future_positions()
 
+        check_future_conflicts()
         render_airport(screen)
         simulate_frame(screen)
 
