@@ -250,3 +250,7 @@ def get_stand_entrance(stand):
     )
 
     return Node(f"{stand.id}-entrance", x, y)
+
+
+def angle_between(point1, point2):
+    return math.degrees(math.atan2(point2.y - point1.y, point2.x - point1.x))

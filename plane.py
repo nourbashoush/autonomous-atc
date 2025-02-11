@@ -4,6 +4,7 @@ import numpy as np
 import torch
 from configuration import *
 from utils import *
+from collections import deque
 
 
 class Plane:
@@ -22,8 +23,24 @@ class Plane:
             self.image = pygame.image.load(config.GROUND_IMG)
         else:
             self.image = pygame.image.load(config.AIRBORNE_IMG)
+        self.memory = deque(maxlen=30)
+        self.future = None
+
+    def __repr__(self):
+        return (
+            f"Plane(x={self.x}, y={self.y}, heading={self.heading}, state={self.state})"
+        )
 
     def draw(self, window):
+        if self.future:
+            opacities = [153, 102, 51]  # 60%, 40%, 20% of 255
+            for i, pred in enumerate(self.future[:3]):
+                x, y, heading = pred
+                rotated_image = pygame.transform.rotate(self.image, -heading)
+                rotated_image.set_alpha(opacities[i])
+                rotated_rect = rotated_image.get_rect(center=(x, y))
+                window.blit(rotated_image, rotated_rect.topleft)
+
         rotated_image = pygame.transform.rotate(self.image, -self.heading)
         rotated_rect = rotated_image.get_rect(center=(self.x, self.y))
         window.blit(rotated_image, rotated_rect.topleft)
@@ -206,8 +223,18 @@ class Plane:
 
     def takeoff(self):
         self.thrust = 100
-        self.drag = config.FLIGHT_DRAG
+        self.drag = config.TAKEOFF_DRAG
+        if self.speed > to_mps(140):
+            self.image = pygame.image.load(config.AIRBORNE_IMG)
         self.move()
+
+        if (
+            self.x < -1000
+            or self.x > config.WIDTH + 1000
+            or self.y < -1000
+            or self.y > config.HEIGHT + 1000
+        ):
+            self.unload()
 
     def land(self, touch_down_deviation=120):
         self.move()
@@ -250,7 +277,6 @@ class Plane:
 
             self.visited = [exits_passed[-1]]
 
-
             if path_distance_start < path_distance_end:
                 self.path = dijkstra_path_start
             else:
@@ -258,18 +284,49 @@ class Plane:
 
             stand_entrance = get_stand_entrance(self.stand)
             self.path = self.path + [stand_entrance, self.stand]
-            
+
             self.state = "parking"
             self.drag = config.GROUND_DRAG
 
     def park(self):
         if self.speed == 0:
             return
-        
+
         self.heading = self.stand.heading
         self.thrust = 0
         self.visited = []
         self.path = []
-        
+
         self.brake()
         self.move()
+
+    def unload(self):
+        if self in config.PLANES:
+            config.PLANES.remove(self)
+        del self
+
+    def predict_future_positions(self):
+        if len(self.memory) < 10:
+            return
+
+        input_sequence = torch.tensor(
+            list(self.memory)[-10:], dtype=torch.float32
+        ).unsqueeze(
+            0
+        )  # Shape: (1, 10, 11)
+
+        with torch.no_grad():
+            predictions = config.LSTM_MODEL(input_sequence)
+
+        predictions = predictions.squeeze(0).tolist()
+
+        real_predictions = [
+            [
+                pred[0] * config.WIDTH,
+                pred[1] * config.HEIGHT,
+                pred[2] * 360,
+            ]
+            for pred in predictions
+        ]
+
+        self.future = real_predictions
