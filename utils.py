@@ -66,18 +66,8 @@ def get_edge_object(edge_id):
     return config.EDGE_DICT[edge_id]
 
 
-def angle_between(point1, point2):
-    return math.degrees(math.atan2(point2.y - point1.y, point2.x - point1.x))
-
-
-def get_distance_to_end(path):
-    total_distance = 0
-    for i in range(len(path) - 1):
-        node1 = get_node_object(path[i])
-        node2 = get_node_object(path[i + 1])
-        total_distance += distance_between(node1, node2)
-
-    return total_distance
+# def get_edge_object(node1, node2):
+#     return config.EDGE_DICT[f"{node1}-{node2}"]
 
 
 def dijkstra(start_node_id, end_node_id):
@@ -262,27 +252,33 @@ def get_stand_entrance(stand):
     return Node(f"{stand.id}-entrance", x, y)
 
 
-def check_collision(x1, y1, x2, y2, threshold=config.COLLISION_THRESHOLD):
-    return distance_between_points(x1, y1, x2, y2) < threshold
+def angle_between(point1, point2):
+    return math.degrees(math.atan2(point2.y - point1.y, point2.x - point1.x))
 
+def check_collision(plane_x, plane_y, other_x, other_y):
+    distance = distance_between_points(plane_x, plane_y, other_x, other_y)
+    return distance < config.COLLISION_THRESHOLD
 
+def get_distance_to_end(path):
+    distance = 0
+    for i in range(len(path) - 1):
+        start_node = get_node_object(path[i])
+        end_node = get_node_object(path[i + 1])
+        distance += distance_between(start_node, end_node)
+    return distance
+    
 def snap_to_path(path, x, y):
-    if len(path) < 2:
-        return x, y
-
+    closest_distance = float("inf")
     closest_x, closest_y = None, None
-    min_distance = float("inf")
 
     for i in range(len(path) - 1):
-        node1 = get_node_object(path[i])
-        node2 = get_node_object(path[i + 1])
+        start_node = get_node_object(path[i])
+        end_node = get_node_object(path[i + 1])
 
-        current_x, current_y, distance = closest_point_on_line(
-            x, y, node1.x, node1.y, node2.x, node2.y
-        )
+        x_snap, y_snap, distance = closest_point_on_line(x, y, start_node.x, start_node.y, end_node.x, end_node.y)
 
-        if distance < min_distance:
-            min_distance = distance
-            closest_x, closest_y = current_x, current_y
+        if distance < closest_distance:
+            closest_distance = distance
+            closest_x, closest_y = x_snap, y_snap
 
     return closest_x, closest_y

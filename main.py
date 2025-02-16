@@ -50,10 +50,10 @@ def spawn_planes_at_stands():
         stand.available = False
 
 
-def spawn_planes_for_landing(distance_from_runway=1000):
-    if config.FRAME - config.LAST_SPAWN < 2000:
+def spawn_planes_for_landing(distance_from_runway=2000):
+    if config.FRAME - config.LAST_SPAWN < 500: # 2000
         return
-    
+
     if find_available_stand() and random.randint(1, config.LANDING_PROBABILITY) == 1:
         config.LAST_SPAWN = config.FRAME
         runway_path = get_edge_object(config.RUNWAY_IN_USE)
@@ -77,7 +77,7 @@ def spawn_planes_for_landing(distance_from_runway=1000):
 
         landing_plane.drag = config.LANDING_DRAG
         landing_plane.speed = to_mps(150)
-        landing_plane.thrust = 100
+        landing_plane.thrust = 73
         config.PLANES.append(landing_plane)
 
 
@@ -95,9 +95,10 @@ def simulate_frame(screen):
 
 
 def check_future_conflicts():
-    for plane in config.PLANES:
-        for other_plane in config.PLANES:
-            if plane != other_plane and plane.future and other_plane.future:
+    planes = [plane for plane in config.PLANES if plane.future and plane.state not in ["landing", "takeoff", "rollout"]]
+    for plane in planes:
+        for other_plane in planes:
+            if plane != other_plane: # and plane.future and other_plane.future:
                 if any(
                     check_collision(
                         plane.future[i][0],
@@ -125,7 +126,9 @@ def main():
     spawn_planes_at_stands()
 
     running = True
-    clock = pygame.time.Clock()
+
+    if config.NORMAL_SPEED:
+        clock = pygame.time.Clock()
 
     while running:
         config.FRAME += 1
@@ -144,7 +147,9 @@ def main():
         simulate_frame(screen)
 
         pygame.display.update()
-        clock.tick(config.FPS)
+
+        if config.NORMAL_SPEED:
+            clock.tick(config.FPS)
 
     pygame.quit()
 

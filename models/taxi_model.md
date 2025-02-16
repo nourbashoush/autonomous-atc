@@ -47,13 +47,13 @@ This folder contains the trained reinforcement learning models used for ground t
 
 ## 📖 **Training Details**  
 - **Environment:** Custom ground taxiing simulation  
-- **Training Time:** 1 Week (~X episodes)  
+- **Total Time:** 1 Week (~aggregated 200,000 episodes)
+- **Model Training Time:** 2 Hours (~2,000 episodes)
 - **Exploration Strategy:** Epsilon decay (starting from 1.0 → min 0.05)  
 - **Learning Rate:** 0.001  
 - **Batch Size:** 5000  
 - **Reward System:**  
   - Encourages following optimal paths  
   - Penalizes excessive turns and incorrect throttle adjustments  
-  - Adjusted dynamically after 500 games  
 
 ---

@@ -239,7 +239,7 @@ class Plane:
         ):
             self.unload()
 
-    def land(self, touch_down_deviation=120):
+    def land(self, touch_down_deviation=110):
         self.move()
 
         runway_path = get_edge_object(config.RUNWAY_IN_USE)
@@ -262,7 +262,6 @@ class Plane:
             self.state = "rollout"
             self.image = pygame.image.load(config.GROUND_IMG)
             self.thrust = 0
-            # self.drag = config.GROUND_DRAG
 
     def roll(self):
         self.move()
@@ -339,7 +338,7 @@ class Plane:
             for pred in predictions
         ]
 
-        if self.state in ["taxiing", "parking", "pushback", "preparing", "rollout"]:
+        if self.state in ["taxiing", "parking", "pushback", "preparing"]:
             for i in range(len(real_predictions)):
                 x, y = snap_to_path(
                     self.visited + self.path,
