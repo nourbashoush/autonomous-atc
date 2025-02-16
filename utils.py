@@ -255,9 +255,11 @@ def get_stand_entrance(stand):
 def angle_between(point1, point2):
     return math.degrees(math.atan2(point2.y - point1.y, point2.x - point1.x))
 
+
 def check_collision(plane_x, plane_y, other_x, other_y):
     distance = distance_between_points(plane_x, plane_y, other_x, other_y)
     return distance < config.COLLISION_THRESHOLD
+
 
 def get_distance_to_end(path):
     distance = 0
@@ -266,7 +268,8 @@ def get_distance_to_end(path):
         end_node = get_node_object(path[i + 1])
         distance += distance_between(start_node, end_node)
     return distance
-    
+
+
 def snap_to_path(path, x, y):
     closest_distance = float("inf")
     closest_x, closest_y = None, None
@@ -275,7 +278,9 @@ def snap_to_path(path, x, y):
         start_node = get_node_object(path[i])
         end_node = get_node_object(path[i + 1])
 
-        x_snap, y_snap, distance = closest_point_on_line(x, y, start_node.x, start_node.y, end_node.x, end_node.y)
+        x_snap, y_snap, distance = closest_point_on_line(
+            x, y, start_node.x, start_node.y, end_node.x, end_node.y
+        )
 
         if distance < closest_distance:
             closest_distance = distance

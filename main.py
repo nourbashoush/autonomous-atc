@@ -51,7 +51,7 @@ def spawn_planes_at_stands():
 
 
 def spawn_planes_for_landing(distance_from_runway=2000):
-    if config.FRAME - config.LAST_SPAWN < 500: # 2000
+    if config.FRAME - config.LAST_SPAWN < 2000:
         return
 
     if find_available_stand() and random.randint(1, config.LANDING_PROBABILITY) == 1:
@@ -87,18 +87,25 @@ def simulate_frame(screen):
 
     for plane in config.PLANES:
         if plane.state == "preparing":
-            if random.randint(1, config.PUSHBACK_PROBABILITY) == 1:
-                plane.update_state("pushback")
+            if (
+                safe_to_pushback(plane)
+                and random.randint(1, config.PUSHBACK_PROBABILITY) == 1
+            ):
+                plane.state = "pushback"
 
         plane.auto_move()
         plane.draw(screen)
 
 
 def check_future_conflicts():
-    planes = [plane for plane in config.PLANES if plane.future and plane.state not in ["landing", "takeoff", "rollout"]]
+    planes = [
+        plane
+        for plane in config.PLANES
+        if plane.future and plane.state not in ["landing", "takeoff", "rollout"]
+    ]
     for plane in planes:
         for other_plane in planes:
-            if plane != other_plane: # and plane.future and other_plane.future:
+            if plane != other_plane:  # and plane.future and other_plane.future:
                 if any(
                     check_collision(
                         plane.future[i][0],
@@ -118,6 +125,27 @@ def check_future_conflicts():
                         other_plane.hold()
                     else:
                         plane.hold()
+
+
+def safe_to_pushback(plane):
+    position = get_stand_entrance(plane.stand)
+    other_planes = [
+        p
+        for p in config.PLANES
+        if p != plane and p.future and p.state not in ["landing", "takeoff", "rollout", "preparing"]
+    ]
+    for other_plane in other_planes:
+        if any(
+            check_collision(
+                position.x,
+                position.y,
+                other_plane.future[i][0],
+                other_plane.future[i][1],
+            )
+            for i in range(3)
+        ):
+            return False
+    return True
 
 
 def main():

@@ -53,9 +53,6 @@ class Plane:
             )
             window.blit(data, (self.x - 15, self.y - 20))
 
-    def update_state(self, state):
-        self.state = state
-
     def thrust_up(self):
         self.thrust += THRUST_CHANGE_RATE
         if self.thrust > 100:
