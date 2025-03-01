@@ -26,6 +26,7 @@ class Plane:
             self.image = pygame.image.load(config.AIRBORNE_IMG)
         self.memory = deque(maxlen=30)
         self.future = None
+        self.holding = 0
 
     def __repr__(self):
         return (
@@ -92,8 +93,16 @@ class Plane:
             self.takeoff()
         if self.state == "pushback":
             self.pushback()
-        if self.state == "taxiing" or self.state == "parking":
-            self.taxi()
+
+        if self.holding == 0:
+            if self.state == "taxiing" or self.state == "parking":
+                self.taxi()
+        else:
+            self.holding -= 1
+            self.thrust = 0
+            self.brake()
+            self.move()
+
         if self.state == "landing":
             self.land()
         if self.state == "rollout":
@@ -300,8 +309,7 @@ class Plane:
         self.move()
 
     def hold(self):
-        self.thrust = 0
-        self.brake()
+        self.holding = config.HOLD_PERIOD + 1
 
     def unload(self):
         if self in config.PLANES:

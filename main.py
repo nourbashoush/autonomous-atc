@@ -13,8 +13,8 @@ def setup():
 
     screen = pygame.display.set_mode((config.WIDTH, config.HEIGHT))
     pygame.display.set_caption(f"Airport Simulation - {config.AIRPORT_ICAO}")
-    config.MARK_FONT = pygame.font.Font(None, 12)
-    config.DATA_FONT = pygame.font.Font(None, 14)
+    config.MARK_FONT = pygame.font.Font("SpaceMono.ttf", 9)
+    config.DATA_FONT = pygame.font.Font("SpaceMono.ttf", 12)
 
     initialise_graph(f"data/airport_{config.AIRPORT_ICAO}.json")
 
@@ -132,7 +132,9 @@ def safe_to_pushback(plane):
     other_planes = [
         p
         for p in config.PLANES
-        if p != plane and p.future and p.state not in ["landing", "takeoff", "rollout", "preparing"]
+        if p != plane
+        and p.future
+        and p.state not in ["landing", "takeoff", "rollout", "preparing"]
     ]
     for other_plane in other_planes:
         if any(
@@ -170,7 +172,9 @@ def main():
             for plane in config.PLANES:
                 plane.predict_future_positions()
 
-        check_future_conflicts()
+        if config.FRAME % config.HOLD_PERIOD == 0:
+            check_future_conflicts()
+
         render_airport(screen)
         simulate_frame(screen)
 

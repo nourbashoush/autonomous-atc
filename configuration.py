@@ -30,6 +30,7 @@ FRAME = 0
 LAST_SPAWN = 0
 
 COLLISION_THRESHOLD = 36 # Planes are 17x17 pixels
+HOLD_PERIOD = 3 * FPS
 
 # plane.py
 GROUND_IMG = "images/plane_ground.png"
