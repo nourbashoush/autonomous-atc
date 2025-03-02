@@ -6,6 +6,7 @@ from utils import *
 import configuration as config
 from model_taxi_DQN import TaxiNet
 from model_future_LSTM import PlaneTrajectoryLSTM, save_states_to_memory
+from gui import render_ui
 
 
 def setup():
@@ -13,7 +14,7 @@ def setup():
 
     screen = pygame.display.set_mode((config.WIDTH, config.HEIGHT))
     pygame.display.set_caption(f"Airport Simulation - {config.AIRPORT_ICAO}")
-    config.MARK_FONT = pygame.font.Font("SpaceMono.ttf", 9)
+    config.MARK_FONT = pygame.font.Font("SpaceMono-Bold.ttf", 9)
     config.DATA_FONT = pygame.font.Font("SpaceMono.ttf", 12)
 
     initialise_graph(f"data/airport_{config.AIRPORT_ICAO}.json")
@@ -50,8 +51,8 @@ def spawn_planes_at_stands():
         stand.available = False
 
 
-def spawn_planes_for_landing(distance_from_runway=2000):
-    if config.FRAME - config.LAST_SPAWN < 2000:
+def spawn_planes_for_landing(landing_frequency=2000, distance_from_runway=5000):
+    if config.FRAME - config.LAST_SPAWN < landing_frequency:
         return
 
     if find_available_stand() and random.randint(1, config.LANDING_PROBABILITY) == 1:
@@ -157,8 +158,7 @@ def main():
 
     running = True
 
-    if config.NORMAL_SPEED:
-        clock = pygame.time.Clock()
+    clock = pygame.time.Clock()
 
     while running:
         config.FRAME += 1
@@ -177,6 +177,7 @@ def main():
 
         render_airport(screen)
         simulate_frame(screen)
+        render_ui(screen)
 
         pygame.display.update()
 

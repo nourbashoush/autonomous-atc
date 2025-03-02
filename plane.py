@@ -275,7 +275,7 @@ class Plane:
         exits_ahead = [exit for exit in exits if is_exit_ahead(self, exit)]
         exits_passed = [exit for exit in exits if not is_exit_ahead(self, exit)]
 
-        if self.speed < to_mps(30):
+        if self.speed <= to_mps(30) and not self.path:
             dijkstra_path_start, path_distance_start = dijkstra(
                 exits_ahead[0], self.stand.parent.start.id
             )
@@ -293,6 +293,10 @@ class Plane:
             stand_entrance = get_stand_entrance(self.stand)
             self.path = self.path + [stand_entrance, self.stand]
 
+        if self.speed <= to_mps(15):
+            self.speed = to_mps(15)
+
+        if self.path and distance_between(self, get_node_object(self.path[0])) <= MAX_DEVIATION:
             self.state = "parking"
             self.drag = config.GROUND_DRAG
 

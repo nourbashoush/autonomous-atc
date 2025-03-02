@@ -24,7 +24,7 @@ RENDER_STANDS = True
 RENDER_DATA = True
 RENDER_PREDICTION = True
 PUSHBACK_PROBABILITY = 2000
-LANDING_PROBABILITY = 2000
+LANDING_PROBABILITY = 20
 
 FRAME = 0
 LAST_SPAWN = 0
@@ -39,7 +39,7 @@ AIRBORNE_IMG = "images/plane_airborne.png"
 THRUST_CHANGE_RATE = 2      # Rate of thrust adjustment
 MAX_SPEED = 150             # Maximum velocity in m/s
 LANDING_DRAG = 0.04
-TAKEOFF_DRAG = 0.05
+TAKEOFF_DRAG = 0.06
 GROUND_DRAG = 0.25
 MAX_ACCELERATION = 5        # Maximum acceleration in m/s²
 BRAKE_MULTIPLIER = 0.98     # Speed reduction factor when braking

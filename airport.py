@@ -77,22 +77,36 @@ def render_airport(screen):
 
 
 def show_next_landing_aircraft(screen):
-    planes = [plane for plane in config.PLANES if plane.state == "landing"]
 
-    touchdown = get_edge_object(config.RUNWAY_IN_USE).start
+    def behind_threshold(plane):
+        delta_x = plane.x - threshold.x
+        delta_y = plane.y - threshold.y
+        angle_to_plane = (math.degrees(math.atan2(delta_y, delta_x)) + 360) % 360
+
+        inverse_runway_heading = get_edge_object(config.RUNWAY_IN_USE).heading - 180
+
+        angle_diff = (angle_to_plane - inverse_runway_heading - 270) % 360
+
+        angle_diff -= 360 if angle_diff > 180 else 0
+        angle_diff = math.radians(angle_diff)
+
+        return math.cos(angle_diff) > 0
+
+    landing_planes = [plane for plane in config.PLANES if plane.state == "landing"]
+
+    threshold = get_edge_object(config.RUNWAY_IN_USE).start
     distance = float("inf")
 
-    if not planes:
-        text = f"Next: N/A"
+    if not landing_planes:
+        text = f"X [{len(landing_planes)}]"
     else:
-        for plane in planes:
-            if distance_between(plane, touchdown) < distance:
-                distance = distance_between(plane, touchdown)
-
-        text = f"Next: {distance/config.PIXEL_TO_METRE:.0f}m"
+        for plane in landing_planes:
+            if behind_threshold(plane) and distance_between(plane, threshold) < distance:
+                distance = distance_between(plane, threshold)
+                text = f"{(distance / config.PIXEL_TO_METRE)/1000:.2f}km [{len(landing_planes)}]"
 
     label = config.MARK_FONT.render(text, True, (255, 255, 255))
-    screen.blit(label, (touchdown.x - 10, touchdown.y - 30))
+    screen.blit(label, (threshold.x - 15, threshold.y - 30))
 
 
 def draw_nodes(screen):
