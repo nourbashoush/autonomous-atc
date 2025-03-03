@@ -105,6 +105,8 @@ class Plane:
 
         if self.state == "landing":
             self.land()
+        if self.state == "go_around":
+            self.go_around()
         if self.state == "rollout":
             self.roll()
         if self.state == "parked":
@@ -264,6 +266,9 @@ class Plane:
         if distance_to_touchdown < touch_down_deviation * 2:
             self.thrust = max(0, self.thrust - 1)
 
+        if distance_to_touchdown < 100:
+            self.state = "go_around"
+
         if distance_to_touchdown < 1:
             self.state = "rollout"
             self.image = pygame.image.load(config.GROUND_IMG)
@@ -314,6 +319,29 @@ class Plane:
 
     def hold(self):
         self.holding = config.HOLD_PERIOD + 1
+
+    def go_around(self):
+        if self.stand:
+            self.stand.available = True
+            self.stand = None
+
+        self.thrust = 100
+        self.drag = config.TAKEOFF_DRAG
+
+        runway_heading = get_edge_object(config.RUNWAY_IN_USE).heading
+        target_heading = (runway_heading + 90) % 360
+
+        if self.heading < target_heading - 1 or self.heading > target_heading + 1:
+            self.turn_left()
+        self.move()
+
+        if (
+            self.x < -1000
+            or self.x > config.WIDTH + 1000
+            or self.y < -1000
+            or self.y > config.HEIGHT + 1000
+        ):
+            self.unload()
 
     def unload(self):
         if self in config.PLANES:

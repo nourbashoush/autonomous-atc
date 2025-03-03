@@ -51,7 +51,7 @@ def spawn_planes_at_stands():
         stand.available = False
 
 
-def spawn_planes_for_landing(landing_frequency=2000, distance_from_runway=5000):
+def spawn_planes_for_landing(landing_frequency=2000, distance_from_runway=1500):
     if config.FRAME - config.LAST_SPAWN < landing_frequency:
         return
 

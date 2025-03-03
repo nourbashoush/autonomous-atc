@@ -97,13 +97,12 @@ def show_next_landing_aircraft(screen):
     threshold = get_edge_object(config.RUNWAY_IN_USE).start
     distance = float("inf")
 
-    if not landing_planes:
-        text = f"X [{len(landing_planes)}]"
-    else:
-        for plane in landing_planes:
-            if behind_threshold(plane) and distance_between(plane, threshold) < distance:
-                distance = distance_between(plane, threshold)
-                text = f"{(distance / config.PIXEL_TO_METRE)/1000:.2f}km [{len(landing_planes)}]"
+    text = f"X [{len(landing_planes)}]"
+
+    for plane in landing_planes:
+        if behind_threshold(plane) and distance_between(plane, threshold) < distance:
+            distance = distance_between(plane, threshold)
+            text = f"{(distance / config.PIXEL_TO_METRE)/1000:.2f}km [{len(landing_planes)}]"
 
     label = config.MARK_FONT.render(text, True, (255, 255, 255))
     screen.blit(label, (threshold.x - 15, threshold.y - 30))
