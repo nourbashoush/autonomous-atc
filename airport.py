@@ -85,7 +85,7 @@ def show_next_landing_aircraft(screen):
         delta_y = plane.y - threshold.y
         angle_to_plane = (math.degrees(math.atan2(delta_y, delta_x)) + 360) % 360
 
-        inverse_runway_heading = get_edge_object(config.RUNWAY_IN_USE).heading - 180
+        inverse_runway_heading = get_edge_object(config.LANDING_RUNWAY).heading - 180
 
         angle_diff = (angle_to_plane - inverse_runway_heading - 270) % 360
 
@@ -96,7 +96,7 @@ def show_next_landing_aircraft(screen):
 
     landing_planes = [plane for plane in config.PLANES if plane.state == "landing"]
 
-    threshold = get_edge_object(config.RUNWAY_IN_USE).start
+    threshold = get_edge_object(config.LANDING_RUNWAY).start
     distance = float("inf")
 
     text = f"X [{len(landing_planes)}]"

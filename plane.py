@@ -27,6 +27,7 @@ class Plane:
         self.memory = deque(maxlen=30)
         self.future = None
         self.holding = 0
+        self.priority = 0
 
     def __repr__(self):
         return (
@@ -185,7 +186,7 @@ class Plane:
             self.visited.append(self.path.pop(0))
 
             if self.state == "taxiing":
-                runway_path = get_edge_object(config.RUNWAY_IN_USE)
+                runway_path = get_edge_object(config.TAKEOFF_RUNWAY)
 
                 if self.visited[-1] == runway_path.start.id:
                     self.state = "takeoff"
@@ -261,7 +262,7 @@ class Plane:
     def land(self, touch_down_deviation=110):
         self.move()
 
-        runway_path = get_edge_object(config.RUNWAY_IN_USE)
+        runway_path = get_edge_object(config.LANDING_RUNWAY)
 
         x_touchdown = runway_path.start.x + touch_down_deviation * math.sin(
             math.radians(runway_path.heading)
@@ -287,7 +288,7 @@ class Plane:
 
     def roll(self):
         self.move()
-        exits = config.EXIT_DICT[config.RUNWAY_IN_USE]
+        exits = config.EXIT_DICT[config.LANDING_RUNWAY]
         exits_ahead = [exit for exit in exits if is_exit_ahead(self, exit)]
         exits_passed = [exit for exit in exits if not is_exit_ahead(self, exit)]
 
@@ -342,7 +343,7 @@ class Plane:
         self.thrust = 100
         self.drag = config.TAKEOFF_DRAG
 
-        runway_heading = get_edge_object(config.RUNWAY_IN_USE).heading
+        runway_heading = get_edge_object(config.LANDING_RUNWAY).heading
         target_heading = (runway_heading + 90) % 360
 
         if self.heading < target_heading - 1 or self.heading > target_heading + 1:

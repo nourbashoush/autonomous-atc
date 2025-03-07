@@ -46,10 +46,10 @@ def spawn_planes_at_stands():
     for stand in selected_stands:
         new_plane = Plane(stand.x, stand.y, stand.heading, stand)
         dijkstra_path_start, path_distance_start = dijkstra(
-            stand.parent.start.id, get_edge_object(config.RUNWAY_IN_USE).start.id
+            stand.parent.start.id, get_edge_object(config.TAKEOFF_RUNWAY).start.id
         )
         dijkstra_path_end, path_distance_end = dijkstra(
-            stand.parent.end.id, get_edge_object(config.RUNWAY_IN_USE).start.id
+            stand.parent.end.id, get_edge_object(config.TAKEOFF_RUNWAY).start.id
         )
         if path_distance_start < path_distance_end:
             dijkstra_path = [stand.parent.end.id] + dijkstra_path_start
@@ -66,7 +66,7 @@ def spawn_planes_for_landing(landing_frequency=2000, distance_from_runway=1500):
 
     if find_available_stand() and random.randint(1, config.LANDING_PROBABILITY) == 1:
         config.LAST_SPAWN = config.FRAME
-        runway_path = get_edge_object(config.RUNWAY_IN_USE)
+        runway_path = get_edge_object(config.LANDING_RUNWAY)
         x_spawn = runway_path.start.x - distance_from_runway * math.sin(
             math.radians(runway_path.heading)
         )
