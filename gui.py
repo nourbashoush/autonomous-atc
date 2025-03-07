@@ -6,7 +6,6 @@ font = pygame.font.SysFont(None, 24)
 
 
 def draw_rounded_rect(surface, color, rect, corner_radius):
-    """Draw a rectangle with rounded corners."""
     rect = pygame.Rect(rect)
     color = pygame.Color(*color)
     alpha = color.a
@@ -95,6 +94,12 @@ def render_ui(screen):
         },
         {
             "rect": pygame.Rect(10, 250, 140, 35),
+            "color": (0, 255, 0) if config.RENDER_BOXES else (255, 0, 0),
+            "config_attr": "RENDER_BOXES",
+            "text": "Show Boxes",
+        },
+        {
+            "rect": pygame.Rect(10, 290, 140, 35),
             "color": (0, 255, 0) if config.NORMAL_SPEED else (255, 0, 0),
             "config_attr": "NORMAL_SPEED",
             "text": "Normal Speed",

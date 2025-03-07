@@ -20,10 +20,10 @@ class Plane:
         self.stand = stand
         self.drag = config.GROUND_DRAG
         if self.state == "preparing":
-            self.image = pygame.image.load(config.GROUND_IMG)
+            self.image = config.GROUND_IMG
             self.visited = [stand, get_stand_entrance(stand)]
         else:
-            self.image = pygame.image.load(config.AIRBORNE_IMG)
+            self.image = config.AIRBORNE_IMG
         self.memory = deque(maxlen=30)
         self.future = None
         self.holding = 0
@@ -33,8 +33,13 @@ class Plane:
             f"Plane(x={self.x}, y={self.y}, heading={self.heading}, state={self.state})"
         )
 
-    def draw(self, window):
-        if config.RENDER_PREDICTION:
+    def draw(self, window, render_prediction=None, render_data=None):
+        if render_prediction is None:
+            render_prediction = config.RENDER_PREDICTION
+        if render_data is None:
+            render_data = config.RENDER_DATA
+
+        def draw_prediction():
             if self.future:
                 opacities = [123, 82, 31]  # 60%, 40%, 20% of 255
                 for i, pred in enumerate(self.future[:3]):
@@ -44,15 +49,21 @@ class Plane:
                     rotated_rect = rotated_image.get_rect(center=(x, y))
                     window.blit(rotated_image, rotated_rect.topleft)
 
-        rotated_image = pygame.transform.rotate(self.image, -self.heading)
-        rotated_rect = rotated_image.get_rect(center=(self.x, self.y))
-        window.blit(rotated_image, rotated_rect.topleft)
-
-        if config.RENDER_DATA:
+        def draw_data():
             data = config.DATA_FONT.render(
                 f"{to_knots(self.speed):.0f} kts {self.thrust}%", True, (255, 255, 0)
             )
             window.blit(data, (self.x - 15, self.y - 20))
+
+        if render_prediction:
+            draw_prediction()
+
+        rotated_image = pygame.transform.rotate(self.image, -self.heading)
+        rotated_rect = rotated_image.get_rect(center=(self.x, self.y))
+        window.blit(rotated_image, rotated_rect.topleft)
+
+        if render_data:
+            draw_data()
 
     def thrust_up(self):
         self.thrust += THRUST_CHANGE_RATE
@@ -236,7 +247,7 @@ class Plane:
         self.thrust = 100
         self.drag = config.TAKEOFF_DRAG
         if self.speed > to_mps(140):
-            self.image = pygame.image.load(config.AIRBORNE_IMG)
+            self.image = config.AIRBORNE_IMG
         self.move()
 
         if (
@@ -271,7 +282,7 @@ class Plane:
 
         if distance_to_touchdown < 1:
             self.state = "rollout"
-            self.image = pygame.image.load(config.GROUND_IMG)
+            self.image = config.GROUND_IMG
             self.thrust = 0
 
     def roll(self):
@@ -301,7 +312,10 @@ class Plane:
         if self.speed <= to_mps(15):
             self.speed = to_mps(15)
 
-        if self.path and distance_between(self, get_node_object(self.path[0])) <= MAX_DEVIATION:
+        if (
+            self.path
+            and distance_between(self, get_node_object(self.path[0])) <= MAX_DEVIATION
+        ):
             self.state = "parking"
             self.drag = config.GROUND_DRAG
 

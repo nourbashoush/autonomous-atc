@@ -18,13 +18,17 @@ EDGE_DICT = {}
 STAND_DICT = {}
 EXIT_DICT = {}
 
+BOUNDING_BOXES = []
+AIRPORT_IMG = None
+
 RENDER_NODES = True
 RENDER_EDGES = True
 RENDER_STANDS = True
 RENDER_DATA = True
 RENDER_PREDICTION = True
-PUSHBACK_PROBABILITY = 200000
-LANDING_PROBABILITY = 20
+RENDER_BOXES = True
+PUSHBACK_PROBABILITY = 200
+LANDING_PROBABILITY = 20000
 
 FRAME = 0
 LAST_SPAWN = 0
@@ -33,8 +37,10 @@ COLLISION_THRESHOLD = 36 # Planes are 17x17 pixels
 HOLD_PERIOD = 3 * FPS
 
 # plane.py
-GROUND_IMG = "images/plane_ground.png"
-AIRBORNE_IMG = "images/plane_airborne.png"
+GROUND_IMG_PATH = "images/plane_ground.png"
+GROUND_IMG = None
+AIRBORNE_IMG_PATH = "images/plane_airborne.png"
+AIRBORNE_IMG = None
 
 THRUST_CHANGE_RATE = 2      # Rate of thrust adjustment
 MAX_SPEED = 150             # Maximum velocity in m/s
@@ -60,3 +66,6 @@ MAX_DEVIATION = 5
 # lstm_model.py
 LSTM_MODEL_PATH = "models/lstm_model.pth"
 LSTM_MODEL = None
+
+YOLO_MODEL_PATH = "models/yolo.pt"
+YOLO_MODEL = None

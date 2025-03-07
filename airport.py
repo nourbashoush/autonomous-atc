@@ -64,7 +64,7 @@ def initialise_graph(json_file):
 
 
 def render_airport(screen):
-    screen.blit(pygame.image.load(f"images/airport_{config.AIRPORT_ICAO}.jpg"), (0, 0))
+    screen.blit(config.AIRPORT_IMG, (0, 0))
 
     if config.RENDER_EDGES:
         draw_edges(screen)
@@ -72,7 +72,9 @@ def render_airport(screen):
         draw_nodes(screen)
     if config.RENDER_STANDS:
         draw_stands(screen)
-    
+    if config.RENDER_BOXES:
+        draw_bounding_boxes(screen)
+
     show_next_landing_aircraft(screen)
 
 
@@ -159,3 +161,13 @@ def draw_stands(screen):
         screen.blit(
             label, (stand.x - 5, stand.y - 15)
         )  # Offset slightly up from the rectangle
+
+
+def draw_bounding_boxes(screen):
+    for box in config.BOUNDING_BOXES:
+        pygame.draw.rect(
+            screen,
+            (255, 0, 0),
+            pygame.Rect(box),
+            2,
+        )
