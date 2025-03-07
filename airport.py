@@ -13,6 +13,10 @@ def initialise_graph(json_file):
     def load_nodes(data):
         for node in data["nodes"]:
             new_node = Node(node["id"], node["x"], node["y"])
+
+            if node["id"] in data["holding_points"]:
+                new_node.holding_point = True
+
             nodes[new_node.id] = new_node
 
         config.NODE_LIST = list(nodes.values())

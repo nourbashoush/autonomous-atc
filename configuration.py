@@ -7,6 +7,8 @@ AIRPORT_ICAO = "EGBB"
 TAKEOFF_RUNWAY = "RNWY33-RNWY15"
 LANDING_RUNWAY = "RNWY33-RNWY15"
 PLANES = []
+LANDING_PLANES = []
+NEXT_TAKEOFF = None # TODO remove after done
 
 # airport.py
 MARK_FONT = None
@@ -35,7 +37,9 @@ FRAME = 0
 LAST_SPAWN = 0
 
 COLLISION_THRESHOLD = 36 # Planes are 17x17 pixels
-HOLD_PERIOD = 3 * FPS
+SEPERATION_THRESHOLD = 28
+HOLD_PERIOD = 2 * FPS
+HOLDING_DISTANCE = 8
 
 # plane.py
 GROUND_IMG_PATH = "images/plane_ground.png"
@@ -55,14 +59,14 @@ PIXEL_TO_METRE = 2.5        # 1 pixel = 2.5 meters
 TIME_STEP = 1 / FPS         # Frame time (30 FPS)
 MAX_TURN_ANGLE = 1          # Maximum turn angle in degrees
 TURN_SPEED_SCALING = 0.05   # Scaling factor for speed-dependent turning
-SLOW_DISTANCE = 10          # Distance at which to slow down to stop
+SLOW_DISTANCE = 10          # Distance at which to slow down to stop      # TODO remove these 3
 SLOW_SPEED = 15             # knots
 TAXI_SPEED = 25             # knots
 
 # taxi_model.py
 TAXI_MODEL_PATH = "models/taxi_model.pth"
 TAXI_MODEL = None
-MAX_DEVIATION = 5
+MAX_DEVIATION = 4
 
 # lstm_model.py
 LSTM_MODEL_PATH = "models/lstm_model.pth"

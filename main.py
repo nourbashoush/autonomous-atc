@@ -60,7 +60,9 @@ def spawn_planes_at_stands():
         stand.available = False
 
 
-def spawn_planes_for_landing(landing_frequency=2000, distance_from_runway=1500):
+def spawn_planes_for_landing(landing_frequency=2000, distance_from_runway=to_pixels(750)):
+    update_landing_planes()
+
     if config.FRAME - config.LAST_SPAWN < landing_frequency:
         return
 
@@ -115,7 +117,7 @@ def check_future_conflicts():
     ]
     for plane in planes:
         for other_plane in planes:
-            if plane != other_plane:  # and plane.future and other_plane.future:
+            if plane != other_plane:
                 if any(
                     check_collision(
                         plane.future[i][0],
@@ -124,6 +126,14 @@ def check_future_conflicts():
                         other_plane.future[i][1],
                     )
                     for i in range(3)
+                ) or (
+                    check_collision(
+                        plane.future[0][0],
+                        plane.future[0][1],
+                        other_plane.x,
+                        other_plane.y,
+                        seperation_distance=True
+                    ) and other_plane.speed == 0
                 ):
                     plane_path_distance = get_distance_to_end(
                         [Node("", plane.x, plane.y)] + plane.path

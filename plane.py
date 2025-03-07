@@ -179,10 +179,18 @@ class Plane:
     def taxi(self):
         if not self.path:
             return
+        
+        next_node = get_node_object(self.path[0])
 
-        distance_next = distance_between(self, get_node_object(self.path[0]))
+        distance_next = distance_between(self, next_node)
 
-        if distance_next <= MAX_DEVIATION:
+        if next_node.holding_point and distance_next <= config.HOLDING_DISTANCE:
+            # TODO if has authority then override
+            config.NEXT_TAKEOFF = self
+            self.hold()
+            return
+
+        if distance_next <= config.MAX_DEVIATION:
             self.visited.append(self.path.pop(0))
 
             if self.state == "taxiing":

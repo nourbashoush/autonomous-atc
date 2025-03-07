@@ -114,5 +114,8 @@
     "runway_exits": [
         { "id": "RNWY33-RNWY15", "exits": ["S1", "E1", "C1", "T1", "B1", "A1"]},
         { "id": "RNWY15-RNWY33", "exits": ["A1", "B1", "T1", "C1", "E1", "S1"]}
+    ],
+    "holding_points": [
+        "A2", "B2", "T2", "C2", "S6", "S2"
     ]
 }

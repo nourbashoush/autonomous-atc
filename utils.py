@@ -10,6 +10,7 @@ class Node:
         self.id = node_id
         self.x = x
         self.y = y
+        self.holding_point = False
 
     def __repr__(self):
         return f"Node({self.id}, x={self.x}, y={self.y})"
@@ -46,6 +47,14 @@ def to_knots(mps):
 
 def to_mps(knots):
     return knots / 1.94384
+
+
+def to_meters(pixels):
+    return pixels * config.PIXEL_TO_METRE
+
+
+def to_pixels(meters):
+    return meters // config.PIXEL_TO_METRE
 
 
 def distance_between(point1, point2):
@@ -256,9 +265,12 @@ def angle_between(point1, point2):
     return math.degrees(math.atan2(point2.y - point1.y, point2.x - point1.x))
 
 
-def check_collision(plane_x, plane_y, other_x, other_y):
+def check_collision(plane_x, plane_y, other_x, other_y, seperation_distance=False):
     distance = distance_between_points(plane_x, plane_y, other_x, other_y)
-    return distance < config.COLLISION_THRESHOLD
+    if seperation_distance:
+        return distance < config.SEPERATION_THRESHOLD
+    else:
+        return distance < config.COLLISION_THRESHOLD
 
 
 def get_distance_to_end(path):
@@ -287,3 +299,14 @@ def snap_to_path(path, x, y):
             closest_x, closest_y = x_snap, y_snap
 
     return closest_x, closest_y
+
+
+def update_landing_planes():
+    planes = [plane for plane in config.PLANES if plane.state == "landing"]
+
+    threshold = get_edge_object(config.LANDING_RUNWAY).start
+    plane_distances = [(plane, distance_between(plane, threshold)) for plane in planes]
+
+    plane_distances.sort(key=lambda x: x[1])
+
+    config.LANDING_PLANES = plane_distances
