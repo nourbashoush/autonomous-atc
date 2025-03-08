@@ -16,12 +16,12 @@ def setup():
 
     screen = pygame.display.set_mode((config.WIDTH, config.HEIGHT))
     pygame.display.set_caption(f"Airport Simulation - {config.AIRPORT_ICAO}")
-    config.MARK_FONT = pygame.font.Font("SpaceMono-Bold.ttf", 9)
-    config.DATA_FONT = pygame.font.Font("SpaceMono.ttf", 12)
+    config.MARK_FONT = pygame.font.Font("assets/fonts/SpaceMono-Bold.ttf", 8)
+    config.DATA_FONT = pygame.font.Font("assets/fonts/SpaceMono.ttf", 11)
 
     initialise_graph(f"data/airport_{config.AIRPORT_ICAO}.json")
 
-    config.AIRPORT_IMG = pygame.image.load(f"images/airport_{config.AIRPORT_ICAO}.jpg")
+    config.AIRPORT_IMG = pygame.image.load(f"assets/images/airport_{config.AIRPORT_ICAO}.jpg")
     config.GROUND_IMG = pygame.image.load(config.GROUND_IMG_PATH)
     config.AIRBORNE_IMG = pygame.image.load(config.AIRBORNE_IMG_PATH)
 
@@ -60,7 +60,10 @@ def spawn_planes_at_stands():
         stand.available = False
 
 
-def spawn_planes_for_landing(landing_frequency=2000, distance_from_runway=to_pixels(750)):
+def spawn_planes_for_landing(
+    landing_frequency=config.FPS * config.TIME_BETWEEN_LANDINGS,
+    distance_from_runway=to_pixels(config.LANDING_DISTANCE),
+):
     update_landing_planes()
 
     if config.FRAME - config.LAST_SPAWN < landing_frequency:
@@ -89,7 +92,7 @@ def spawn_planes_for_landing(landing_frequency=2000, distance_from_runway=to_pix
 
         landing_plane.drag = config.LANDING_DRAG
         landing_plane.speed = to_mps(150)
-        landing_plane.thrust = 73
+        landing_plane.thrust = 72
         config.PLANES.append(landing_plane)
 
 
@@ -107,6 +110,30 @@ def simulate_frame(screen):
 
         plane.auto_move()
         plane.draw(screen)
+
+    is_final, is_approach, landing_plane = is_plane_on_final_approach()
+    is_requested, requested_plane = is_runway_entry_requested()
+    runway_occupied = is_runway_occupied()
+
+    if runway_occupied:
+        if is_final and not landing_plane.authority:
+            landing_plane.state = "go_around"
+
+    else:
+        if is_approach and is_requested:
+            if landing_plane.priority >= requested_plane.priority:
+                landing_plane.authority = True
+            else:
+                requested_plane.authority = True
+                config.PLANES_QUEUE_FOR_RUNWAY.remove(requested_plane)
+                landing_plane.state = "go_around"
+
+        elif is_final and not is_requested:
+            landing_plane.authority = True
+
+        elif not is_final and is_requested:
+            requested_plane.authority = True
+            config.PLANES_QUEUE_FOR_RUNWAY.remove(requested_plane)
 
 
 def check_future_conflicts():
@@ -132,8 +159,9 @@ def check_future_conflicts():
                         plane.future[0][1],
                         other_plane.x,
                         other_plane.y,
-                        seperation_distance=True
-                    ) and other_plane.speed == 0
+                        seperation_distance=True,
+                    )
+                    and other_plane.speed == 0
                 ):
                     plane_path_distance = get_distance_to_end(
                         [Node("", plane.x, plane.y)] + plane.path
@@ -170,13 +198,45 @@ def safe_to_pushback(plane):
     return True
 
 
+def is_plane_on_final_approach():
+    if config.LANDING_PLANES:
+        landing_plane, distance = config.LANDING_PLANES[0]
+
+        final_distance = to_pixels(config.FINAL_DISTANCE)
+        approach_distance = to_pixels(config.APPROACH_DISTANCE)
+
+        is_final = distance < final_distance
+        is_approach = distance < approach_distance
+
+        return (is_final, is_approach, landing_plane)
+
+    return (False, False, None)
+
+
+def is_runway_entry_requested():
+    if config.PLANES_QUEUE_FOR_RUNWAY:
+        sorted_planes = sorted(
+            config.PLANES_QUEUE_FOR_RUNWAY, key=lambda p: p.priority, reverse=True
+        )
+        return (True, sorted_planes[0])
+
+    return (False, None)
+
+
+def is_runway_occupied():
+    return config.RUNWAY_OCCUPATION > 0
+
+
 def check_runway_availability(screen, radar_rect=pygame.Rect(0, 316, 1200, 90)):
 
     plane_surface = pygame.Surface(screen.get_size(), pygame.SRCALPHA)
 
     noise_intensity = 150
     noise_background = np.random.randint(
-        255 - noise_intensity, 255, (screen.get_height(), screen.get_width(), 3), dtype=np.uint8
+        255 - noise_intensity,
+        255,
+        (screen.get_height(), screen.get_width(), 3),
+        dtype=np.uint8,
     )
     noise_surface = pygame.surfarray.make_surface(noise_background)
 
@@ -213,7 +273,7 @@ def check_runway_availability(screen, radar_rect=pygame.Rect(0, 316, 1200, 90)):
 
             config.BOUNDING_BOXES.append((x1, y1, x2, y2))
 
-    return len(results[0].boxes) if results else 0
+    config.RUNWAY_OCCUPATION = len(results[0].boxes) if results else 0
 
 
 def main():

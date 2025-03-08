@@ -50,11 +50,11 @@ def to_mps(knots):
 
 
 def to_meters(pixels):
-    return pixels * config.PIXEL_TO_METRE
+    return pixels // config.PIXEL_TO_METRE
 
 
 def to_pixels(meters):
-    return meters // config.PIXEL_TO_METRE
+    return meters * config.PIXEL_TO_METRE
 
 
 def distance_between(point1, point2):

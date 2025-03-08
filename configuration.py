@@ -6,9 +6,17 @@ NORMAL_SPEED = False
 AIRPORT_ICAO = "EGBB"
 TAKEOFF_RUNWAY = "RNWY33-RNWY15"
 LANDING_RUNWAY = "RNWY33-RNWY15"
+PIXEL_TO_METRE = 2.5  # 1 pixel = 2.5 meters
+
+RUNWAY_OCCUPATION = 0
 PLANES = []
 LANDING_PLANES = []
-NEXT_TAKEOFF = None # TODO remove after done
+PLANES_QUEUE_FOR_RUNWAY = []
+
+LANDING_DISTANCE = 4000
+APPROACH_DISTANCE = 1900
+FINAL_DISTANCE = 900
+TIME_BETWEEN_LANDINGS = 90
 
 # airport.py
 MARK_FONT = None
@@ -30,8 +38,8 @@ RENDER_STANDS = True
 RENDER_DATA = True
 RENDER_PREDICTION = True
 RENDER_BOXES = True
-PUSHBACK_PROBABILITY = 200
-LANDING_PROBABILITY = 20000
+PUSHBACK_PROBABILITY = 1_000
+LANDING_PROBABILITY = 2_000
 
 FRAME = 0
 LAST_SPAWN = 0
@@ -42,9 +50,9 @@ HOLD_PERIOD = 2 * FPS
 HOLDING_DISTANCE = 8
 
 # plane.py
-GROUND_IMG_PATH = "images/plane_ground.png"
+GROUND_IMG_PATH = "assets/images/plane_ground.png"
 GROUND_IMG = None
-AIRBORNE_IMG_PATH = "images/plane_airborne.png"
+AIRBORNE_IMG_PATH = "assets/images/plane_airborne.png"
 AIRBORNE_IMG = None
 
 THRUST_CHANGE_RATE = 2      # Rate of thrust adjustment
@@ -55,7 +63,6 @@ GROUND_DRAG = 0.25
 MAX_ACCELERATION = 5        # Maximum acceleration in m/s²
 BRAKE_MULTIPLIER = 0.98     # Speed reduction factor when braking
 FRICTION = 10               # Ground friction proportional to velocity
-PIXEL_TO_METRE = 2.5        # 1 pixel = 2.5 meters
 TIME_STEP = 1 / FPS         # Frame time (30 FPS)
 MAX_TURN_ANGLE = 1          # Maximum turn angle in degrees
 TURN_SPEED_SCALING = 0.05   # Scaling factor for speed-dependent turning

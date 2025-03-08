@@ -28,6 +28,7 @@ class Plane:
         self.future = None
         self.holding = 0
         self.priority = 0
+        self.authority = False
 
     def __repr__(self):
         return (
@@ -101,6 +102,8 @@ class Plane:
         self.y -= (self.speed / PIXEL_TO_METRE) * math.cos(radian_heading) * TIME_STEP
 
     def auto_move(self):
+        self.update_priority()
+
         if self.state == "takeoff":
             self.takeoff()
         if self.state == "pushback":
@@ -179,18 +182,30 @@ class Plane:
     def taxi(self):
         if not self.path:
             return
-        
+
         next_node = get_node_object(self.path[0])
 
         distance_next = distance_between(self, next_node)
 
-        if next_node.holding_point and distance_next <= config.HOLDING_DISTANCE:
-            # TODO if has authority then override
-            config.NEXT_TAKEOFF = self
-            self.hold()
-            return
+        if (
+            hasattr(next_node, "holding_point")
+            and next_node.holding_point
+            and distance_next <= config.HOLDING_DISTANCE
+        ):
+            if not self.authority:
+                if self not in config.PLANES_QUEUE_FOR_RUNWAY:
+                    config.PLANES_QUEUE_FOR_RUNWAY.append(self)
+                self.hold()
+                return
 
         if distance_next <= config.MAX_DEVIATION:
+            if (
+                hasattr(next_node, "holding_point")
+                and next_node.holding_point
+                and self.authority
+            ):
+                self.authority = False
+
             self.visited.append(self.path.pop(0))
 
             if self.state == "taxiing":
@@ -286,8 +301,9 @@ class Plane:
         if distance_to_touchdown < touch_down_deviation * 2:
             self.thrust = max(0, self.thrust - 1)
 
-        if distance_to_touchdown < 100:
-            self.state = "go_around"
+        # if distance_to_touchdown < 100:
+        #     self.state = "go_around"
+        # TODO remove
 
         if distance_to_touchdown < 1:
             self.state = "rollout"
@@ -408,3 +424,9 @@ class Plane:
                 real_predictions[i] = [x, y, real_predictions[i][2]]
 
         self.future = real_predictions
+
+    def update_priority(self):
+        if self.state in ["landing"]:
+            self.priority += 0.04
+        elif self.state in ["taxiing", "pushback"]:
+            self.priority += 0.01
