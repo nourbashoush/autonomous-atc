@@ -245,6 +245,7 @@ class Plane:
     def pushback(self):
         pushback_line_start = self.stand.parent.start
         pushback_line_end = self.stand.parent.end
+        pushback_line_heading = self.stand.parent.heading
         point_x, point_y, distance = closest_point_on_line(
             self.x,
             self.y,
@@ -254,18 +255,28 @@ class Plane:
             pushback_line_end.y,
         )
 
-        if distance <= 1:
-            self.x = point_x
-            self.y = point_y
+        angle_diff = (pushback_line_heading - self.heading + 360) % 360
+
+        if angle_diff < 1 and random.randint(1, config.STARTUP_PROBABILITY) == 1:
             self.state = "taxiing"
             self.visited = [self.path.pop(0)]
             self.stand.available = True
             self.stand = None
             return
 
-        radian_heading = math.radians(self.heading)
-        self.x -= math.sin(radian_heading) / 10
-        self.y += math.cos(radian_heading) / 10
+        if distance <= 1:
+            self.x = point_x
+            self.y = point_y
+
+            if angle_diff > 180:
+                self.heading = (self.heading - 1) % 360
+            elif angle_diff > 0:
+                self.heading = (self.heading + 1) % 360
+
+        else:
+            radian_heading = math.radians(self.heading)
+            self.x -= math.sin(radian_heading) / 10
+            self.y += math.cos(radian_heading) / 10
 
     def takeoff(self):
         self.thrust = 100
