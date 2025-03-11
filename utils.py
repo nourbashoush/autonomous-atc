@@ -310,3 +310,17 @@ def update_landing_planes():
     plane_distances.sort(key=lambda x: x[1])
 
     config.LANDING_PLANES = plane_distances
+
+
+def generate_callsign():
+    airline = random.choice(config.CALLSIGNS_LIST)
+    flight_number = random.randint(100, 999)
+    callsign = f"{airline}{flight_number}"
+
+    # Check if callsign is unique
+    existing_callsigns = [plane.id for plane in config.PLANES]
+    while callsign in existing_callsigns:
+        flight_number = random.randint(100, 999)
+        callsign = f"{airline}{flight_number}"
+
+    return callsign

@@ -9,6 +9,7 @@ from model_future_LSTM import PlaneTrajectoryLSTM, save_states_to_memory
 from gui import render_ui
 import cv2
 from ultralytics import YOLO
+from atc_communicator import ATCCommunicator
 
 
 def setup():
@@ -35,6 +36,8 @@ def setup():
 
     yolo = YOLO(config.YOLO_MODEL_PATH)
     config.YOLO_MODEL = yolo
+
+    config.ATC = ATCCommunicator()
 
     return screen
 
@@ -96,21 +99,24 @@ def spawn_planes_for_landing(
         config.PLANES.append(landing_plane)
 
 
-def simulate_frame(screen):
-
-    spawn_planes_for_landing()
-
+def pushback_planes():
     for plane in config.PLANES:
         if plane.state == "preparing":
-            if (
-                safe_to_pushback(plane)
-                and random.randint(1, config.PUSHBACK_PROBABILITY) == 1
-            ):
-                plane.state = "pushback"
+            if random.randint(1, config.PUSHBACK_PROBABILITY) == 1:
+                if safe_to_pushback(plane):
+                    config.ATC.issue_pushback(plane)
+                    plane.state = "pushback"
+                else:
+                    config.ATC.deny_pushback(plane)
 
+
+def move_and_draw_planes(screen):
+    for plane in config.PLANES:
         plane.auto_move()
         plane.draw(screen)
 
+
+def handle_runway():
     is_final, is_approach, landing_plane = is_plane_on_final_approach()
     is_requested, requested_plane = is_runway_entry_requested()
     runway_occupied = is_runway_occupied()
@@ -134,6 +140,17 @@ def simulate_frame(screen):
         elif not is_final and is_requested:
             requested_plane.authority = True
             config.PLANES_QUEUE_FOR_RUNWAY.remove(requested_plane)
+
+
+def simulate_frame(screen):
+
+    spawn_planes_for_landing()
+
+    pushback_planes()
+
+    move_and_draw_planes(screen)
+
+    handle_runway()
 
 
 def check_future_conflicts():

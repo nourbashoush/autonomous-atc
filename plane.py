@@ -8,7 +8,11 @@ from collections import deque
 
 
 class Plane:
-    def __init__(self, x, y, heading, stand, state="preparing"):
+    def __init__(self, x, y, heading, stand, state="preparing", id=None):
+        if id is None:
+            id = generate_callsign()
+
+        self.id = id
         self.x = x
         self.y = y
         self.heading = heading
@@ -258,6 +262,7 @@ class Plane:
         angle_diff = (pushback_line_heading - self.heading + 360) % 360
 
         if angle_diff < 1 and random.randint(1, config.STARTUP_PROBABILITY) == 1:
+            config.ATC.issue_taxi(self)
             self.state = "taxiing"
             self.visited = [self.path.pop(0)]
             self.stand.available = True
@@ -311,10 +316,6 @@ class Plane:
 
         if distance_to_touchdown < touch_down_deviation * 2:
             self.thrust = max(0, self.thrust - 1)
-
-        # if distance_to_touchdown < 100:
-        #     self.state = "go_around"
-        # TODO remove
 
         if distance_to_touchdown < 1:
             self.state = "rollout"
