@@ -84,9 +84,6 @@ LSTM_MODEL = None
 YOLO_MODEL_PATH = "models/yolo.pt"
 YOLO_MODEL = None
 
-# atc_communicator.py
-ATC = None
-
 # callsigns
 CALLSIGNS_LIST = [
     "AA",

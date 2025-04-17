@@ -6,24 +6,20 @@ from utils import get_node_object, distance_between, angle_between
 
 
 class PlaneTrajectoryLSTM(nn.Module):
-    def __init__(self, input_size=11, hidden_size=128, num_layers=2, output_size=3, dropout=0.2):
+    def __init__(
+        self, input_size=11, hidden_size=128, num_layers=2, output_size=3, dropout=0.2
+    ):
         super(PlaneTrajectoryLSTM, self).__init__()
 
-        # LSTM Layer
         self.lstm = nn.LSTM(
-            input_size=input_size,  # Number of input features per timestep
-            hidden_size=hidden_size,  # Number of hidden units
-            num_layers=num_layers,  # Number of stacked LSTM layers
+            input_size=input_size,
+            hidden_size=hidden_size,
+            num_layers=num_layers,
             batch_first=True,  # Input/output tensors will have shape (batch, seq, feature)
-            dropout=(
-                dropout if num_layers > 1 else 0
-            ),  # Apply dropout only if more than 1 layer
+            dropout=(dropout if num_layers > 1 else 0),
         )
 
-        # Fully Connected Layer (Output Layer)
-        self.fc = nn.Linear(
-            hidden_size, output_size * 3
-        )  # 3 time horizons - Maps LSTM output to (x, y, heading)
+        self.fc = nn.Linear(hidden_size, output_size * 3)
 
     def forward(self, x):
         # LSTM Forward Pass
@@ -49,7 +45,6 @@ def save_states_to_memory():
         normalised_heading = plane.heading / 360
         normalised_speed = plane.speed / config.MAX_SPEED
 
-        # One-hot encoding
         state_encoding = {
             "preparing": [1, 0, 0, 0],  # Stationary
             "parked": [1, 0, 0, 0],  # Stationary
@@ -71,11 +66,9 @@ def save_states_to_memory():
             distance = distance_between(plane, node)
             direction = angle_between(plane, node)
 
-        # Clipping distance for normalisation
         clipped_distance = min(distance, 200)
         normalised_distance = clipped_distance / 200
 
-        # Sin/Cos for smooth directional encoding
         direction_rad = math.radians(direction)
         direction_sin = math.sin(direction_rad)
         direction_cos = math.cos(direction_rad)
@@ -92,7 +85,6 @@ def save_states_to_memory():
             direction_cos,  # Replaces normalised_direction
         ]
 
-        # Memory management
         plane.memory.append(state)
         if len(plane.memory) > 30:
             plane.memory.popleft()

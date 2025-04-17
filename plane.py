@@ -144,45 +144,6 @@ class Plane:
         turn_angle = self.get_turn_angle()
         self.heading = (self.heading + turn_angle) % 360
 
-    # def taxi(self):
-    #     if not self.path:
-    #         return
-
-    #     end_node = get_node_object(self.path[0])
-    #     end_x, end_y = end_node.x, end_node.y
-
-    #     distance_next = distance_between(self, end_node)
-    #     distance_prev = (
-    #         distance_between(self, end_node)
-    #         if not self.visited
-    #         else distance_between(self, get_node_object(self.visited[-1]))
-    #     )
-
-    #     if distance_next < SLOW_DISTANCE or distance_prev < SLOW_DISTANCE:
-    #         self.speed = to_mps(SLOW_SPEED)
-    #     else:
-    #         self.speed = to_mps(TAXI_SPEED)
-
-    #     radian_heading = math.atan2(end_y - self.y, end_x - self.x)
-    #     self.heading = (math.degrees(radian_heading) + 90) % 360
-
-    #     self.x += (self.speed / PIXEL_TO_METRE) * math.cos(radian_heading) * TIME_STEP
-    #     self.y += (self.speed / PIXEL_TO_METRE) * math.sin(radian_heading) * TIME_STEP
-
-    #     if distance_next < self.speed * TIME_STEP:
-    #         self.x = end_x
-    #         self.y = end_y
-    #         self.speed = 0
-    #         self.visited.append(self.path.pop(0))
-
-    #         runway_path = get_edge_object(config.RUNWAY_IN_USE)
-
-    #         if self.visited[-1] == runway_path.start.id:
-    #             self.state = "takeoff"
-    #             self.heading = runway_path.heading
-    #             self.x = runway_path.start.x
-    #             self.y = runway_path.start.y
-
     def taxi(self):
         if not self.path:
             return
@@ -262,7 +223,6 @@ class Plane:
         angle_diff = (pushback_line_heading - self.heading + 360) % 360
 
         if angle_diff < 1 and random.randint(1, config.STARTUP_PROBABILITY) == 1:
-            config.ATC.issue_taxi(self)
             self.state = "taxiing"
             self.visited = [self.path.pop(0)]
             self.stand.available = True

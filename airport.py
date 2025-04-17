@@ -115,12 +115,7 @@ def show_next_landing_aircraft(screen):
 
 
 def draw_nodes(screen):
-    """
-    Draw nodes as circles with their IDs labeled.
-    :param screen: The pygame screen object.
-    :param nodes: List of Node objects.
-    :param font: A pygame font object for rendering text.
-    """
+
     for node in config.NODE_LIST:
         # Draw a small circle at the node's location
         pygame.draw.circle(screen, (255, 0, 0), (node.x, node.y), 3)
@@ -133,11 +128,6 @@ def draw_nodes(screen):
 
 
 def draw_edges(screen):
-    """
-    Draw edges as lines connecting the nodes.
-    :param screen: The pygame screen object.
-    :param edges: List of Edge objects.
-    """
     for edge in config.EDGE_LIST:
         # Draw a line between the two nodes
         pygame.draw.line(
@@ -150,12 +140,6 @@ def draw_edges(screen):
 
 
 def draw_stands(screen):
-    """
-    Draw stands as rectangles with their IDs labeled.
-    :param screen: The pygame screen object.
-    :param stands: List of Stand objects.
-    :param font: A pygame font object for rendering text.
-    """
     for stand in config.STAND_LIST:
         # Draw a rectangle at the stand's location
         pygame.draw.rect(screen, (0, 0, 255), (stand.x - 1, stand.y - 1, 2, 2))

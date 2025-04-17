@@ -75,19 +75,7 @@ def get_edge_object(edge_id):
     return config.EDGE_DICT[edge_id]
 
 
-# def get_edge_object(node1, node2):
-#     return config.EDGE_DICT[f"{node1}-{node2}"]
-
-
 def dijkstra(start_node_id, end_node_id):
-    """
-    Dijkstra's algorithm for finding the shortest path in a graph.
-    :param start_node_id: The ID of the starting Node.
-    :param end_node_id: The ID of the target Node.
-    :return: A tuple (path, distance) where path is a list of node IDs in the shortest path,
-             and distance is the total distance of the path.
-    """
-
     nodes = config.NODE_LIST
     edges = config.EDGE_LIST
 

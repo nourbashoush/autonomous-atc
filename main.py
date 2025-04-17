@@ -9,7 +9,6 @@ from model_future_LSTM import PlaneTrajectoryLSTM, save_states_to_memory
 from gui import render_ui
 import cv2
 from ultralytics import YOLO
-from atc_communicator import ATCCommunicator
 
 
 def setup():
@@ -22,7 +21,9 @@ def setup():
 
     initialise_graph(f"data/airport_{config.AIRPORT_ICAO}.json")
 
-    config.AIRPORT_IMG = pygame.image.load(f"assets/images/airport_{config.AIRPORT_ICAO}.jpg")
+    config.AIRPORT_IMG = pygame.image.load(
+        f"assets/images/airport_{config.AIRPORT_ICAO}.jpg"
+    )
     config.GROUND_IMG = pygame.image.load(config.GROUND_IMG_PATH)
     config.AIRBORNE_IMG = pygame.image.load(config.AIRBORNE_IMG_PATH)
 
@@ -36,8 +37,6 @@ def setup():
 
     yolo = YOLO(config.YOLO_MODEL_PATH)
     config.YOLO_MODEL = yolo
-
-    config.ATC = ATCCommunicator()
 
     return screen
 
@@ -104,10 +103,7 @@ def pushback_planes():
         if plane.state == "preparing":
             if random.randint(1, config.PUSHBACK_PROBABILITY) == 1:
                 if safe_to_pushback(plane):
-                    config.ATC.issue_pushback(plane)
                     plane.state = "pushback"
-                else:
-                    config.ATC.deny_pushback(plane)
 
 
 def move_and_draw_planes(screen):
