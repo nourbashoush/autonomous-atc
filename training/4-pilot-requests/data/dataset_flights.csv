@@ -1,0 +1,397 @@
+Request,Flight,Label
+"Gatwick Ground, EasyJet 101, request taxi.",EasyJet 101,1
+"Amsterdam Ground, KLM 222, request taxi to runway 18R.",KLM 222,1
+"Sydney Ground, Qantas 789, ready to taxi, information Delta.",Qantas 789,1
+"Munich Ground, Lufthansa 987, request taxi to holding point Alpha.",Lufthansa 987,1
+"Toronto Ground, Air Canada 333, request taxi for departure to Vancouver.",Air Canada 333,1
+"Frankfurt Ground, Lufthansa 456, taxi request to runway 07L.",Lufthansa 456,1
+"Dubai Ground, Emirates 777, request taxi clearance to runway 30L.",Emirates 777,1
+"JFK Ground, American 123, ready to taxi, information Bravo.",American 123,1
+"Los Angeles Ground, Delta 678, requesting taxi to runway 25R.",Delta 678,1
+"Paris Ground, Air France 999, request taxi instructions for departure.",Air France 999,1
+"Tokyo Ground, ANA 321, ready for taxi to runway 16L.",ANA 321,1
+"Hong Kong Ground, Cathay 444, request taxi for takeoff.",Cathay 444,1
+"Zurich Ground, Swiss 555, ready to taxi with information Charlie.",Swiss 555,1
+"Doha Ground, Qatar Airways 101, requesting taxi clearance.",Qatar Airways 101,1
+"Seoul Ground, Korean Air 888, request taxi to holding point Bravo.",Korean Air 888,1
+"Bangkok Ground, Thai Airways 222, taxi request to runway 19L.",Thai Airways 222,1
+"Madrid Ground, Iberia 789, request taxi to departure runway.",Iberia 789,1
+"Oslo Ground, SAS 333, requesting taxi clearance to runway 01L.",SAS 333,1
+"Moscow Ground, Aeroflot 654, ready for taxi with ATIS Delta.",Aeroflot 654,1
+"Lisbon Ground, TAP Air Portugal 321, request taxi to holding point Charlie.",TAP Air Portugal 321,1
+"Newark Ground, United 888, ready to taxi, runway 04R.",United 888,1
+"San Francisco Ground, Alaska 777, taxi request to runway 10L.",Alaska 777,1
+"Johannesburg Ground, South African Airways 234, request taxi to holding point Echo.",South African Airways 234,1
+"Melbourne Ground, Qantas 999, requesting taxi clearance.",Qantas 999,1
+"Vienna Ground, Austrian Airlines 123, taxi request to departure runway.",Austrian Airlines 123,1
+"Kuala Lumpur Ground, Malaysia Airlines 101, request taxi and departure clearance.",Malaysia Airlines 101,1
+"Helsinki Ground, Finnair 222, ready to taxi with ATIS Golf.",Finnair 222,1
+"Copenhagen Ground, SAS 567, requesting taxi clearance to runway 22R.",SAS 567,1
+"Mexico City Ground, Aeromexico 999, ready to taxi, runway 05L.",Aeromexico 999,1
+"Rio de Janeiro Ground, GOL 555, taxi request for departure.",GOL 555,1
+"Buenos Aires Ground, Aerolineas Argentinas 444, requesting taxi clearance.",Aerolineas Argentinas 444,1
+"Istanbul Ground, Turkish Airlines 777, ready to taxi with ATIS Hotel.",Turkish Airlines 777,1
+"Athens Ground, Aegean Airlines 321, taxi request to runway 03R.",Aegean Airlines 321,1
+"Mumbai Ground, IndiGo 888, requesting taxi clearance.",IndiGo 888,1
+"Shanghai Ground, China Eastern 101, ready to taxi, runway 34L.",China Eastern 101,1
+"Beijing Ground, Air China 654, request taxi to holding point Delta.",Air China 654,1
+"Manila Ground, Philippine Airlines 333, ready to taxi with ATIS India.",Philippine Airlines 333,1
+"Jakarta Ground, Garuda Indonesia 444, taxi request for takeoff.",Garuda Indonesia 444,1
+"Berlin Ground, Lufthansa 999, requesting taxi clearance.",Lufthansa 999,1
+"Cairo Ground, EgyptAir 777, ready to taxi, information Juliet.",EgyptAir 777,1
+"Warsaw Ground, LOT 234, request taxi to departure runway.",LOT 234,1
+"Dublin Ground, Aer Lingus 555, requesting taxi clearance.",Aer Lingus 555,1
+"Osaka Ground, Japan Airlines 123, ready to taxi with ATIS Kilo.",Japan Airlines 123,1
+"Santiago Ground, LATAM 777, taxi request for takeoff.",LATAM 777,1
+"Seville Ground, Ryanair 888, ready to taxi, runway 09R.",Ryanair 888,1
+"Brussels Ground, Brussels Airlines 111, request taxi to departure runway.",Brussels Airlines 111,1
+"Prague Ground, Czech Airlines 101, requesting taxi clearance.",Czech Airlines 101,1
+"Stockholm Ground, SAS 222, ready to taxi, information Lima.",SAS 222,1
+"Montreal Ground, Air Canada 777, taxi request for departure.",Air Canada 777,1
+"Bogota Ground, Avianca 654, requesting taxi clearance to runway 13R.",Avianca 654,1
+"Heathrow Ground, Speedbird 123, stand 24, request pushback.",Speedbird 123,0
+"Dubai Ground, Emirates 456, gate B12, ready for pushback.",Emirates 456,0
+"LAX Ground, Delta 789, requesting pushback and start, information Bravo.",Delta 789,0
+"Frankfurt Ground, Lufthansa 321, stand 18, request pushback facing east.",Lufthansa 321,0
+"JFK Ground, American 555, ready for pushback with ATIS Charlie.",American 555,0
+"Toronto Ground, Air Canada 678, stand 33, request pushback for departure.",Air Canada 678,0
+"Sydney Ground, Qantas 890, gate 15, ready for pushback and engine start.",Qantas 890,0
+"Amsterdam Ground, KLM 222, stand 5, request pushback with information Echo.",KLM 222,0
+"Hong Kong Ground, Cathay 777, stand 12, request pushback and start-up.",Cathay 777,0
+"Munich Ground, Lufthansa 999, gate 20, request pushback facing south.",Lufthansa 999,0
+"Singapore Ground, Singapore Airlines 234, gate A7, ready for pushback.",Singapore Airlines 234,0
+"Atlanta Ground, Delta 321, stand 27, requesting pushback with ATIS Delta.",Delta 321,0
+"Boston Ground, JetBlue 555, gate C14, request pushback and taxi instructions.",JetBlue 555,0
+"Chicago Ground, United 789, stand 22, ready for pushback and start-up.",United 789,0
+"Tokyo Ground, ANA 123, gate 9, request pushback with information Hotel.",ANA 123,0
+"Doha Ground, Qatar Airways 888, stand 17, request pushback and engine start.",Qatar Airways 888,0
+"Madrid Ground, Iberia 101, gate 28, request pushback facing north.",Iberia 101,0
+"Oslo Ground, SAS 444, stand 10, ready for pushback and start-up.",SAS 444,0
+"Moscow Ground, Aeroflot 222, gate 19, requesting pushback and taxi instructions.",Aeroflot 222,0
+"Seoul Ground, Korean Air 777, stand 6, request pushback for departure.",Korean Air 777,0
+"Bangkok Ground, Thai Airways 333, gate E4, request pushback with ATIS Foxtrot.",Thai Airways 333,0
+"Brussels Ground, Brussels Airlines 456, stand 11, ready for pushback.",Brussels Airlines 456,0
+"Delhi Ground, Air India 101, gate 5, request pushback and start-up.",Air India 101,0
+"Zurich Ground, Swiss 789, stand 21, request pushback facing west.",Swiss 789,0
+"Melbourne Ground, Qantas 444, gate 8, ready for pushback and engine start.",Qantas 444,0
+"Vienna Ground, Austrian Airlines 555, stand 14, requesting pushback and taxi clearance.",Austrian Airlines 555,0
+"Kuala Lumpur Ground, Malaysia Airlines 777, gate B9, request pushback.",Malaysia Airlines 777,0
+"Helsinki Ground, Finnair 888, stand 3, ready for pushback with ATIS Golf.",Finnair 888,0
+"Lisbon Ground, TAP Air Portugal 101, gate 12, request pushback and taxi instructions.",TAP Air Portugal 101,0
+"Copenhagen Ground, SAS 666, stand 16, request pushback facing southeast.",SAS 666,0
+"Newark Ground, United 345, gate C22, ready for pushback and start-up.",United 345,0
+"San Francisco Ground, Alaska 123, stand 29, requesting pushback and taxi clearance.",Alaska 123,0
+"Johannesburg Ground, South African Airways 234, gate A5, request pushback.",South African Airways 234,0
+"Mexico City Ground, Aeromexico 789, stand 13, request pushback with ATIS Hotel.",Aeromexico 789,0
+"Rio de Janeiro Ground, GOL 456, gate 7, ready for pushback and start-up.",GOL 456,0
+"Buenos Aires Ground, Aerolineas Argentinas 333, stand 18, request pushback.",Aerolineas Argentinas 333,0
+"Istanbul Ground, Turkish Airlines 999, gate F3, requesting pushback and start-up.",Turkish Airlines 999,0
+"Athens Ground, Aegean Airlines 555, stand 8, request pushback for departure.",Aegean Airlines 555,0
+"Mumbai Ground, IndiGo 222, gate 6, ready for pushback with ATIS India.",IndiGo 222,0
+"Shanghai Ground, China Eastern 777, stand 15, request pushback and start-up.",China Eastern 777,0
+"Beijing Ground, Air China 888, gate C10, request pushback facing west.",Air China 888,0
+"Manila Ground, Philippine Airlines 111, stand 4, ready for pushback and start-up.",Philippine Airlines 111,0
+"Jakarta Ground, Garuda Indonesia 555, gate B11, requesting pushback and taxi clearance.",Garuda Indonesia 555,0
+"Seville Ground, Ryanair 999, stand 9, request pushback with ATIS Juliet.",Ryanair 999,0
+"Berlin Ground, Lufthansa 123, gate 14, ready for pushback and engine start.",Lufthansa 123,0
+"Cairo Ground, EgyptAir 777, stand 20, request pushback facing south.",EgyptAir 777,0
+"Warsaw Ground, LOT 234, gate 7, request pushback and taxi instructions.",LOT 234,0
+"Dublin Ground, Aer Lingus 789, stand 5, ready for pushback with ATIS Kilo.",Aer Lingus 789,0
+"Osaka Ground, Japan Airlines 333, gate 11, request pushback and start-up.",Japan Airlines 333,0
+"Santiago Ground, LATAM 444, stand 13, requesting pushback and taxi clearance.",LATAM 444,0
+"Manchester Tower, Ryanair 456, holding short runway 23L, ready for departure.",Ryanair 456,2
+"Dubai Tower, Emirates 101, runway 30L, ready for takeoff.",Emirates 101,2
+"Paris Tower, Air France 999, holding short runway 08R, ready for departure.",Air France 999,2
+"Hong Kong Tower, Cathay 777, runway 25R, request takeoff.",Cathay 777,2
+"Miami Tower, American 123, ready for immediate departure, runway 09.",American 123,2
+"London Tower, British Airways 321, holding short runway 27L, request takeoff clearance.",British Airways 321,2
+"Frankfurt Tower, Lufthansa 888, runway 07C, ready for takeoff.",Lufthansa 888,2
+"Los Angeles Tower, Delta 555, holding short 24L, request takeoff clearance.",Delta 555,2
+"Newark Tower, United 777, ready for takeoff, runway 04R.",United 777,2
+"Tokyo Tower, ANA 222, holding short 16R, ready for departure.",ANA 222,2
+"Doha Tower, Qatar Airways 101, requesting takeoff clearance, runway 34L.",Qatar Airways 101,2
+"Singapore Tower, Singapore Airlines 999, holding short 02C, ready for departure.",Singapore Airlines 999,2
+"Toronto Tower, Air Canada 333, ready for takeoff, runway 15L.",Air Canada 333,2
+"Munich Tower, Lufthansa 123, holding short 08R, request takeoff.",Lufthansa 123,2
+"Oslo Tower, SAS 777, ready for immediate departure, runway 19L.",SAS 777,2
+"Madrid Tower, Iberia 555, holding short 36L, request takeoff clearance.",Iberia 555,2
+"Copenhagen Tower, SAS 321, runway 22R, ready for takeoff.",SAS 321,2
+"Bangkok Tower, Thai Airways 666, requesting departure clearance, runway 01L.",Thai Airways 666,2
+"Istanbul Tower, Turkish Airlines 789, holding short 35R, ready for departure.",Turkish Airlines 789,2
+"Vienna Tower, Austrian Airlines 432, ready for takeoff, runway 16.",Austrian Airlines 432,2
+"Mexico City Tower, Aeromexico 234, holding short 05L, request takeoff.",Aeromexico 234,2
+"Beijing Tower, Air China 888, ready for departure, runway 36R.",Air China 888,2
+"Shanghai Tower, China Eastern 101, holding short 34L, request takeoff.",China Eastern 101,2
+"Jakarta Tower, Garuda Indonesia 555, requesting takeoff clearance, runway 07R.",Garuda Indonesia 555,2
+"Melbourne Tower, Qantas 777, holding short 09, ready for departure.",Qantas 777,2
+"Helsinki Tower, Finnair 222, ready for immediate departure, runway 04.",Finnair 222,2
+"Zurich Tower, Swiss 333, requesting takeoff clearance, runway 28.",Swiss 333,2
+"Delhi Tower, Air India 999, holding short 11, ready for takeoff.",Air India 999,2
+"Seoul Tower, Korean Air 444, ready for departure, runway 32L.",Korean Air 444,2
+"Lisbon Tower, TAP Air Portugal 888, holding short 21, request takeoff.",TAP Air Portugal 888,2
+"Athens Tower, Aegean Airlines 555, runway 03R, ready for departure.",Aegean Airlines 555,2
+"Warsaw Tower, LOT 222, requesting takeoff clearance, runway 11R.",LOT 222,2
+"Dublin Tower, Aer Lingus 101, holding short 28, ready for takeoff.",Aer Lingus 101,2
+"Johannesburg Tower, South African Airways 777, ready for immediate departure, runway 03L.",South African Airways 777,2
+"Rio de Janeiro Tower, GOL 444, holding short 15, request takeoff.",GOL 444,2
+"Buenos Aires Tower, Aerolineas Argentinas 333, runway 11, ready for departure.",Aerolineas Argentinas 333,2
+"Berlin Tower, Lufthansa 888, requesting takeoff clearance, runway 26L.",Lufthansa 888,2
+"Stockholm Tower, SAS 777, holding short 19R, ready for departure.",SAS 777,2
+"San Francisco Tower, Alaska 234, ready for takeoff, runway 01L.",Alaska 234,2
+"Montreal Tower, Air Canada 555, holding short 10R, request takeoff.",Air Canada 555,2
+"Cairo Tower, EgyptAir 321, requesting departure clearance, runway 05.",EgyptAir 321,2
+"Manila Tower, Philippine Airlines 888, ready for immediate departure, runway 06.",Philippine Airlines 888,2
+"Santiago Tower, LATAM 444, holding short 17R, request takeoff.",LATAM 444,2
+"Brussels Tower, Brussels Airlines 222, ready for departure, runway 25L.",Brussels Airlines 222,2
+"Prague Tower, Czech Airlines 777, holding short 31, request takeoff.",Czech Airlines 777,2
+"Osaka Tower, Japan Airlines 555, ready for takeoff, runway 32L.",Japan Airlines 555,2
+"Seville Tower, Ryanair 123, holding short 09R, ready for departure.",Ryanair 123,2
+"Bogota Tower, Avianca 101, requesting takeoff clearance, runway 13L.",Avianca 101,2
+"Heathrow Tower, British Airways 432, on final for runway 27L, request landing clearance.",British Airways 432,3
+"Los Angeles Tower, United 678, 5 miles final, requesting to land, runway 24R.",United 678,3
+"Frankfurt Tower, Lufthansa 555, established on ILS runway 07C, request landing clearance.",Lufthansa 555,3
+"Dubai Tower, Emirates 999, short final runway 12L, request to land.",Emirates 999,3
+"Tokyo Tower, ANA 777, final approach runway 16R, request landing.",ANA 777,3
+"Paris Tower, Air France 321, 3 miles final, requesting landing clearance for runway 09L.",Air France 321,3
+"JFK Tower, Delta 111, established on ILS, runway 22R, ready to land.",Delta 111,3
+"Toronto Tower, Air Canada 333, short final, requesting landing runway 05L.",Air Canada 333,3
+"Hong Kong Tower, Cathay Pacific 789, on final for runway 25L, request landing.",Cathay Pacific 789,3
+"Singapore Tower, Singapore Airlines 234, established on glide slope, request landing clearance.",Singapore Airlines 234,3
+"Munich Tower, Lufthansa 888, 7 miles final, requesting to land, runway 26R.",Lufthansa 888,3
+"Madrid Tower, Iberia 555, on final, runway 14L, ready to land.",Iberia 555,3
+"Amsterdam Tower, KLM 777, established on approach, request landing clearance.",KLM 777,3
+"Zurich Tower, Swiss 999, final approach runway 28, requesting landing.",Swiss 999,3
+"Bangkok Tower, Thai Airways 432, short final, request landing on runway 01R.",Thai Airways 432,3
+"Seoul Tower, Korean Air 222, established on ILS, requesting landing clearance for runway 33L.",Korean Air 222,3
+"Oslo Tower, SAS 666, 4 miles final, ready to land, runway 19R.",SAS 666,3
+"Copenhagen Tower, SAS 101, final approach runway 22L, request landing.",SAS 101,3
+"Doha Tower, Qatar Airways 777, on final, requesting landing clearance, runway 34L.",Qatar Airways 777,3
+"Vienna Tower, Austrian Airlines 333, short final, runway 16, request landing.",Austrian Airlines 333,3
+"Newark Tower, United 888, 6 miles final, requesting to land, runway 04L.",United 888,3
+"Melbourne Tower, Qantas 101, on final, runway 09, ready for landing.",Qantas 101,3
+"Delhi Tower, Air India 222, established on ILS, requesting landing clearance, runway 11.",Air India 222,3
+"Beijing Tower, Air China 555, short final, runway 36L, request landing.",Air China 555,3
+"Shanghai Tower, China Eastern 789, on approach, requesting landing clearance, runway 34R.",China Eastern 789,3
+"Istanbul Tower, Turkish Airlines 444, final approach, runway 35L, ready to land.",Turkish Airlines 444,3
+"Jakarta Tower, Garuda Indonesia 123, short final, requesting to land, runway 07L.",Garuda Indonesia 123,3
+"Athens Tower, Aegean Airlines 777, established on glide slope, request landing.",Aegean Airlines 777,3
+"Lisbon Tower, TAP Air Portugal 888, 5 miles final, requesting landing clearance for runway 21.",TAP Air Portugal 888,3
+"Dublin Tower, Aer Lingus 101, on final for runway 28, request to land.",Aer Lingus 101,3
+"Rio de Janeiro Tower, GOL 555, short final, runway 15, request landing.",GOL 555,3
+"Buenos Aires Tower, Aerolineas Argentinas 333, established on approach, request landing.",Aerolineas Argentinas 333,3
+"San Francisco Tower, Alaska 444, final approach runway 01R, requesting landing.",Alaska 444,3
+"Johannesburg Tower, South African Airways 777, on final, requesting landing clearance, runway 03R.",South African Airways 777,3
+"Cairo Tower, EgyptAir 888, short final, runway 05, request to land.",EgyptAir 888,3
+"Warsaw Tower, LOT 222, established on ILS, requesting landing clearance, runway 11L.",LOT 222,3
+"Helsinki Tower, Finnair 789, 7 miles final, ready for landing, runway 04.",Finnair 789,3
+"Stockholm Tower, SAS 123, on final approach, requesting landing clearance, runway 19L.",SAS 123,3
+"Montreal Tower, Air Canada 555, short final, requesting to land, runway 10L.",Air Canada 555,3
+"Brussels Tower, Brussels Airlines 777, final approach runway 25R, request landing.",Brussels Airlines 777,3
+"Manila Tower, Philippine Airlines 333, established on approach, requesting landing clearance.",Philippine Airlines 333,3
+"Mexico City Tower, Aeromexico 999, 3 miles final, ready for landing, runway 05R.",Aeromexico 999,3
+"Bogota Tower, Avianca 101, short final, requesting landing clearance, runway 13L.",Avianca 101,3
+"Santiago Tower, LATAM 444, on final, requesting to land, runway 17L.",LATAM 444,3
+"Osaka Tower, Japan Airlines 555, established on glide slope, request landing.",Japan Airlines 555,3
+"Seville Tower, Ryanair 888, short final, requesting to land, runway 09L.",Ryanair 888,3
+"Berlin Tower, Lufthansa 321, final approach, runway 26R, ready to land.",Lufthansa 321,3
+"Prague Tower, Czech Airlines 222, on final, requesting landing clearance, runway 31.",Czech Airlines 222,3
+"Zurich Control, Iberia 920, requesting taxi to runway 10R.",Iberia 920,1
+"Munich Control, Lufthansa 401, requesting taxi clearance.",Lufthansa 401,1
+"Sydney Ground, American 438, request taxi instructions for departure.",American 438,1
+"Toronto Tower, KLM 600, request taxi instructions for departure.",KLM 600,1
+"Amsterdam Ground, KLM 899, request taxi instructions for departure.",KLM 899,1
+"Zurich Ground, Iberia 422, ready to taxi, information Alpha.",Iberia 422,1
+"Frankfurt Tower, Qantas 869, requesting taxi clearance.",Qantas 869,1
+"Doha Ground, Lufthansa 964, requesting taxi clearance.",Lufthansa 964,1
+"Singapore Ground, Lufthansa 702, ready to taxi, information India.",Lufthansa 702,1
+"Zurich Ground, SAS 910, request taxi instructions for departure.",SAS 910,1
+"Amsterdam Control, ANA 385, requesting taxi to runway 28C.",ANA 385,1
+"Sydney Ground, SAS 857, request taxi instructions for departure.",SAS 857,1
+"Oslo Ground, Korean 417, requesting taxi to runway 10R.",Korean 417,1
+"Bangkok Ground, Aeroflot 422, requesting taxi clearance.",Aeroflot 422,1
+"Doha Tower, Iberia 518, request taxi to holding point Holding Point D.",Iberia 518,1
+"Oslo Ground, Thai 976, request taxi to holding point Holding Point A.",Thai 976,1
+"Bangkok Control, Cathay 176, ready to taxi, information Alpha.",Cathay 176,1
+"Oslo Control, Thai 343, request taxi instructions for departure.",Thai 343,1
+"Bangkok Ground, Qantas 750, request taxi to holding point Holding Point E.",Qantas 750,1
+"Frankfurt Tower, American 999, requesting taxi clearance.",American 999,1
+"Sydney Tower, KLM 941, ready to taxi, information Echo.",KLM 941,1
+"Paris Ground, Qatar 239, request taxi to holding point Holding Point D.",Qatar 239,1
+"Moscow Ground, KLM 356, ready to taxi, information Delta.",KLM 356,1
+"Paris Tower, Qantas 284, requesting taxi clearance.",Qantas 284,1
+"Munich Tower, American 677, ready to taxi, information Golf.",American 677,1
+"Toronto Tower, KLM 386, requesting taxi to runway 4R.",KLM 386,1
+"JFK Control, Thai 871, requesting taxi clearance.",Thai 871,1
+"Sydney Ground, Turkish 228, ready to taxi, information Delta.",Turkish 228,1
+"Toronto Ground, Lufthansa 187, request taxi to holding point Holding Point C.",Lufthansa 187,1
+"JFK Tower, EasyJet 100, ready to taxi, information Echo.",EasyJet 100,1
+"Frankfurt Control, Qatar 385, ready to taxi, information Foxtrot.",Qatar 385,1
+"Bangkok Control, Cathay 489, requesting taxi to runway 10R.",Cathay 489,1
+"LAX Tower, Thai 945, ready to taxi, information Hotel.",Thai 945,1
+"Heathrow Control, Qatar 814, requesting taxi to runway 17L.",Qatar 814,1
+"Frankfurt Tower, KLM 156, ready to taxi, information Bravo.",KLM 156,1
+"Bangkok Control, Emirates 523, request taxi to holding point Holding Point B.",Emirates 523,1
+"Amsterdam Tower, Qantas 365, ready to taxi, information Alpha.",Qantas 365,1
+"Madrid Ground, Thai 510, request taxi to holding point Holding Point B.",Thai 510,1
+"Hong Kong Tower, Emirates 841, requesting taxi clearance.",Emirates 841,1
+"Seoul Tower, Korean 949, request taxi instructions for departure.",Korean 949,1
+"Singapore Control, Thai 702, ready to taxi, information India.",Thai 702,1
+"JFK Control, Swiss 993, request taxi instructions for departure.",Swiss 993,1
+"Munich Ground, Iberia 566, request taxi instructions for departure.",Iberia 566,1
+"Bangkok Ground, Qantas 841, request taxi instructions for departure.",Qantas 841,1
+"Toronto Control, Aeroflot 169, requesting taxi clearance.",Aeroflot 169,1
+"Frankfurt Control, Qantas 714, requesting taxi to runway 12R.",Qantas 714,1
+"LAX Ground, Emirates 451, request taxi to holding point Holding Point A.",Emirates 451,1
+"Tokyo Tower, Cathay 494, request taxi to holding point Holding Point E.",Cathay 494,1
+"Singapore Control, Air 983, requesting taxi to runway 18L.",Air 983,1
+"Sydney Tower, Aeroflot 853, request taxi instructions for departure.",Aeroflot 853,1
+"Toronto Control, Delta 733, Stand 29, request pushback facing east.",Delta 733,0
+"Amsterdam Control, British 387, Gate 3, request pushback with information Bravo.",British 387,0
+"Zurich Control, Swiss 639, Gate 15, requesting pushback and taxi clearance.",Swiss 639,0
+"Madrid Tower, SAS 961, Stand 25, requesting pushback and taxi clearance.",SAS 961,0
+"Seoul Control, Ryanair 199, Stand 10, request pushback and engine start.",Ryanair 199,0
+"Singapore Ground, KLM 254, Stand 23, request pushback and engine start.",KLM 254,0
+"Dubai Ground, Cathay 944, Stand 30, request pushback with information Golf.",Cathay 944,0
+"Heathrow Control, Iberia 814, Stand 30, request pushback and engine start.",Iberia 814,0
+"LAX Tower, ANA 346, Stand 16, requesting pushback and taxi clearance.",ANA 346,0
+"Bangkok Tower, Swiss 793, Gate 20, requesting pushback and taxi clearance.",Swiss 793,0
+"Doha Tower, British 719, Gate 20, request pushback with information Charlie.",British 719,0
+"Munich Ground, Air 687, Gate 48, request pushback and engine start.",Air 687,0
+"Sydney Control, Delta 462, Stand 10, requesting pushback and taxi clearance.",Delta 462,0
+"Moscow Ground, Emirates 385, Stand 25, request pushback with information Golf.",Emirates 385,0
+"Doha Tower, Cathay 308, Stand 25, request pushback facing west.",Cathay 308,0
+"Zurich Control, British 173, Gate 47, request pushback with information Charlie.",British 173,0
+"Hong Kong Tower, Air 105, Stand 30, request pushback with information Delta.",Air 105,0
+"LAX Tower, Turkish 589, Gate 3, request pushback with information Alpha.",Turkish 589,0
+"Zurich Control, SAS 940, Stand 10, request pushback and engine start.",SAS 940,0
+"Dubai Control, American 949, Stand 6, requesting pushback and taxi clearance.",American 949,0
+"Bangkok Tower, SAS 272, Stand 10, request pushback facing north.",SAS 272,0
+"Paris Tower, Turkish 328, Stand 10, request pushback with information Charlie.",Turkish 328,0
+"Oslo Ground, British 996, Stand 10, ready for pushback and start-up.",British 996,0
+"Singapore Ground, Lufthansa 916, Stand 30, request pushback facing north.",Lufthansa 916,0
+"Tokyo Ground, Lufthansa 771, Gate 39, request pushback and engine start.",Lufthansa 771,0
+"Dubai Control, Qantas 392, Stand 23, requesting pushback and taxi clearance.",Qantas 392,0
+"Hong Kong Control, SAS 618, Gate 33, request pushback with information Hotel.",SAS 618,0
+"Toronto Control, Qatar 937, Stand 10, ready for pushback and start-up.",Qatar 937,0
+"Bangkok Tower, Cathay 583, Stand 6, request pushback facing east.",Cathay 583,0
+"Amsterdam Ground, Air 764, Gate 3, ready for pushback and start-up.",Air 764,0
+"Moscow Ground, KLM 122, Gate 20, request pushback and engine start.",KLM 122,0
+"JFK Control, Delta 159, Gate 48, request pushback and engine start.",Delta 159,0
+"Sydney Ground, ANA 710, Stand 16, request pushback and engine start.",ANA 710,0
+"LAX Tower, ANA 572, Gate 47, request pushback and engine start.",ANA 572,0
+"Bangkok Control, American 924, Stand 14, ready for pushback and start-up.",American 924,0
+"Heathrow Ground, Thai 655, Stand 10, request pushback with information Bravo.",Thai 655,0
+"Munich Ground, Emirates 948, Stand 10, request pushback and engine start.",Emirates 948,0
+"Munich Tower, Ryanair 461, Stand 16, request pushback facing south.",Ryanair 461,0
+"Bangkok Tower, Emirates 250, Gate 27, request pushback and engine start.",Emirates 250,0
+"Dubai Control, Qantas 193, Stand 6, request pushback facing south.",Qantas 193,0
+"Doha Tower, American 266, Stand 25, request pushback facing south.",American 266,0
+"JFK Ground, Qatar 239, Gate 27, request pushback and engine start.",Qatar 239,0
+"Zurich Control, Delta 452, Gate 20, request pushback and engine start.",Delta 452,0
+"Bangkok Ground, Qatar 302, Stand 10, request pushback with information Juliett.",Qatar 302,0
+"Zurich Control, KLM 967, Gate 15, request pushback with information Golf.",KLM 967,0
+"Doha Tower, Delta 369, Stand 10, request pushback and engine start.",Delta 369,0
+"Moscow Tower, Swiss 462, Stand 16, request pushback and engine start.",Swiss 462,0
+"Paris Tower, American 132, Stand 6, request pushback facing east.",American 132,0
+"Oslo Tower, Turkish 259, Gate 20, request pushback with information Delta.",Turkish 259,0
+"Singapore Control, Qatar 636, Stand 16, ready for pushback and start-up.",Qatar 636,0
+"Dubai Tower, Korean 234, runway 7L, ready for immediate departure.",Korean 234,2
+"Doha Tower, Swiss 753, holding short and ready for departure, runway 17C.",Swiss 753,2
+"Singapore Tower, Cathay 270, runway 3C, holding short, ready for immediate departure.",Cathay 270,2
+"Dubai Tower, Iberia 941, runway 13C, ready for takeoff.",Iberia 941,2
+"Amsterdam Tower, Lufthansa 511, runway 2R, holding short and ready for departure.",Lufthansa 511,2
+"Frankfurt Tower, Ryanair 251, runway 36R, holding short, ready for immediate departure.",Ryanair 251,2
+"Madrid Tower, Iberia 753, runway 1R, holding short, holding short and ready for departure.",Iberia 753,2
+"Seoul Tower, ANA 735, runway 33L, request takeoff clearance.",ANA 735,2
+"Sydney Tower, Ryanair 150, holding short at runway 30L, request takeoff clearance.",Ryanair 150,2
+"Zurich Tower, Korean 692, runway 24C, ready for immediate departure.",Korean 692,2
+"Amsterdam Tower, Qatar 133, holding short at runway 24L, ready for immediate departure.",Qatar 133,2
+"Oslo Tower, Qatar 661, holding short at runway 5L, request takeoff clearance.",Qatar 661,2
+"JFK Tower, Ryanair 562, holding short at runway 20R, holding short and ready for departure.",Ryanair 562,2
+"Amsterdam Tower, Turkish 847, runway 9C, holding short and ready for departure.",Turkish 847,2
+"Paris Tower, Delta 394, runway 1R, holding short, request takeoff clearance.",Delta 394,2
+"Toronto Tower, ANA 417, runway 18C, holding short runway.",ANA 417,2
+"LAX Tower, SAS 340, ready for immediate departure, runway 32R.",SAS 340,2
+"Dubai Tower, Emirates 680, holding short at runway 1C, request takeoff clearance.",Emirates 680,2
+"Toronto Tower, American 526, ready for takeoff at runway 11C, requesting departure clearance.",American 526,2
+"Dubai Tower, Cathay 567, runway 15R, holding short, ready for takeoff.",Cathay 567,2
+"Munich Tower, EasyJet 544, request takeoff clearance, runway 29C.",EasyJet 544,2
+"JFK Tower, Iberia 644, ready for takeoff at runway 26L, requesting departure clearance.",Iberia 644,2
+"Doha Tower, Thai 317, holding short at runway 8R, holding short and ready for departure.",Thai 317,2
+"Singapore Tower, British 959, runway 16C, holding short, holding short and ready for departure.",British 959,2
+"Frankfurt Tower, Turkish 332, runway 25C, requesting takeoff clearance.",Turkish 332,2
+"Bangkok Tower, Ryanair 178, ready for takeoff at runway 15R, requesting departure clearance.",Ryanair 178,2
+"LAX Tower, Qantas 499, ready for takeoff at runway 36L, requesting departure clearance.",Qantas 499,2
+"Toronto Tower, Korean 959, request takeoff clearance at runway 2C, requesting departure clearance.",Korean 959,2
+"Madrid Tower, British 511, runway 26L, requesting takeoff clearance.",British 511,2
+"Heathrow Tower, Emirates 118, runway 32R, requesting takeoff clearance.",Emirates 118,2
+"Frankfurt Tower, Emirates 805, request takeoff clearance, runway 24C.",Emirates 805,2
+"LAX Tower, Emirates 722, requesting takeoff clearance at runway 33R, requesting departure clearance.",Emirates 722,2
+"Madrid Tower, Thai 151, runway 6R, holding short, ready for takeoff.",Thai 151,2
+"Tokyo Tower, Air 593, requesting takeoff clearance, runway 18R.",Air 593,2
+"Munich Tower, SAS 114, runway 12R, requesting takeoff clearance.",SAS 114,2
+"Seoul Tower, ANA 624, ready for immediate departure at runway 10C, requesting departure clearance.",ANA 624,2
+"Bangkok Tower, EasyJet 392, runway 25R, ready for immediate departure.",EasyJet 392,2
+"Moscow Tower, Air 849, ready for takeoff, runway 30L.",Air 849,2
+"LAX Tower, British 131, holding short at runway 19L, requesting takeoff clearance.",British 131,2
+"Singapore Tower, Qantas 729, ready for immediate departure at runway 14L, requesting departure clearance.",Qantas 729,2
+"LAX Tower, Cathay 598, holding short and ready for departure at runway 1R, requesting departure clearance.",Cathay 598,2
+"Zurich Tower, Qantas 229, holding short at runway 18L, holding short and ready for departure.",Qantas 229,2
+"Paris Tower, Thai 711, runway 8R, holding short, holding short runway.",Thai 711,2
+"Doha Tower, Qantas 586, request takeoff clearance at runway 5C, requesting departure clearance.",Qantas 586,2
+"Doha Tower, Delta 178, requesting takeoff clearance, runway 34C.",Delta 178,2
+"Sydney Tower, American 774, runway 31L, holding short, request takeoff clearance.",American 774,2
+"Doha Tower, Turkish 638, holding short runway at runway 33R, requesting departure clearance.",Turkish 638,2
+"LAX Tower, ANA 750, runway 19L, ready for takeoff.",ANA 750,2
+"LAX Tower, Ryanair 884, ready for immediate departure at runway 23R, requesting departure clearance.",Ryanair 884,2
+"Sydney Tower, British 619, runway 35C, holding short and ready for departure.",British 619,2
+"Doha Tower, Ryanair 655, on approach, ready for landing, runway 9L.",Ryanair 655,3
+"Dubai Tower, American 966, on approach, short final, request landing, requesting landing clearance.",American 966,3
+"Oslo Tower, American 947, on approach, ready for landing, requesting to land at runway 17L.",American 947,3
+"Sydney Tower, Emirates 292, 4 miles final, ready to land, requesting to land at runway 21R.",Emirates 292,3
+"Moscow Tower, Korean 860, established on ILS, short final, request landing, runway 7R.",Korean 860,3
+"Zurich Tower, Iberia 170, on approach, short final, request landing, requesting landing clearance.",Iberia 170,3
+"Madrid Tower, EasyJet 888, on approach, 4 miles final, ready to land, requesting landing clearance.",EasyJet 888,3
+"Singapore Tower, Lufthansa 862, on final, runway clear for landing, requesting to land at runway 18L.",Lufthansa 862,3
+"Seoul Tower, Thai 349, on approach, on final, requesting landing clearance, requesting landing clearance.",Thai 349,3
+"LAX Tower, Turkish 162, 4 miles final, ready to land, requesting to land at runway 3L.",Turkish 162,3
+"Seoul Tower, Thai 512, established on ILS, requesting landing clearance, runway 33L.",Thai 512,3
+"Oslo Tower, American 117, on approach, final approach, runway in sight, requesting landing, requesting landing clearance.",American 117,3
+"Sydney Tower, SAS 786, short final, request landing, requesting landing clearance at runway 3R.",SAS 786,3
+"Oslo Tower, Cathay 459, established on ILS, requesting landing clearance, requesting landing clearance at runway 22R.",Cathay 459,3
+"Hong Kong Tower, Korean 512, established on ILS, 6 miles final, requesting to land, runway 16L.",Korean 512,3
+"LAX Tower, Emirates 289, final approach, runway in sight, requesting landing, runway 19C.",Emirates 289,3
+"Moscow Tower, Delta 411, on approach, on approach, ready for landing, requesting landing clearance.",Delta 411,3
+"Frankfurt Tower, Air 141, 4 miles final, ready to land, requesting to land at runway 10C.",Air 141,3
+"Paris Tower, KLM 322, on approach, on final, runway clear for landing, requesting landing clearance.",KLM 322,3
+"Madrid Tower, SAS 275, on approach, on final, runway clear for landing, requesting landing clearance.",SAS 275,3
+"Toronto Tower, EasyJet 145, on approach, ready for landing, runway 9L.",EasyJet 145,3
+"Bangkok Tower, Emirates 658, on approach, short final, request landing, requesting landing clearance.",Emirates 658,3
+"Munich Tower, Thai 401, established on ILS, short final, request landing, runway 33R.",Thai 401,3
+"Moscow Tower, Air 898, on approach, on final, runway clear for landing, requesting landing clearance.",Air 898,3
+"Hong Kong Tower, Swiss 832, final approach, runway in sight, requesting landing, runway 13C.",Swiss 832,3
+"Moscow Tower, Delta 456, on approach, on final, runway clear for landing, requesting landing clearance.",Delta 456,3
+"Oslo Tower, Swiss 155, final approach, request landing, requesting landing clearance at runway 30C.",Swiss 155,3
+"Frankfurt Tower, Thai 990, short final, request landing, runway 20L.",Thai 990,3
+"Seoul Tower, EasyJet 484, on approach, final approach, request landing, requesting landing clearance.",EasyJet 484,3
+"Toronto Tower, EasyJet 622, final approach, runway in sight, requesting landing, requesting landing clearance at runway 7L.",EasyJet 622,3
+"JFK Tower, Delta 993, established on ILS, requesting landing clearance, requesting landing clearance at runway 1C.",Delta 993,3
+"LAX Tower, Swiss 978, on approach, final approach, request landing, requesting landing clearance.",Swiss 978,3
+"Tokyo Tower, KLM 369, 6 miles final, requesting to land, requesting to land at runway 35R.",KLM 369,3
+"Dubai Tower, Swiss 312, final approach, runway in sight, requesting landing, requesting landing clearance at runway 11C.",Swiss 312,3
+"Amsterdam Tower, ANA 605, established on ILS, on final, runway clear for landing, runway 27C.",ANA 605,3
+"Amsterdam Tower, SAS 507, on final, runway clear for landing, requesting to land at runway 15R.",SAS 507,3
+"Doha Tower, American 547, 4 miles final, ready to land, requesting landing clearance at runway 27R.",American 547,3
+"Seoul Tower, Iberia 889, on approach, ready for landing, requesting to land at runway 32L.",Iberia 889,3
+"Amsterdam Tower, Turkish 440, 4 miles final, ready to land, runway 26R.",Turkish 440,3
+"Zurich Tower, EasyJet 967, on approach, established on ILS, requesting landing clearance, requesting landing clearance.",EasyJet 967,3
+"Paris Tower, British 456, on approach, ready for landing, requesting landing clearance at runway 29C.",British 456,3
+"Bangkok Tower, Aeroflot 473, established on ILS, on final, requesting landing clearance, runway 34L.",Aeroflot 473,3
+"Hong Kong Tower, Swiss 618, on final, runway clear for landing, requesting landing clearance at runway 21R.",Swiss 618,3
+"Tokyo Tower, KLM 953, on final, requesting landing clearance, requesting landing clearance at runway 23C.",KLM 953,3
+"Singapore Tower, British 335, established on ILS, established on ILS, requesting landing clearance, runway 18C.",British 335,3
+"Paris Tower, American 566, 4 miles final, ready to land, runway 6R.",American 566,3
+"Oslo Tower, Korean 604, established on ILS, requesting landing clearance, requesting to land at runway 19C.",Korean 604,3
+"Dubai Tower, Lufthansa 107, short final, request landing, requesting landing clearance at runway 24L.",Lufthansa 107,3
+"Moscow Tower, Korean 221, established on ILS, final approach, request landing, runway 7C.",Korean 221,3
+"Doha Tower, Air 407, on final, requesting landing clearance, requesting to land at runway 7L.",Air 407,3

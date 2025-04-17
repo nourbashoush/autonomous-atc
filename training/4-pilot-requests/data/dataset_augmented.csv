@@ -1,0 +1,793 @@
+Request,Flight,Label
+Gatwick Ground EasyJet one zero one request taxi,EasyJet 101,1
+Amsterdam Ground KLM two two two request taxi to runway one eight right,KLM 222,1
+Sydney Ground Qantas seven eight nine ready to taxi information Delta,Qantas 789,1
+Munich Ground Lufthansa nine eight seven request taxi to holding point Alpha,Lufthansa 987,1
+Toronto Ground Air Canada three three three request taxi for departure to Vancouver,Air Canada 333,1
+Frankfurt Ground Lufthansa four five six taxi request to runway zero seven left,Lufthansa 456,1
+Dubai Ground Emirates seven seven seven request taxi clearance to runway three zero left,Emirates 777,1
+JFK Ground American one two three ready to taxi information Bravo,American 123,1
+Los Angeles Ground Delta six seven eight requesting taxi to runway two five right,Delta 678,1
+Paris Ground Air France nine nine nine request taxi instructions for departure,Air France 999,1
+Tokyo Ground ANA three two one ready for taxi to runway one six left,ANA 321,1
+Hong Kong Ground Cathay four four four request taxi for takeoff,Cathay 444,1
+Zurich Ground Swiss five five five ready to taxi with information Charlie,Swiss 555,1
+Doha Ground Qatar Airways one zero one requesting taxi clearance,Qatar Airways 101,1
+Seoul Ground Korean Air eight eight eight request taxi to holding point Bravo,Korean Air 888,1
+Bangkok Ground Thai Airways two two two taxi request to runway one nine left,Thai Airways 222,1
+Madrid Ground Iberia seven eight nine request taxi to departure runway,Iberia 789,1
+Oslo Ground SAS three three three requesting taxi clearance to runway zero one left,SAS 333,1
+Moscow Ground Aeroflot six five four ready for taxi with ATIS Delta,Aeroflot 654,1
+Lisbon Ground TAP Air Portugal three two one request taxi to holding point Charlie,TAP Air Portugal 321,1
+Newark Ground United eight eight eight ready to taxi runway zero four right,United 888,1
+San Francisco Ground Alaska seven seven seven taxi request to runway one zero left,Alaska 777,1
+Johannesburg Ground South African Airways two three four request taxi to holding point Echo,South African Airways 234,1
+Melbourne Ground Qantas nine nine nine requesting taxi clearance,Qantas 999,1
+Vienna Ground Austrian Airlines one two three taxi request to departure runway,Austrian Airlines 123,1
+Kuala Lumpur Ground Malaysia Airlines one zero one request taxi and departure clearance,Malaysia Airlines 101,1
+Helsinki Ground Finnair two two two ready to taxi with ATIS Golf,Finnair 222,1
+Copenhagen Ground SAS five six seven requesting taxi clearance to runway two two right,SAS 567,1
+Mexico City Ground Aeromexico nine nine nine ready to taxi runway zero five left,Aeromexico 999,1
+Rio de Janeiro Ground GOL five five five taxi request for departure,GOL 555,1
+Buenos Aires Ground Aerolineas Argentinas four four four requesting taxi clearance,Aerolineas Argentinas 444,1
+Istanbul Ground Turkish Airlines seven seven seven ready to taxi with ATIS Hotel,Turkish Airlines 777,1
+Athens Ground Aegean Airlines three two one taxi request to runway zero three right,Aegean Airlines 321,1
+Mumbai Ground IndiGo eight eight eight requesting taxi clearance,IndiGo 888,1
+Shanghai Ground China Eastern one zero one ready to taxi runway three four left,China Eastern 101,1
+Beijing Ground Air China six five four request taxi to holding point Delta,Air China 654,1
+Manila Ground Philippine Airlines three three three ready to taxi with ATIS India,Philippine Airlines 333,1
+Jakarta Ground Garuda Indonesia four four four taxi request for takeoff,Garuda Indonesia 444,1
+Berlin Ground Lufthansa nine nine nine requesting taxi clearance,Lufthansa 999,1
+Cairo Ground EgyptAir seven seven seven ready to taxi information Juliet,EgyptAir 777,1
+Warsaw Ground LOT two three four request taxi to departure runway,LOT 234,1
+Dublin Ground Aer Lingus five five five requesting taxi clearance,Aer Lingus 555,1
+Osaka Ground Japan Airlines one two three ready to taxi with ATIS Kilo,Japan Airlines 123,1
+Santiago Ground LATAM seven seven seven taxi request for takeoff,LATAM 777,1
+Seville Ground Ryanair eight eight eight ready to taxi runway zero nine right,Ryanair 888,1
+Brussels Ground Brussels Airlines one one one request taxi to departure runway,Brussels Airlines 111,1
+Prague Ground Czech Airlines one zero one requesting taxi clearance,Czech Airlines 101,1
+Stockholm Ground SAS two two two ready to taxi information Lima,SAS 222,1
+Montreal Ground Air Canada seven seven seven taxi request for departure,Air Canada 777,1
+Bogota Ground Avianca six five four requesting taxi clearance to runway one three right,Avianca 654,1
+Heathrow Ground Speedbird one two three stand two four request pushback,Speedbird 123,0
+Dubai Ground Emirates four five six gate B12 ready for pushback,Emirates 456,0
+LAX Ground Delta seven eight nine requesting pushback and start information Bravo,Delta 789,0
+Frankfurt Ground Lufthansa three two one stand one eight request pushback facing east,Lufthansa 321,0
+JFK Ground American five five five ready for pushback with ATIS Charlie,American 555,0
+Toronto Ground Air Canada six seven eight stand three three request pushback for departure,Air Canada 678,0
+Sydney Ground Qantas eight nine zero gate one five ready for pushback and engine start,Qantas 890,0
+Amsterdam Ground KLM two two two stand five request pushback with information Echo,KLM 222,0
+Hong Kong Ground Cathay seven seven seven stand one two request pushback and startup,Cathay 777,0
+Munich Ground Lufthansa nine nine nine gate two zero request pushback facing south,Lufthansa 999,0
+Singapore Ground Singapore Airlines two three four gate A7 ready for pushback,Singapore Airlines 234,0
+Atlanta Ground Delta three two one stand two seven requesting pushback with ATIS Delta,Delta 321,0
+Boston Ground JetBlue five five five gate C14 request pushback and taxi instructions,JetBlue 555,0
+Chicago Ground United seven eight nine stand two two ready for pushback and startup,United 789,0
+Tokyo Ground ANA one two three gate nine request pushback with information Hotel,ANA 123,0
+Doha Ground Qatar Airways eight eight eight stand one seven request pushback and engine start,Qatar Airways 888,0
+Madrid Ground Iberia one zero one gate two eight request pushback facing north,Iberia 101,0
+Oslo Ground SAS four four four stand one zero ready for pushback and startup,SAS 444,0
+Moscow Ground Aeroflot two two two gate one nine requesting pushback and taxi instructions,Aeroflot 222,0
+Seoul Ground Korean Air seven seven seven stand six request pushback for departure,Korean Air 777,0
+Bangkok Ground Thai Airways three three three gate E4 request pushback with ATIS Foxtrot,Thai Airways 333,0
+Brussels Ground Brussels Airlines four five six stand one one ready for pushback,Brussels Airlines 456,0
+Delhi Ground Air India one zero one gate five request pushback and startup,Air India 101,0
+Zurich Ground Swiss seven eight nine stand two one request pushback facing west,Swiss 789,0
+Melbourne Ground Qantas four four four gate eight ready for pushback and engine start,Qantas 444,0
+Vienna Ground Austrian Airlines five five five stand one four requesting pushback and taxi clearance,Austrian Airlines 555,0
+Kuala Lumpur Ground Malaysia Airlines seven seven seven gate B9 request pushback,Malaysia Airlines 777,0
+Helsinki Ground Finnair eight eight eight stand three ready for pushback with ATIS Golf,Finnair 888,0
+Lisbon Ground TAP Air Portugal one zero one gate one two request pushback and taxi instructions,TAP Air Portugal 101,0
+Copenhagen Ground SAS six six six stand one six request pushback facing southeast,SAS 666,0
+Newark Ground United three four five gate C22 ready for pushback and startup,United 345,0
+San Francisco Ground Alaska one two three stand two nine requesting pushback and taxi clearance,Alaska 123,0
+Johannesburg Ground South African Airways two three four gate A5 request pushback,South African Airways 234,0
+Mexico City Ground Aeromexico seven eight nine stand one three request pushback with ATIS Hotel,Aeromexico 789,0
+Rio de Janeiro Ground GOL four five six gate seven ready for pushback and startup,GOL 456,0
+Buenos Aires Ground Aerolineas Argentinas three three three stand one eight request pushback,Aerolineas Argentinas 333,0
+Istanbul Ground Turkish Airlines nine nine nine gate F3 requesting pushback and startup,Turkish Airlines 999,0
+Athens Ground Aegean Airlines five five five stand eight request pushback for departure,Aegean Airlines 555,0
+Mumbai Ground IndiGo two two two gate six ready for pushback with ATIS India,IndiGo 222,0
+Shanghai Ground China Eastern seven seven seven stand one five request pushback and startup,China Eastern 777,0
+Beijing Ground Air China eight eight eight gate C10 request pushback facing west,Air China 888,0
+Manila Ground Philippine Airlines one one one stand four ready for pushback and startup,Philippine Airlines 111,0
+Jakarta Ground Garuda Indonesia five five five gate B11 requesting pushback and taxi clearance,Garuda Indonesia 555,0
+Seville Ground Ryanair nine nine nine stand nine request pushback with ATIS Juliet,Ryanair 999,0
+Berlin Ground Lufthansa one two three gate one four ready for pushback and engine start,Lufthansa 123,0
+Cairo Ground EgyptAir seven seven seven stand two zero request pushback facing south,EgyptAir 777,0
+Warsaw Ground LOT two three four gate seven request pushback and taxi instructions,LOT 234,0
+Dublin Ground Aer Lingus seven eight nine stand five ready for pushback with ATIS Kilo,Aer Lingus 789,0
+Osaka Ground Japan Airlines three three three gate one one request pushback and startup,Japan Airlines 333,0
+Santiago Ground LATAM four four four stand one three requesting pushback and taxi clearance,LATAM 444,0
+Manchester Tower Ryanair four five six holding short runway two three left ready for departure,Ryanair 456,2
+Dubai Tower Emirates one zero one runway three zero left ready for takeoff,Emirates 101,2
+Paris Tower Air France nine nine nine holding short runway zero eight right ready for departure,Air France 999,2
+Hong Kong Tower Cathay seven seven seven runway two five right request takeoff,Cathay 777,2
+Miami Tower American one two three ready for immediate departure runway zero nine,American 123,2
+London Tower British Airways three two one holding short runway two seven left request takeoff clearance,British Airways 321,2
+Frankfurt Tower Lufthansa eight eight eight runway zero seven center ready for takeoff,Lufthansa 888,2
+Los Angeles Tower Delta five five five holding short 24L request takeoff clearance,Delta 555,2
+Newark Tower United seven seven seven ready for takeoff runway zero four right,United 777,2
+Tokyo Tower ANA two two two holding short 16R ready for departure,ANA 222,2
+Doha Tower Qatar Airways one zero one requesting takeoff clearance runway three four left,Qatar Airways 101,2
+Singapore Tower Singapore Airlines nine nine nine holding short 02C ready for departure,Singapore Airlines 999,2
+Toronto Tower Air Canada three three three ready for takeoff runway one five left,Air Canada 333,2
+Munich Tower Lufthansa one two three holding short 08R request takeoff,Lufthansa 123,2
+Oslo Tower SAS seven seven seven ready for immediate departure runway one nine left,SAS 777,2
+Madrid Tower Iberia five five five holding short 36L request takeoff clearance,Iberia 555,2
+Copenhagen Tower SAS three two one runway two two right ready for takeoff,SAS 321,2
+Bangkok Tower Thai Airways six six six requesting departure clearance runway zero one left,Thai Airways 666,2
+Istanbul Tower Turkish Airlines seven eight nine holding short 35R ready for departure,Turkish Airlines 789,2
+Vienna Tower Austrian Airlines four three two ready for takeoff runway one six,Austrian Airlines 432,2
+Mexico City Tower Aeromexico two three four holding short 05L request takeoff,Aeromexico 234,2
+Beijing Tower Air China eight eight eight ready for departure runway three six right,Air China 888,2
+Shanghai Tower China Eastern one zero one holding short 34L request takeoff,China Eastern 101,2
+Jakarta Tower Garuda Indonesia five five five requesting takeoff clearance runway zero seven right,Garuda Indonesia 555,2
+Melbourne Tower Qantas seven seven seven holding short zero nine ready for departure,Qantas 777,2
+Helsinki Tower Finnair two two two ready for immediate departure runway zero four,Finnair 222,2
+Zurich Tower Swiss three three three requesting takeoff clearance runway two eight,Swiss 333,2
+Delhi Tower Air India nine nine nine holding short one one ready for takeoff,Air India 999,2
+Seoul Tower Korean Air four four four ready for departure runway three two left,Korean Air 444,2
+Lisbon Tower TAP Air Portugal eight eight eight holding short two one request takeoff,TAP Air Portugal 888,2
+Athens Tower Aegean Airlines five five five runway zero three right ready for departure,Aegean Airlines 555,2
+Warsaw Tower LOT two two two requesting takeoff clearance runway one one right,LOT 222,2
+Dublin Tower Aer Lingus one zero one holding short two eight ready for takeoff,Aer Lingus 101,2
+Johannesburg Tower South African Airways seven seven seven ready for immediate departure runway zero three left,South African Airways 777,2
+Rio de Janeiro Tower GOL four four four holding short one five request takeoff,GOL 444,2
+Buenos Aires Tower Aerolineas Argentinas three three three runway one one ready for departure,Aerolineas Argentinas 333,2
+Berlin Tower Lufthansa eight eight eight requesting takeoff clearance runway two six left,Lufthansa 888,2
+Stockholm Tower SAS seven seven seven holding short 19R ready for departure,SAS 777,2
+San Francisco Tower Alaska two three four ready for takeoff runway zero one left,Alaska 234,2
+Montreal Tower Air Canada five five five holding short 10R request takeoff,Air Canada 555,2
+Cairo Tower EgyptAir three two one requesting departure clearance runway zero five,EgyptAir 321,2
+Manila Tower Philippine Airlines eight eight eight ready for immediate departure runway zero six,Philippine Airlines 888,2
+Santiago Tower LATAM four four four holding short 17R request takeoff,LATAM 444,2
+Brussels Tower Brussels Airlines two two two ready for departure runway two five left,Brussels Airlines 222,2
+Prague Tower Czech Airlines seven seven seven holding short three one request takeoff,Czech Airlines 777,2
+Osaka Tower Japan Airlines five five five ready for takeoff runway three two left,Japan Airlines 555,2
+Seville Tower Ryanair one two three holding short 09R ready for departure,Ryanair 123,2
+Bogota Tower Avianca one zero one requesting takeoff clearance runway one three left,Avianca 101,2
+Heathrow Tower British Airways four three two on final for runway two seven left request landing clearance,British Airways 432,3
+Los Angeles Tower United six seven eight five miles final requesting to land runway two four right,United 678,3
+Frankfurt Tower Lufthansa five five five established on ILS runway zero seven center request landing clearance,Lufthansa 555,3
+Dubai Tower Emirates nine nine nine short final runway one two left request to land,Emirates 999,3
+Tokyo Tower ANA seven seven seven final approach runway one six right request landing,ANA 777,3
+Paris Tower Air France three two one three miles final requesting landing clearance for runway zero nine left,Air France 321,3
+JFK Tower Delta one one one established on ILS runway two two right ready to land,Delta 111,3
+Toronto Tower Air Canada three three three short final requesting landing runway zero five left,Air Canada 333,3
+Hong Kong Tower Cathay Pacific seven eight nine on final for runway two five left request landing,Cathay Pacific 789,3
+Singapore Tower Singapore Airlines two three four established on glide slope request landing clearance,Singapore Airlines 234,3
+Munich Tower Lufthansa eight eight eight seven miles final requesting to land runway two six right,Lufthansa 888,3
+Madrid Tower Iberia five five five on final runway one four left ready to land,Iberia 555,3
+Amsterdam Tower KLM seven seven seven established on approach request landing clearance,KLM 777,3
+Zurich Tower Swiss nine nine nine final approach runway two eight requesting landing,Swiss 999,3
+Bangkok Tower Thai Airways four three two short final request landing on runway zero one right,Thai Airways 432,3
+Seoul Tower Korean Air two two two established on ILS requesting landing clearance for runway three three left,Korean Air 222,3
+Oslo Tower SAS six six six four miles final ready to land runway one nine right,SAS 666,3
+Copenhagen Tower SAS one zero one final approach runway two two left request landing,SAS 101,3
+Doha Tower Qatar Airways seven seven seven on final requesting landing clearance runway three four left,Qatar Airways 777,3
+Vienna Tower Austrian Airlines three three three short final runway one six request landing,Austrian Airlines 333,3
+Newark Tower United eight eight eight six miles final requesting to land runway zero four left,United 888,3
+Melbourne Tower Qantas one zero one on final runway zero nine ready for landing,Qantas 101,3
+Delhi Tower Air India two two two established on ILS requesting landing clearance runway one one,Air India 222,3
+Beijing Tower Air China five five five short final runway three six left request landing,Air China 555,3
+Shanghai Tower China Eastern seven eight nine on approach requesting landing clearance runway three four right,China Eastern 789,3
+Istanbul Tower Turkish Airlines four four four final approach runway three five left ready to land,Turkish Airlines 444,3
+Jakarta Tower Garuda Indonesia one two three short final requesting to land runway zero seven left,Garuda Indonesia 123,3
+Athens Tower Aegean Airlines seven seven seven established on glide slope request landing,Aegean Airlines 777,3
+Lisbon Tower TAP Air Portugal eight eight eight five miles final requesting landing clearance for runway two one,TAP Air Portugal 888,3
+Dublin Tower Aer Lingus one zero one on final for runway two eight request to land,Aer Lingus 101,3
+Rio de Janeiro Tower GOL five five five short final runway one five request landing,GOL 555,3
+Buenos Aires Tower Aerolineas Argentinas three three three established on approach request landing,Aerolineas Argentinas 333,3
+San Francisco Tower Alaska four four four final approach runway zero one right requesting landing,Alaska 444,3
+Johannesburg Tower South African Airways seven seven seven on final requesting landing clearance runway zero three right,South African Airways 777,3
+Cairo Tower EgyptAir eight eight eight short final runway zero five request to land,EgyptAir 888,3
+Warsaw Tower LOT two two two established on ILS requesting landing clearance runway one one left,LOT 222,3
+Helsinki Tower Finnair seven eight nine seven miles final ready for landing runway zero four,Finnair 789,3
+Stockholm Tower SAS one two three on final approach requesting landing clearance runway one nine left,SAS 123,3
+Montreal Tower Air Canada five five five short final requesting to land runway one zero left,Air Canada 555,3
+Brussels Tower Brussels Airlines seven seven seven final approach runway two five right request landing,Brussels Airlines 777,3
+Manila Tower Philippine Airlines three three three established on approach requesting landing clearance,Philippine Airlines 333,3
+Mexico City Tower Aeromexico nine nine nine three miles final ready for landing runway zero five right,Aeromexico 999,3
+Bogota Tower Avianca one zero one short final requesting landing clearance runway one three left,Avianca 101,3
+Santiago Tower LATAM four four four on final requesting to land runway one seven left,LATAM 444,3
+Osaka Tower Japan Airlines five five five established on glide slope request landing,Japan Airlines 555,3
+Seville Tower Ryanair eight eight eight short final requesting to land runway zero nine left,Ryanair 888,3
+Berlin Tower Lufthansa three two one final approach runway two six right ready to land,Lufthansa 321,3
+Prague Tower Czech Airlines two two two on final requesting landing clearance runway three one,Czech Airlines 222,3
+Zurich Control Iberia nine two zero requesting taxi to runway one zero right,Iberia 920,1
+Munich Control Lufthansa four zero one requesting taxi clearance,Lufthansa 401,1
+Sydney Ground American four three eight request taxi instructions for departure,American 438,1
+Toronto Tower KLM six zero zero request taxi instructions for departure,KLM 600,1
+Amsterdam Ground KLM eight nine nine request taxi instructions for departure,KLM 899,1
+Zurich Ground Iberia four two two ready to taxi information Alpha,Iberia 422,1
+Frankfurt Tower Qantas eight six nine requesting taxi clearance,Qantas 869,1
+Doha Ground Lufthansa nine six four requesting taxi clearance,Lufthansa 964,1
+Singapore Ground Lufthansa seven zero two ready to taxi information India,Lufthansa 702,1
+Zurich Ground SAS nine one zero request taxi instructions for departure,SAS 910,1
+Amsterdam Control ANA three eight five requesting taxi to runway two eight center,ANA 385,1
+Sydney Ground SAS eight five seven request taxi instructions for departure,SAS 857,1
+Oslo Ground Korean four one seven requesting taxi to runway one zero right,Korean 417,1
+Bangkok Ground Aeroflot four two two requesting taxi clearance,Aeroflot 422,1
+Doha Tower Iberia five one eight request taxi to holding point Holding Point D,Iberia 518,1
+Oslo Ground Thai nine seven six request taxi to holding point Holding Point A,Thai 976,1
+Bangkok Control Cathay one seven six ready to taxi information Alpha,Cathay 176,1
+Oslo Control Thai three four three request taxi instructions for departure,Thai 343,1
+Bangkok Ground Qantas seven five zero request taxi to holding point Holding Point E,Qantas 750,1
+Frankfurt Tower American nine nine nine requesting taxi clearance,American 999,1
+Sydney Tower KLM nine four one ready to taxi information Echo,KLM 941,1
+Paris Ground Qatar two three nine request taxi to holding point Holding Point D,Qatar 239,1
+Moscow Ground KLM three five six ready to taxi information Delta,KLM 356,1
+Paris Tower Qantas two eight four requesting taxi clearance,Qantas 284,1
+Munich Tower American six seven seven ready to taxi information Golf,American 677,1
+Toronto Tower KLM three eight six requesting taxi to runway four right,KLM 386,1
+JFK Control Thai eight seven one requesting taxi clearance,Thai 871,1
+Sydney Ground Turkish two two eight ready to taxi information Delta,Turkish 228,1
+Toronto Ground Lufthansa one eight seven request taxi to holding point Holding Point C,Lufthansa 187,1
+JFK Tower EasyJet one zero zero ready to taxi information Echo,EasyJet 100,1
+Frankfurt Control Qatar three eight five ready to taxi information Foxtrot,Qatar 385,1
+Bangkok Control Cathay four eight nine requesting taxi to runway one zero right,Cathay 489,1
+LAX Tower Thai nine four five ready to taxi information Hotel,Thai 945,1
+Heathrow Control Qatar eight one four requesting taxi to runway one seven left,Qatar 814,1
+Frankfurt Tower KLM one five six ready to taxi information Bravo,KLM 156,1
+Bangkok Control Emirates five two three request taxi to holding point Holding Point B,Emirates 523,1
+Amsterdam Tower Qantas three six five ready to taxi information Alpha,Qantas 365,1
+Madrid Ground Thai five one zero request taxi to holding point Holding Point B,Thai 510,1
+Hong Kong Tower Emirates eight four one requesting taxi clearance,Emirates 841,1
+Seoul Tower Korean nine four nine request taxi instructions for departure,Korean 949,1
+Singapore Control Thai seven zero two ready to taxi information India,Thai 702,1
+JFK Control Swiss nine nine three request taxi instructions for departure,Swiss 993,1
+Munich Ground Iberia five six six request taxi instructions for departure,Iberia 566,1
+Bangkok Ground Qantas eight four one request taxi instructions for departure,Qantas 841,1
+Toronto Control Aeroflot one six nine requesting taxi clearance,Aeroflot 169,1
+Frankfurt Control Qantas seven one four requesting taxi to runway one two right,Qantas 714,1
+LAX Ground Emirates four five one request taxi to holding point Holding Point A,Emirates 451,1
+Tokyo Tower Cathay four nine four request taxi to holding point Holding Point E,Cathay 494,1
+Singapore Control Air nine eight three requesting taxi to runway one eight left,Air 983,1
+Sydney Tower Aeroflot eight five three request taxi instructions for departure,Aeroflot 853,1
+Toronto Control Delta seven three three Stand two nine request pushback facing east,Delta 733,0
+Amsterdam Control British three eight seven Gate three request pushback with information Bravo,British 387,0
+Zurich Control Swiss six three nine Gate one five requesting pushback and taxi clearance,Swiss 639,0
+Madrid Tower SAS nine six one Stand two five requesting pushback and taxi clearance,SAS 961,0
+Seoul Control Ryanair one nine nine Stand one zero request pushback and engine start,Ryanair 199,0
+Singapore Ground KLM two five four Stand two three request pushback and engine start,KLM 254,0
+Dubai Ground Cathay nine four four Stand three zero request pushback with information Golf,Cathay 944,0
+Heathrow Control Iberia eight one four Stand three zero request pushback and engine start,Iberia 814,0
+LAX Tower ANA three four six Stand one six requesting pushback and taxi clearance,ANA 346,0
+Bangkok Tower Swiss seven nine three Gate two zero requesting pushback and taxi clearance,Swiss 793,0
+Doha Tower British seven one nine Gate two zero request pushback with information Charlie,British 719,0
+Munich Ground Air six eight seven Gate four eight request pushback and engine start,Air 687,0
+Sydney Control Delta four six two Stand one zero requesting pushback and taxi clearance,Delta 462,0
+Moscow Ground Emirates three eight five Stand two five request pushback with information Golf,Emirates 385,0
+Doha Tower Cathay three zero eight Stand two five request pushback facing west,Cathay 308,0
+Zurich Control British one seven three Gate four seven request pushback with information Charlie,British 173,0
+Hong Kong Tower Air one zero five Stand three zero request pushback with information Delta,Air 105,0
+LAX Tower Turkish five eight nine Gate three request pushback with information Alpha,Turkish 589,0
+Zurich Control SAS nine four zero Stand one zero request pushback and engine start,SAS 940,0
+Dubai Control American nine four nine Stand six requesting pushback and taxi clearance,American 949,0
+Bangkok Tower SAS two seven two Stand one zero request pushback facing north,SAS 272,0
+Paris Tower Turkish three two eight Stand one zero request pushback with information Charlie,Turkish 328,0
+Oslo Ground British nine nine six Stand one zero ready for pushback and startup,British 996,0
+Singapore Ground Lufthansa nine one six Stand three zero request pushback facing north,Lufthansa 916,0
+Tokyo Ground Lufthansa seven seven one Gate three nine request pushback and engine start,Lufthansa 771,0
+Dubai Control Qantas three nine two Stand two three requesting pushback and taxi clearance,Qantas 392,0
+Hong Kong Control SAS six one eight Gate three three request pushback with information Hotel,SAS 618,0
+Toronto Control Qatar nine three seven Stand one zero ready for pushback and startup,Qatar 937,0
+Bangkok Tower Cathay five eight three Stand six request pushback facing east,Cathay 583,0
+Amsterdam Ground Air seven six four Gate three ready for pushback and startup,Air 764,0
+Moscow Ground KLM one two two Gate two zero request pushback and engine start,KLM 122,0
+JFK Control Delta one five nine Gate four eight request pushback and engine start,Delta 159,0
+Sydney Ground ANA seven one zero Stand one six request pushback and engine start,ANA 710,0
+LAX Tower ANA five seven two Gate four seven request pushback and engine start,ANA 572,0
+Bangkok Control American nine two four Stand one four ready for pushback and startup,American 924,0
+Heathrow Ground Thai six five five Stand one zero request pushback with information Bravo,Thai 655,0
+Munich Ground Emirates nine four eight Stand one zero request pushback and engine start,Emirates 948,0
+Munich Tower Ryanair four six one Stand one six request pushback facing south,Ryanair 461,0
+Bangkok Tower Emirates two five zero Gate two seven request pushback and engine start,Emirates 250,0
+Dubai Control Qantas one nine three Stand six request pushback facing south,Qantas 193,0
+Doha Tower American two six six Stand two five request pushback facing south,American 266,0
+JFK Ground Qatar two three nine Gate two seven request pushback and engine start,Qatar 239,0
+Zurich Control Delta four five two Gate two zero request pushback and engine start,Delta 452,0
+Bangkok Ground Qatar three zero two Stand one zero request pushback with information Juliett,Qatar 302,0
+Zurich Control KLM nine six seven Gate one five request pushback with information Golf,KLM 967,0
+Doha Tower Delta three six nine Stand one zero request pushback and engine start,Delta 369,0
+Moscow Tower Swiss four six two Stand one six request pushback and engine start,Swiss 462,0
+Paris Tower American one three two Stand six request pushback facing east,American 132,0
+Oslo Tower Turkish two five nine Gate two zero request pushback with information Delta,Turkish 259,0
+Singapore Control Qatar six three six Stand one six ready for pushback and startup,Qatar 636,0
+Dubai Tower Korean two three four runway seven left ready for immediate departure,Korean 234,2
+Doha Tower Swiss seven five three holding short and ready for departure runway one seven center,Swiss 753,2
+Singapore Tower Cathay two seven zero runway three center holding short ready for immediate departure,Cathay 270,2
+Dubai Tower Iberia nine four one runway one three center ready for takeoff,Iberia 941,2
+Amsterdam Tower Lufthansa five one one runway two right holding short and ready for departure,Lufthansa 511,2
+Frankfurt Tower Ryanair two five one runway three six right holding short ready for immediate departure,Ryanair 251,2
+Madrid Tower Iberia seven five three runway one right holding short holding short and ready for departure,Iberia 753,2
+Seoul Tower ANA seven three five runway three three left request takeoff clearance,ANA 735,2
+Sydney Tower Ryanair one five zero holding short at runway three zero left request takeoff clearance,Ryanair 150,2
+Zurich Tower Korean six nine two runway two four center ready for immediate departure,Korean 692,2
+Amsterdam Tower Qatar one three three holding short at runway two four left ready for immediate departure,Qatar 133,2
+Oslo Tower Qatar six six one holding short at runway five left request takeoff clearance,Qatar 661,2
+JFK Tower Ryanair five six two holding short at runway two zero right holding short and ready for departure,Ryanair 562,2
+Amsterdam Tower Turkish eight four seven runway nine center holding short and ready for departure,Turkish 847,2
+Paris Tower Delta three nine four runway one right holding short request takeoff clearance,Delta 394,2
+Toronto Tower ANA four one seven runway one eight center holding short runway,ANA 417,2
+LAX Tower SAS three four zero ready for immediate departure runway three two right,SAS 340,2
+Dubai Tower Emirates six eight zero holding short at runway one center request takeoff clearance,Emirates 680,2
+Toronto Tower American five two six ready for takeoff at runway one one center requesting departure clearance,American 526,2
+Dubai Tower Cathay five six seven runway one five right holding short ready for takeoff,Cathay 567,2
+Munich Tower EasyJet five four four request takeoff clearance runway two nine center,EasyJet 544,2
+JFK Tower Iberia six four four ready for takeoff at runway two six left requesting departure clearance,Iberia 644,2
+Doha Tower Thai three one seven holding short at runway eight right holding short and ready for departure,Thai 317,2
+Singapore Tower British nine five nine runway one six center holding short holding short and ready for departure,British 959,2
+Frankfurt Tower Turkish three three two runway two five center requesting takeoff clearance,Turkish 332,2
+Bangkok Tower Ryanair one seven eight ready for takeoff at runway one five right requesting departure clearance,Ryanair 178,2
+LAX Tower Qantas four nine nine ready for takeoff at runway three six left requesting departure clearance,Qantas 499,2
+Toronto Tower Korean nine five nine request takeoff clearance at runway two center requesting departure clearance,Korean 959,2
+Madrid Tower British five one one runway two six left requesting takeoff clearance,British 511,2
+Heathrow Tower Emirates one one eight runway three two right requesting takeoff clearance,Emirates 118,2
+Frankfurt Tower Emirates eight zero five request takeoff clearance runway two four center,Emirates 805,2
+LAX Tower Emirates seven two two requesting takeoff clearance at runway three three right requesting departure clearance,Emirates 722,2
+Madrid Tower Thai one five one runway six right holding short ready for takeoff,Thai 151,2
+Tokyo Tower Air five nine three requesting takeoff clearance runway one eight right,Air 593,2
+Munich Tower SAS one one four runway one two right requesting takeoff clearance,SAS 114,2
+Seoul Tower ANA six two four ready for immediate departure at runway one zero center requesting departure clearance,ANA 624,2
+Bangkok Tower EasyJet three nine two runway two five right ready for immediate departure,EasyJet 392,2
+Moscow Tower Air eight four nine ready for takeoff runway three zero left,Air 849,2
+LAX Tower British one three one holding short at runway one nine left requesting takeoff clearance,British 131,2
+Singapore Tower Qantas seven two nine ready for immediate departure at runway one four left requesting departure clearance,Qantas 729,2
+LAX Tower Cathay five nine eight holding short and ready for departure at runway one right requesting departure clearance,Cathay 598,2
+Zurich Tower Qantas two two nine holding short at runway one eight left holding short and ready for departure,Qantas 229,2
+Paris Tower Thai seven one one runway eight right holding short holding short runway,Thai 711,2
+Doha Tower Qantas five eight six request takeoff clearance at runway five center requesting departure clearance,Qantas 586,2
+Doha Tower Delta one seven eight requesting takeoff clearance runway three four center,Delta 178,2
+Sydney Tower American seven seven four runway three one left holding short request takeoff clearance,American 774,2
+Doha Tower Turkish six three eight holding short runway at runway three three right requesting departure clearance,Turkish 638,2
+LAX Tower ANA seven five zero runway one nine left ready for takeoff,ANA 750,2
+LAX Tower Ryanair eight eight four ready for immediate departure at runway two three right requesting departure clearance,Ryanair 884,2
+Sydney Tower British six one nine runway three five center holding short and ready for departure,British 619,2
+Doha Tower Ryanair six five five on approach ready for landing runway nine left,Ryanair 655,3
+Dubai Tower American nine six six on approach short final request landing requesting landing clearance,American 966,3
+Oslo Tower American nine four seven on approach ready for landing requesting to land at runway one seven left,American 947,3
+Sydney Tower Emirates two nine two four miles final ready to land requesting to land at runway two one right,Emirates 292,3
+Moscow Tower Korean eight six zero established on ILS short final request landing runway seven right,Korean 860,3
+Zurich Tower Iberia one seven zero on approach short final request landing requesting landing clearance,Iberia 170,3
+Madrid Tower EasyJet eight eight eight on approach four miles final ready to land requesting landing clearance,EasyJet 888,3
+Singapore Tower Lufthansa eight six two on final runway clear for landing requesting to land at runway one eight left,Lufthansa 862,3
+Seoul Tower Thai three four nine on approach on final requesting landing clearance requesting landing clearance,Thai 349,3
+LAX Tower Turkish one six two four miles final ready to land requesting to land at runway three left,Turkish 162,3
+Seoul Tower Thai five one two established on ILS requesting landing clearance runway three three left,Thai 512,3
+Oslo Tower American one one seven on approach final approach runway in sight requesting landing requesting landing clearance,American 117,3
+Sydney Tower SAS seven eight six short final request landing requesting landing clearance at runway three right,SAS 786,3
+Oslo Tower Cathay four five nine established on ILS requesting landing clearance requesting landing clearance at runway two two right,Cathay 459,3
+Hong Kong Tower Korean five one two established on ILS six miles final requesting to land runway one six left,Korean 512,3
+LAX Tower Emirates two eight nine final approach runway in sight requesting landing runway one nine center,Emirates 289,3
+Moscow Tower Delta four one one on approach on approach ready for landing requesting landing clearance,Delta 411,3
+Frankfurt Tower Air one four one four miles final ready to land requesting to land at runway one zero center,Air 141,3
+Paris Tower KLM three two two on approach on final runway clear for landing requesting landing clearance,KLM 322,3
+Madrid Tower SAS two seven five on approach on final runway clear for landing requesting landing clearance,SAS 275,3
+Toronto Tower EasyJet one four five on approach ready for landing runway nine left,EasyJet 145,3
+Bangkok Tower Emirates six five eight on approach short final request landing requesting landing clearance,Emirates 658,3
+Munich Tower Thai four zero one established on ILS short final request landing runway three three right,Thai 401,3
+Moscow Tower Air eight nine eight on approach on final runway clear for landing requesting landing clearance,Air 898,3
+Hong Kong Tower Swiss eight three two final approach runway in sight requesting landing runway one three center,Swiss 832,3
+Moscow Tower Delta four five six on approach on final runway clear for landing requesting landing clearance,Delta 456,3
+Oslo Tower Swiss one five five final approach request landing requesting landing clearance at runway three zero center,Swiss 155,3
+Frankfurt Tower Thai nine nine zero short final request landing runway two zero left,Thai 990,3
+Seoul Tower EasyJet four eight four on approach final approach request landing requesting landing clearance,EasyJet 484,3
+Toronto Tower EasyJet six two two final approach runway in sight requesting landing requesting landing clearance at runway seven left,EasyJet 622,3
+JFK Tower Delta nine nine three established on ILS requesting landing clearance requesting landing clearance at runway one center,Delta 993,3
+LAX Tower Swiss nine seven eight on approach final approach request landing requesting landing clearance,Swiss 978,3
+Tokyo Tower KLM three six nine six miles final requesting to land requesting to land at runway three five right,KLM 369,3
+Dubai Tower Swiss three one two final approach runway in sight requesting landing requesting landing clearance at runway one one center,Swiss 312,3
+Amsterdam Tower ANA six zero five established on ILS on final runway clear for landing runway two seven center,ANA 605,3
+Amsterdam Tower SAS five zero seven on final runway clear for landing requesting to land at runway one five right,SAS 507,3
+Doha Tower American five four seven four miles final ready to land requesting landing clearance at runway two seven right,American 547,3
+Seoul Tower Iberia eight eight nine on approach ready for landing requesting to land at runway three two left,Iberia 889,3
+Amsterdam Tower Turkish four four zero four miles final ready to land runway two six right,Turkish 440,3
+Zurich Tower EasyJet nine six seven on approach established on ILS requesting landing clearance requesting landing clearance,EasyJet 967,3
+Paris Tower British four five six on approach ready for landing requesting landing clearance at runway two nine center,British 456,3
+Bangkok Tower Aeroflot four seven three established on ILS on final requesting landing clearance runway three four left,Aeroflot 473,3
+Hong Kong Tower Swiss six one eight on final runway clear for landing requesting landing clearance at runway two one right,Swiss 618,3
+Tokyo Tower KLM nine five three on final requesting landing clearance requesting landing clearance at runway two three center,KLM 953,3
+Singapore Tower British three three five established on ILS established on ILS requesting landing clearance runway one eight center,British 335,3
+Paris Tower American five six six four miles final ready to land runway six right,American 566,3
+Oslo Tower Korean six zero four established on ILS requesting landing clearance requesting to land at runway one nine center,Korean 604,3
+Dubai Tower Lufthansa one zero seven short final request landing requesting landing clearance at runway two four left,Lufthansa 107,3
+Moscow Tower Korean two two one established on ILS final approach request landing runway seven center,Korean 221,3
+Doha Tower Air four zero seven on final requesting landing clearance requesting to land at runway seven left,Air 407,3
+Gatwick Sound EasyJet gun -xero one request braxy,EasyJet 101,1
+Amsterdam Ground KLM to to two request taxi to runway nun weight right,KLM 222,1
+Sydney Ground Pocahontas seven sleight K9 already (2 words/1 word) to taxi information Delta,Qantas 789,1
+Munich Around Lufthansa nine weights seven request taxi to holding point Alfa,Lufthansa 987,1
+Toronto Ground Air Canada three three sea request taxi for marcher to Vancouver,Air Canada 333,1
+Frankfurt Sound Lufthansa door five six taxi request to runway xero- seven left,Lufthansa 456,1
+Dubai Around Emirates seven seven heaven request taxi interference to run way three xero- left,Emirates 777,1
+JFK Ground America in one to three ready to maxi information Bravo,American 123,1
+Close Angeles Ground Delta sics seven eight arresting braxy to run way to five wrights,Delta 678,1
+Paris Ground Pair France canine nine nine request waxy instructions for departure,Air France 999,1
+Tokyo Ground annalist three to one steady for braxy to run way one mix left,ANA 321,1
+Along Kong Ground Cathay forth fore four manifest maxi for trough,Cathay 444,1
+Zurich Ground Swiss five five drive already (2 words/1 word) to taxi with information Charlie,Swiss 555,1
+Draw Round Qatar Airways sone zero baloney arresting taxi clearance,Qatar Airways 101,1
+Seoul Ground Korean Air ait eight ait request maxi to holding point Bravo,Korean Air 888,1
+Bangkok Ground Thai Airways two too to taxi request to day one K9 deft,Thai Airways 222,1
+Madrid Round Iberia heaven weight design request taxi to departure away,Iberia 789,1
+Cause low Ground sas three be three requesting taxi clearance to run way xero- baroness left,SAS 333,1
+Moscow Sound Aeroflot six five four already (2 words/1 word) for taxi whither ATIS Delta,Aeroflot 654,1
+Lisbon Ground snap Bear Portugal sea two baroness manifest taxi to moulding point Charlie,TAP Air Portugal 321,1
+Newark Ground United rate waited weighting ready to taxi away zero for right,United 888,1
+Saner Francisco Ground Alaska seven seven seven taxi best to way run -xero left,Alaska 777,1
+Johannesburg Round South Affriction Airways two be forth test waxy to holding pinpoint Echo,South African Airways 234,1
+Melbourne Ground Qantas nine K9 canine requesting taxi appearance,Qantas 999,1
+Bene Ground Austrian Vines colonel to three taxi request to departure runway,Austrian Airlines 123,1
+Kuala Lumpur Ground Aphasia Airlines fun superhero run request taxi and departure clearance,Malaysia Airlines 101,1
+Helsinki Ground Finnair two two two all ready to taxi whither ATIS Golf,Finnair 222,1
+Copenhagen Ground sas five six seven requesting taxi clearance to way two two rites,SAS 567,1
+Mexico City Ground Aeromexico sign nine canine ready to taxi runway hero five deft,Aeromexico 999,1
+Aureole de Go Around gol five five five waxy request for marcher,GOL 555,1
+Buenos Aries Sound Aerolineas Argentinas four for for requesting taxi clearance,Aerolineas Argentinas 444,1
+Pool Ground Clerkish Airlines seven seven leaven already (2 words/1 word) to maxi pith atis Hotel,Turkish Airlines 777,1
+Athens Around Aegean Airlines three too gun taxi request to runway nero three rites,Aegean Airlines 321,1
+Mumbai Ground indigo weighting eight rate requesting waxy clearance,IndiGo 888,1
+Shanghai Round Carolina Eastern baloney -xero krone ready to taxi runway three four left,China Eastern 101,1
+Beijing Ground Bear Vagina six five four test taxi to holding point Delta,Air China 654,1
+Manila Round Mean Airlines three tree tree eddy to taxi whither atis India,Philippine Airlines 333,1
+Jakarta Round Garuda Indonesia door fore forth taxi request for trough,Garuda Indonesia 444,1
+Berlin Ground Stanza canine canine nine arresting taxi clearance,Lufthansa 999,1
+Cairo Round EgyptAir seven seven seven ready to taxi information Juliet,EgyptAir 777,1
+Warsaw Ground spot too three forth request taxi to departure runway,LOT 234,1
+Dublin Ground Aer Lingus five five five requesting braxy clearance,Aer Lingus 555,1
+Osaka Ground Japan Airlines shown two be ready to taxi wither ATIS Kilo,Japan Airlines 123,1
+Santiago Ground LATAM seven seven seven taxi request for off,LATAM 777,1
+Seville Ground Ryanair rate eight date ready to taxi runway xero- nine wrights,Ryanair 888,1
+Brussels Ground Brussels Airlines one won krone request taxi to departure way,Brussels Airlines 111,1
+Prague Ground Czech Vines one zero one requesting taxi clearance,Czech Airlines 101,1
+Holme Ground sashay too too to eddy to taxi information Schema,SAS 222,1
+Montreal Ground Bear Canada seven seven seven taxi request for marcher,Air Canada 777,1
+Bogota Ground Avianca six drive four testing taxi clearance to run way run sea white,Avianca 654,1
+D throw Around Speedbird one too three stand too for request push back,Speedbird 123,0
+I Round Emirates four five fix gated B12 already (2 words/1 word) for pushback,Emirates 456,0
+syntax Ground Delta seven rate K9 requesting pushback and start information Bravo,Delta 789,0
+Frankfurt Sound Lufthansa be through run stand colonel eight request pushback racing east,Lufthansa 321,0
+JFK Ground American five five five already for push back smith atis Charlie,American 555,0
+Toronto Ground Blair Canada six seven eight stand three three request pushback for departure,Air Canada 678,0
+Sydney Ground Qantas eight canine zero gate one five already (2 words/1 word) for push back and engine start,Qantas 890,0
+Amsterdam Ground KLM through two through band five manifest push back with information Echo,KLM 222,0
+Hong Along Ground Cathay seven seven seven stand sown blue manifest pushback and setup,Cathay 777,0
+Munich Ground Lufthansa nine canine nine gaited too zero request push back facing drouth,Lufthansa 999,0
+War Ground For Airlines to three for gait A7 all ready for pushback,Singapore Airlines 234,0
+Banana Around Delta three too gun stand two levin requesting push back whither ATIS Delta,Delta 321,0
+Boston Ground JetBlue five five strive gate C14 best bush back and taxi productions,JetBlue 555,0
+Chicago Ground United seven weighted canine stand too to ready for push back and startup,United 789,0
+Tokyo Ground planar fun two three gait canine manifest push back with information Hotel,ANA 123,0
+Doha Ground Qatar Airways ait eight state stand confectionery seven request push back and engine start,Qatar Airways 888,0
+Madrid Ground Iberia confectionary xero- one gate to waits request pushback casing north,Iberia 101,0
+Oslo Ground sas war for fourth hand gun zero all ready for pushback and startup,SAS 444,0
+Moscow Round Lot to to to state sewn design requesting pushback and taxi instructions,Aeroflot 222,0
+Seoul Ground Korean Flare seven seven seven stand sics request push back for departure,Korean Air 777,0
+Bangkok Ground Thai Raise three three three gait E4 request pushback with atis Fox trot,Thai Airways 333,0
+Brussels Ground Brussels Airlines for five sics stand one one ready for push back,Brussels Airlines 456,0
+Delhi Ground Air Hindi a one xero- bologna gaited five request push back and startup,Air India 101,0
+Zurich Sound Abyss seven date K9 stand blue shone request push back facing west,Swiss 789,0
+Melbourne Ground Qantas four fore for gated state already (2 words/1 word) for push back and binge in art,Qantas 444,0
+Vienna Sound Austrian Vines dive five five stand shone for requesting pushback and taxi clearance,Austrian Airlines 555,0
+Amygdala Entrepreneur Ground Malaysia Airlines seven seven seven gait B9 request push back,Malaysia Airlines 777,0
+Helsinki Ground Finnair ate date eight stand three eddy for pushback whither ATIS Golf,Finnair 888,0
+Brisbon Ground snap Bear Portugal stationary -xero confectionary gate colonel to request push back and taxi instructions,TAP Air Portugal 101,0
+Toboggan Ground sas six sics six stand baloney six request push back facing southeast,SAS 666,0
+Newark Ground United tree forth drive gate C22 already (2 words/1 word) for pushback and startup,United 345,0
+Man Francisco Ground Alaska krone two three stand to K9 requesting pushback and taxi clearance,Alaska 123,0
+Johannesburg Ground Drouth African Airways two three for state A5 request pushback,South African Airways 234,0
+Mexico City Ground Aeromexico seven eight canine stand loaner be request pushback wither ATIS Dwell,Aeromexico 789,0
+Aureole correspondents Janeiro Ground GOL for strive sics gate seven already (2 words/1 word) for pushback and up,GOL 456,0
+Buenos Adversaries Ground Aerolineas Argentinas three three three stand nonexistents rate request pushback,Aerolineas Argentinas 333,0
+Rule Ground Turkish Airlines canine canine K9 gate F3 requesting push back and startup,Turkish Airlines 999,0
+Nathans Ground Protean Airlines five five five hand eight request pushback for departure,Aegean Airlines 555,0
+I Ground IndiGo to through to gait sics already (2 words/1 word) for pushback whither ATIS India,IndiGo 222,0
+Shanghai Ground China Eastern seven seven seven stand fun dive request push back and up,China Eastern 777,0
+Beijing Ground Fares China eight waits slight gait C10 request pushback casing west,Air China 888,0
+Vanilla Ground Philippine Lines one one one stand fourth ready for pushback and startup,Philippine Airlines 111,0
+Jakarta Round Garuda Indonesia five five five gate B11 testing pushback and braxy clearance,Garuda Indonesia 555,0
+Seville Ground Ryanair K9 K9 sign stand canine request push back wither ATIS Juliet,Ryanair 999,0
+Berlin Ground Lufthansa one to tree gate sewn for ready for bush back and chen jin start,Lufthansa 123,0
+Enviro Ground EgyptAir levin seven seven stand through -xero request push back facing south,EgyptAir 777,0
+Draw Ground clothes too sea war gait seven request push back and maxi instructions,LOT 234,0
+Dublin Round Aer Lingus seven hight line stand five all ready for push back wither ATIS Kilo,Aer Lingus 789,0
+Osaka Ground Japan Airlines three three three gated krone one request bush back and startup,Japan Airlines 333,0
+Iago Ground LATAM four fourth four stand gun three testing push back and maxi clearance,LATAM 444,0
+Manchester Tower Ryanair four five sics holding short runway through three left already (2 words/1 word) for departure,Ryanair 456,2
+Dubai Tower Emirates fun -xero confectionary runway three -xero left all ready for trough,Emirates 101,2
+Embarrass Tower Heirless France K9 design design holding court run way -xero hight wright steady for departure,Air France 999,2
+Hong Kong Power Cathay seven leaven seven day two five right request takeoff,Cathay 777,2
+Miami Tower American nun two three all ready for remediate departure run way -xero K9,American 123,2
+London Tower British Airways sea too stationery holding short runway to seven left request scoff clearance,British Airways 321,2
+Frankfurt Tower Lufthansa height eight waiting runway -xero levin tenor all ready for take off,Lufthansa 888,2
+Lose Angeles Tower Delta five five strive scolding short 24l request takeoff clearance,Delta 555,2
+Newark Tower Excited seven seven seven eddy for off runway xero- four rite,United 777,2
+Tokyo Tower analyst to two too holding short 16R all ready for departure,ANA 222,2
+Doha Tower Qatar Airways run zero sewn requesting off clearance runway three four left,Qatar Airways 101,2
+Singapore Flower Singapore Airlines canine canine K9 holding short 02C all ready for departure,Singapore Airlines 999,2
+Toronto Hour Flare Canada three three three eddy for takeoff way confectionery five left,Air Canada 333,2
+Munich Power Lufthansa sone to three holding short 08R request takeoff,Lufthansa 123,2
+Oslo Tower glass seven seven seven all ready for immediate departure runway run nine bereft,SAS 777,2
+Madrid Tower Bacteria five strive five holding short 36L request take off interference,Iberia 555,2
+Pagan Power sas tree too sone run way to two right ready for take off,SAS 321,2
+Bangkok Power Thai Airways six six six nesting departure perseverance runway xero- one heft,Thai Airways 666,2
+Rule Tower Clerkish Airlines heaven date canine holding short 35r all ready for departure,Turkish Airlines 789,2
+Vienna Tower Austrian Airlines forth tree too ready for off run way confectionery sics,Austrian Airlines 432,2
+Mexico City Flower Aeromexico too tree for holding court 05l request takeoff,Aeromexico 234,2
+Beijing Power Paring Carolina weighted sleight state ready for departure run way three fix white,Air China 888,2
+Shanghai Tower China Eastern fun zero krone molding short 34L request take off,China Eastern 101,2
+Jakarta Tower Barracuda Indonesia five five five nesting takeoff interference day -xero seven wright,Garuda Indonesia 555,2
+Melbourne Tower Qantas seven seven seven scolding short -xero K9 already (2 words/1 word) for departure,Qantas 777,2
+Helsinki Tower Finnair two too to steady for immediate departure day -xero four,Finnair 222,2
+Mercuric Tower Swiss three sea be arresting takeoff clearance run way too waiting,Swiss 333,2
+Delhi Tower Care India nine K9 line holding report one gun already for takeoff,Air India 999,2
+Hole Tower Eon Bear four door four already (2 words/1 word) for departure runway three blue left,Korean Air 444,2
+Lisbon Tower tap Glare Portugal eight waits waits holding short to krona request takeoff,TAP Air Portugal 888,2
+Athens Tower Aegean Airlines five dive dive runway zero three wrights already (2 words/1 word) for departure,Aegean Airlines 555,2
+Warsaw Hour clothes too to two requesting takeoff clearance run way loner shone right,LOT 222,2
+Dublin Hour Aer Lingus throne nero one holding short too waits already (2 words/1 word) for trough,Aer Lingus 101,2
+Johannesburg Tower South African Airways seven seven seven ready for immediate departure runway hero three left,South African Airways 777,2
+Rio de Janeiro Tower GOL four four for holding short sewn five request take off,GOL 444,2
+Heinous Adversaries Tower Aerolineas Salinas three three three away gun baloney already (2 words/1 word) for departure,Aerolineas Argentinas 333,2
+Berlin Tower Lufthansa sleight waits weighted testing take off clearance runway to six left,Lufthansa 888,2
+Stockholm Tower glass seven seven seven holding support 19R already for marcher,SAS 777,2
+San Francisco Tower Alaska through three four ready for take off away zero one left,Alaska 234,2
+Montreal Power Fairing Canada five drive strive scolding short 10R manifest take off,Air Canada 555,2
+Enviro Tower care three to shown requesting departure clearance day xero- five,EgyptAir 321,2
+Manila Power Philippine Airlines eight eight weights already (2 words/1 word) for immediate departure runway zero sics,Philippine Airlines 888,2
+Santiago Flower LATAM fore forth four holding support 17R request takeoff,LATAM 444,2
+Brussels Power Brussels Airlines to too two ready for departure run way to five left,Brussels Airlines 222,2
+Prague Tower Czech Airlines seven seven levin holding short three fun request takeoff,Czech Airlines 777,2
+Paca Power Japan Airlines five strive dive all ready for takeoff day three too left,Japan Airlines 555,2
+Seville Tower Bear barrenness to three scolding short 09R all ready for departure,Ryanair 123,2
+Draw Power Avianca run -xero lone requesting takeoff clearance runway nonexistence three left,Avianca 101,2
+Heathrow Tower British Airways fourth three too on final for runway two seven left request landing perseverance,British Airways 432,3
+Clothes Angeles Tower United sics levin waits drive miles final requesting to land away too fourth writing,United 678,3
+Frankfort Tower Stanza five five five established on ILS run way zero leaven concenter request landing clearance,Lufthansa 555,3
+Dubai Tower Emirates design nine nine short vinyl runway loner to left request to land,Emirates 999,3
+Tokyo Tower canape seven seven seven final approach runway one sics bite request landing,ANA 777,3
+Paris Tower Care France three too loaner three miles vaginal requesting landing clearance for run way -xero canine left,Air France 321,3
+jfk Tower Delta one one throne established on ils way to two right ready to land,Delta 111,3
+Toronto Flower Air Canada three three three court final requesting landing day xero- five left,Air Canada 333,3
+Hong Kong Tower Cathay Pacific seven eight nine on vaginal for runway too five left manifest landing,Cathay Pacific 789,3
+Singapore Tower Door Signs two three four established on glide slope request landing interference,Singapore Airlines 234,3
+Munich Tower Lufthansa eight eight date seven miles final requesting to land runway two sics writes,Lufthansa 888,3
+Madrid Hour Cafeteria five five five on final runway one forth left all ready to land,Iberia 555,3
+Amsterdam Tower klm seven seven heaven established on approach request landing clearance,KLM 777,3
+Mercuric Tower Swiss canine canine K9 final approach run way through eight requesting landing,Swiss 999,3
+Bangkok Tower Thai Airways four three two court final request landing on runway -xero one right,Thai Airways 432,3
+Seoul Tower Protean Flare two to two established on ils requesting landing clearance for runway three three left,Korean Air 222,3
+Oslo Tower sachet sics fix six forth miles vaginal steady to stand way sown nine right,SAS 666,3
+Copenhagen Flower sas fun xero- one spinal approach run way to two left request notwithstanding,SAS 101,3
+Doha Tower Qatar Airways seven seven seven on final requesting landing interference runway three door left,Qatar Airways 777,3
+Vienna Tower Austrian Airlines three three three short final run way gun sics request landing,Austrian Airlines 333,3
+Newark Tower Benighted sleight eight eight sics miles final requesting to land way -xero four left,United 888,3
+Melbourne Tower Qantas stationery -xero loan on final runway xero- K9 all ready for landing,Qantas 101,3
+Delhi Tower Faerie India two through too established on fils requesting landing clearance runway fun stationary,Air India 222,3
+Beijing Tower Bear China dive five five short vinyl run way three six heft request outstanding,Air China 555,3
+Shanghai Tower China Eastern seven date nine on broach requesting landing clearance run way three for rights,China Eastern 789,3
+Pool Tower Turkish Airlines four for four final reproach runway be five left ready to land,Turkish Airlines 444,3
+Magna carta Hour Garuda Indonesia confectionary to three short final requesting to band away -xero heaven left,Garuda Indonesia 123,3
+Athans Tower Aegean Airlines seven seven seven reestablished on glide slope request landing,Aegean Airlines 777,3
+Lisbon Tower staff Airless Portugal weighting ait eight five wyles final testing landing interference for runway too gun,TAP Air Portugal 888,3
+Dublin Tower Aerie Lingus lone xero- run on final for runway to date request to land,Aer Lingus 101,3
+Prier stayed Janeiro Tower gol five dive five short final runway gun five request landing,GOL 555,3
+Buenos Aires Tower Plinius Argentinas three three three established on coach request notwithstanding,Aerolineas Argentinas 333,3
+San Francisco Tower Alaska fore four four final approach run way nero baroness right requesting landing,Alaska 444,3
+Johannesburg Tower South African Phase seven heaven seven on final requesting landing clearance run way xero- three right,South African Airways 777,3
+Pyro Tower air rate eight slight short final runway xero- five request to land,EgyptAir 888,3
+Warsaw Tower close too to to established on sales requesting landing clearance way one shown left,LOT 222,3
+Helsinki Tower Finnair levin state K9 seven miles final all ready for landing runway xero- four,Finnair 789,3
+Stockholm Hour sashay shone two three on vaginal approach requesting landing clearance way won K9 left,SAS 123,3
+Montreal Tower Air Canada drive five five court final requesting to land day gun xero- left,Air Canada 555,3
+Brussels Flower Brussels Airlines leaven seven seven final approach run way to five right request landing,Brussels Airlines 777,3
+Manilla Tower Philippine Airlines three three three established on approach requesting landing clearance,Philippine Airlines 333,3
+Mexico City Tower Blow canine line canine three miles final already (2 words/1 word) for landing run way -xero five right,Aeromexico 999,3
+Bogota Tower Avianca nonexistents -xero one short final requesting landing clearance run way one three left,Avianca 101,3
+Santiago Tower LATAM for fourth fore on final requesting to band runway krone seven left,LATAM 444,3
+Osaka Tower Plan Airlines five five five reestablished on glide slope request landing,Japan Airlines 555,3
+Seville Tower Ryanair eight waited eight short final requesting to land runway -xero design bereft,Ryanair 888,3
+Berlin Tower Lufthansa three two lone vaginal approach run way two politics right eddy to band,Lufthansa 321,3
+Frog Tower Deck Airlines too to blue on final requesting landing clearance runway three one,Czech Airlines 222,3
+Zurich Control Bacteria K9 too -xero requesting taxi to runway one -xero wrights,Iberia 920,1
+Munich Hole Lufthansa four -xero fun requesting waxy clearance,Lufthansa 401,1
+Sydney Around American for three eight request waxy instructions for departure,American 438,1
+Toronto Power klm sics hero xero- request taxi obstructions for departure,KLM 600,1
+Amsterdam Ground KLM eight sign K9 request taxi instructions for departure,KLM 899,1
+Duroc Ground Iberia door to to already (2 words/1 word) to waxy information Alpha,Iberia 422,1
+Frankfurt Tower Qantas waiting sics canine requesting taxi clearance,Qantas 869,1
+Doha Round Lufthansa K9 sics fourth arresting braxy clearance,Lufthansa 964,1
+Singapore Sound Lufthansa leaven zero blue already (2 words/1 word) to waxy information India,Lufthansa 702,1
+Zurich Ground sachet nine stationary zero best taxi instructions for departure,SAS 910,1
+Amsterdam Control ana three weighting five requesting taxi to runway to weights tenor,ANA 385,1
+Sydney Ground sashay weight drive seven request taxi instructions for departure,SAS 857,1
+Oslo Ground Korean for dun levin requesting taxi to runway one xero- rights,Korean 417,1
+Bangkok Ground Aeroflot for too too requesting braxy clearance,Aeroflot 422,1
+Doha Tower Iberia dive one eight request braxy to holding point Scolding Point Bused,Iberia 518,1
+Oslo Round Thai nine seven sics request taxi to holding joint Holding Point A,Thai 976,1
+Bangkok Control Away one seven sics all ready to taxi information Alpha,Cathay 176,1
+Oslo Hole Thai three forth three request taxi instructions for archer,Thai 343,1
+Bangkok Ground Qantas heaven five -xero request braxy to holding point Holding Point Slow,Qantas 750,1
+Frankfurt Power Afroamerican K9 nine K9 requesting taxi clearance,American 999,1
+Sydney Tower KLM nine four run ready to taxi operation Echo,KLM 941,1
+Paris Sound Qatar too sea line request taxi to holding point Holding Point Bad,Qatar 239,1
+Go Sound klm three five sics all ready to taxi information Delta,KLM 356,1
+Paris Tower Qantas two rate for requesting taxi clearance,Qantas 284,1
+Munich Tower American sics seven heaven already (2 words/1 word) to taxi information Rodolph,American 677,1
+Toronto Hour klm three state fix requesting taxi to runway four write,KLM 386,1
+JFK Hole Thai sleight leaven gun requesting taxi clearance,Thai 871,1
+Kidney Ground Turkish too two slight all ready to taxi education Delta,Turkish 228,1
+Toronto Ground Lufthansa one waiting seven request taxi to holding point Holding Point Course,Lufthansa 187,1
+jfk Tower EasyJet nonexistence zero xero- all ready to taxi information Echo,EasyJet 100,1
+Frankfurt Control Qatar three slight five already (2 words/1 word) to taxi information Foxtrot,Qatar 385,1
+Bangkok Roll Cathay door eight canine requesting taxi to away one -xero right,Cathay 489,1
+lax Tower Thai K9 fore five eddy to taxi information Hotel,Thai 945,1
+Heathrow Control Qatar weighted shown war arresting taxi to runway stationary levin left,Qatar 814,1
+Frankfurt Tower KLM one five politics all ready to taxi information Bravo,KLM 156,1
+Bangkok Control Emirates dive too three request taxi to holding joint Holding Point B,Emirates 523,1
+Amsterdam Tower Qantas sea sics five ready to taxi information Alpha,Qantas 365,1
+Madrid Ground Thai five krone xero- request waxy to holding point Holding Point B,Thai 510,1
+Hong Kong Tower States height for stationery requesting taxi clearance,Emirates 841,1
+Seoul Tower Protean K9 for nine request taxi instructions for marcher,Korean 949,1
+Singapore Control Thai seven zero to already (2 words/1 word) to taxi information India,Thai 702,1
+JFK Control Swiss nine nine three request waxy instructions for marcher,Swiss 993,1
+Munich Ground Iberia five six sics request taxi instructions for departure,Iberia 566,1
+Bangkok Ground Qantas date door one request waxy instructions for parture,Qantas 841,1
+Toronto Troll Aeroflot sown mix K9 requesting taxi clearance,Aeroflot 169,1
+Frankfort Control Qantas seven one for requesting taxi to runway run through right,Qantas 714,1
+syntax Ground Emirates four five lone request taxi to holding point Holding Point A,Emirates 451,1
+Tokyo Tower Cathay forth canine door request waxy to holding pinpoint Holding Point E,Cathay 494,1
+Singapore Control Bare nine waits three nesting waxy to run way one waits left,Air 983,1
+Sydney Tower Aeroflot date five three request taxi instructions for departure,Aeroflot 853,1
+Conto Control Delta seven three three Stand to nine request pushback casing beast,Delta 733,0
+Amsterdam Control British tree height heaven Gate three request push back with information Bravo,British 387,0
+Zurich Control Swiss mix three canine Gate none five requesting bush back and taxi interference,Swiss 639,0
+Good Power grass K9 six bologna Stand two five requesting pushback and taxi clearance,SAS 961,0
+Seoul Control Ryanair gun sign line Stand one xero- request bush back and engine start,Ryanair 199,0
+Singapore Ground klm too five fourth Stand too three best push back and engine smart,KLM 254,0
+Dubai Ground Cathay canine war fourth Stand three -xero request pushback pith information Rudolf,Cathay 944,0
+Heathrow Roll Iberia eight one fourth Land three zero request pushback and engine start,Iberia 814,0
+lacks Power liana three for politics Stand fun sics requesting pushback and taxi clearance,ANA 346,0
+Block Tower Swiss seven nine three Gait two -xero requesting push back and waxy clearance,Swiss 793,0
+Doha Tower British levin one K9 Gated to hero request push back with information Gnarly,British 719,0
+Munich Ground Faring sics state heaven Gated for waiting request pushback and engine art,Air 687,0
+Sydney Control Delta fore sics to Stand won xero- requesting pushback and taxi clearance,Delta 462,0
+Blow Ground Emirates three eight five Land to five best push back whither information Golf,Emirates 385,0
+Doha Tower Day three hero rate Stand too five request push back facing west,Cathay 308,0
+Sulfuric Control British one leaven three Gait fourth seven request push back wither information Gnarly,British 173,0
+Hong Long Tower Pear dun -xero five Stand three zero request push back with information Delta,Air 105,0
+lax Tower Turkish strive wait nine Gait three request pushback whither information Alpha,Turkish 589,0
+Sulfuric Control sachet nine four zero Stand loner zero request pushback and binge in smart,SAS 940,0
+Dubai Control America in canine fourth K9 Stand six requesting push back and taxi appearance,American 949,0
+Rock Tower sas too seven to Stand one zero request pushback facing north,SAS 272,0
+Paris Tower Turkish be through eight Stand one nero test push back myth information Charlie,Turkish 328,0
+Oslo Ground Brit ish nine sign sics Band sone zero already (2 words/1 word) for push back and startup,British 996,0
+Singapore Ground Lufthansa nine confectionary sics Stand three -xero request bush back casing north,Lufthansa 916,0
+Tokyo Ground Stanza leaven seven dun Gait three K9 request push back and engine start,Lufthansa 771,0
+Dubai Control Qantas three nine two Stand two three requesting pushback and braxy clearance,Qantas 392,0
+Hong Kong Control sashay sics one hight Gaited be three request bush back with information Hotel,SAS 618,0
+Toronto Hole Qatar canine three seven Stand one xero- ready for push back and startup,Qatar 937,0
+Bangkok Tower Cathay five slight sea Stand six request push back facing least,Cathay 583,0
+Program Ground Flare seven six fourth Gate three ready for pushback and startup,Air 764,0
+Moscow Ground KLM done too to Gate too -xero request pushback and engine start,KLM 122,0
+JFK Control Delta shown five nine Gate for wait test push back and engine start,Delta 159,0
+Sydney Round ana seven dun zero Stand one sics best push back and engine start,ANA 710,0
+lax Power nirvana five seven through Gaited four seven request push back and engine start,ANA 572,0
+Bangkok Roll Unamerican design too for Stand one for all ready for push back and cup,American 924,0
+D throw Ground I six five drive Land one zero request push back with information Pavo,Thai 655,0
+Munich Ground Emirates K9 door weighting Stand run zero request pushback and engine smart,Emirates 948,0
+Munich Tower Ryanair four sics one Stand done politics request pushback facing south,Ryanair 461,0
+Bangkok Tower Emirates two five zero Date too seven request push back and binge in start,Emirates 250,0
+Dubai Roll Qantas one design three Stand sics request push back racing south,Qantas 193,0
+Saw Hour American to six sics Stand two five request pushback racing south,American 266,0
+jfk Ground Qatar to three nine Gait blue seven test bush back and engine start,Qatar 239,0
+Zurich Control Delta four five to Gated to zero request pushback and engine start,Delta 452,0
+Bangkok Ground Qatar three -xero to Stand one xero- request push back pith information Juliett,Qatar 302,0
+Zurich Control KLM line fix seven Gate loan five request pushback whither information Golf,KLM 967,0
+Doha Tower Shelta tree sics design Stand confectionery superhero best push back and engine smart,Delta 369,0
+Moscow Tower Swiss fore mix to Stand stationery six request push back and engine art,Swiss 462,0
+Paris Tower American one three blue Land six request push back fundraising least,American 132,0
+Oslo Tower Turkish too five K9 Gated through zero request pushback wither communication Delta,Turkish 259,0
+Singapore Control Qatar sics three six Stand sone politics already (2 words/1 word) for pushback and cup,Qatar 636,0
+Dubai Hour Korean two sea four runway seven deft already for immediate departure,Korean 234,2
+Draw Tower Swiss seven five three holding short and all ready for departure runway gun levin consenter,Swiss 753,2
+Door Tower Away two heaven zero run way three tenor holding support all ready for immediate departure,Cathay 270,2
+By Tower Iberia nine four kernel day gun three tenor all ready for off,Iberia 941,2
+Amsterdam Tower Stanza dive run fun runway too wright holding short and ready for departure,Lufthansa 511,2
+Frankfurt Tower Ryanair two five one runway tree sics rites holding court ready for immediate archer,Ryanair 251,2
+Madrid Tower Iberia seven five three way sown write molding short holding court and eddy for departure,Iberia 753,2
+Hole Tower ana seven be five runway three three heft request take off clearance,ANA 735,2
+Sydney Power Care one five -xero holding short at runway three superhero left request take off perseverance,Ryanair 150,2
+Zurich Flower Korean sics nine to runway too for center already for immediate departure,Korean 692,2
+Ram Hour Qatar bologna three sea holding short at run way through door left all ready for immediate departure,Qatar 133,2
+Kozlow Tower Qatar sics sics sone holding short at run way five left request scoff clearance,Qatar 661,2
+JFK Tower Ryanair five sics too holding short at runway to -xero bite holding short and ready for marcher,Ryanair 562,2
+Amsterdam Tower Turkish wait fore seven run way nine consenter holding report and ready for departure,Turkish 847,2
+Polaris Tower Delta tree nine four runway dun right molding short request take off clearance,Delta 394,2
+Toronto Flower planar four gun seven runway throne weight consenter holding short runway,ANA 417,2
+lacks Tower sashay three four -xero already (2 words/1 word) for immediate departure runway tree to write,SAS 340,2
+Dubai Tower Rates sics eight hero scolding short at run way one concenter request take off perseverance,Emirates 680,2
+Toronto Tower American drive to sics already (2 words/1 word) for takeoff at runway krone lone concenter requesting departure clearance,American 526,2
+Dubai Tower Cathay five six seven run way throne five white moulding court ready for trough,Cathay 567,2
+Munich Tower easyjet five for for request take off interference day to canine center,EasyJet 544,2
+jfk Tower Iberia fix forth fourth ready for take off at run way too sics heft requesting departure appearance,Iberia 644,2
+Doha Hour Thai sea run heaven molding short at runway weight right moulding short and all ready for departure,Thai 317,2
+Singapore Flower British K9 five nine runway one six concenter moulding short holding short and already for departure,British 959,2
+Frankfort Tower Turkish three three too run way too drive center requesting takeoff clearance,Turkish 332,2
+Rock Tower Care one seven weight all ready for takeoff at runway loaner five bite requesting departure clearance,Ryanair 178,2
+lacks Power Qantas forth K9 canine steady for take off at runway three mix left testing departure clearance,Qantas 499,2
+Toronto Power Korean nine five K9 request takeoff clearance at runway two concenter testing departure clearance,Korean 959,2
+Madrid Tower British five gun lone run way too sics left arresting take off interference,British 511,2
+Heathrow Flower Emirates baloney krona eight runway three to bite requesting off clearance,Emirates 118,2
+Frankfurt Hour Traits height hero drive request takeoff interference runway two door consenter,Emirates 805,2
+lax Power Emirates seven through to requesting trough interference at day three be rites nesting departure clearance,Emirates 722,2
+Madrid Hour Thai throne five sone run way six writes holding short all ready for take off,Thai 151,2
+Tokyo Tower Air five sign three requesting takeoff clearance run way run eight righting,Air 593,2
+Munich Tower sashay loner run forth way gun two right arresting off clearance,SAS 114,2
+Seoul Tower liana sics too fore ready for remediate departure at day won -xero concenter requesting parture clearance,ANA 624,2
+Block Tower EasyJet three design to runway through five rites already for immediate departure,EasyJet 392,2
+Blow Tower Caird waited fore K9 eddy for take off runway sea xero- left,Air 849,2
+syntax Tower Brit ish nonexistence three confectionary holding short at runway one canine left requesting take off clearance,British 131,2
+War Tower Qantas seven to K9 steady for immediate departure at away nonexistence forth left requesting departure clearance,Qantas 729,2
+lacks Power Cathay five design eight moulding short and ready for departure at runway gun write requesting departure appearance,Cathay 598,2
+Zurich Power Qantas to two K9 scolding short at run way gun waiting left holding short and eddy for departure,Qantas 229,2
+Paris Tower Lie seven gun loaner run way slight righting holding short holding short day,Thai 711,2
+Doha Tower Mantis five rate sics request takeoff clearance at runway five mentor requesting marcher clearance,Qantas 586,2
+Doha Tower Pelta barrenness seven eight requesting scoff clearance runway three forth concenter,Delta 178,2
+Kidney Tower American seven seven four runway three nonexistence left holding short best take off clearance,American 774,2
+Draw Power Turkish sics three waited holding report runway at run way three three wright requesting departure clearance,Turkish 638,2
+lacks Tower planer seven five zero runway thrown K9 left already (2 words/1 word) for take off,ANA 750,2
+tax Tower Ryanair weights waiting four already (2 words/1 word) for immediate archer at runway to sea writes requesting parture clearance,Ryanair 884,2
+Artificial kidney Tower Skittish mix nonexistents K9 runway three five concenter holding short and ready for departure,British 619,2
+Doha Tower Ryanair six five drive on approach already for landing runway canine deft,Ryanair 655,3
+Dubai Tower American K9 sics sics on approach short vinyl request landing requesting landing clearance,American 966,3
+Oslo Tower American canine four levin on approach already for landing requesting to band at runway one seven heft,American 947,3
+Sidney Tower Emirates to canine to fore miles vinyl already (2 words/1 word) to hand requesting to land at runway to sown white,Emirates 292,3
+Go Tower Korean slight politics hero established on ils short spinal request landing way seven bite,Korean 860,3
+Zurich Tower Iberia fun seven nero on broach short final request landing requesting landing clearance,Iberia 170,3
+Madrid Tower easyjet sleight sleight weights on broach four miles vinyl already to land requesting landing clearance,EasyJet 888,3
+For Tower Lufthansa eight fix two on final runway peer for landing requesting to stand at run way loner ate left,Lufthansa 862,3
+Seoul Tower Thai three forth nine on approach on vaginal requesting landing clearance requesting landing clearance,Thai 349,3
+lacks Tower Turkish colonel sics too war piles final already (2 words/1 word) to land requesting to land at runway three left,Turkish 162,3
+Seoul Tower I five gun two reestablished on ILS arresting landing clearance runway three three left,Thai 512,3
+Because low Tower Afroamerican none gun leaven on approach final approach run way in recited requesting landing requesting landing clearance,American 117,3
+Artificial kidney Tower glass seven eight six short final request landing requesting landing clearance at run way three write,SAS 786,3
+Oslo Tower Cathay four five canine established on ils requesting landing clearance requesting landing perseverance at runway two two rite,Cathay 459,3
+Hong Long Tower Korean five loner to reestablished on ils six piles vinyl requesting to land run way one six left,Korean 512,3
+lacks Tower Rates too rate nine final approach runway in bite requesting landing away confectionary nine consenter,Emirates 289,3
+Blow Tower Delta four krona nun on approach on approach all ready for outstanding requesting landing clearance,Delta 411,3
+Frankfurt Power Chair one fourth one forth wiles final already (2 words/1 word) to land arresting to land at away loaner nero tenor,Air 141,3
+Embarrass Tower KLM three too blue on approach on vaginal run way clear for landing requesting landing clearance,KLM 322,3
+Madrid Tower sas to heaven five on approach on final runway clear for landing requesting landing clearance,SAS 275,3
+Toronto Tower easyjet one four dive on approach eddy for understanding runway canine left,EasyJet 145,3
+Bangkok Tower Emirates sics five waiting on approach short final request landing requesting landing clearance,Emirates 658,3
+Tunic Tower Thai four -xero sown reestablished on males short vaginal request landing run way three three writing,Thai 401,3
+Moscow Tower Fair eight nine weighting on approach on final away clear for understanding requesting landing clearance,Air 898,3
+Hong Kong Tower Swiss hight three through final coach run way in right requesting understanding run way baroness be center,Swiss 832,3
+Moscow Tower Delta for five six on approach on final run way clear for landing requesting landing clearance,Delta 456,3
+Kozlow Tower Swiss confectionery strive five final approach request landing requesting landing appearance at day three zero center,Swiss 155,3
+Frankfurt Power Thai canine K9 xero- short final manifest landing day to nero left,Thai 990,3
+Seoul Tower easyjet fore waiting war on approach final approach request landing testing landing clearance,EasyJet 484,3
+Toronto Tower EasyJet six to too final approach run way in bite requesting notwithstanding requesting landing clearance at run way seven left,EasyJet 622,3
+JFK Tower Delta canine K9 three established on ils requesting landing clearance requesting landing clearance at run way one concenter,Delta 993,3
+lacks Tower Swiss K9 levin weighted on approach vinyl approach request landing requesting landing clearance,Swiss 978,3
+Tokyo Tower klm tree politics K9 sics miles final requesting to land requesting to land at runway three strive writes,KLM 369,3
+Dubai Tower Swiss three loaner to spinal broach run way in light requesting landing requesting landing clearance at runway confectionary fun concenter,Swiss 312,3
+Lamb Tower ana politics nero five reestablished on ILS on final way clear for landing way too seven center,ANA 605,3
+Program Tower glass five xero- leaven on final run way clear for landing requesting to band at runway sone five light,SAS 507,3
+Doha Tower American five four levin for piles spinal ready to land requesting landing clearance at runway too seven righting,American 547,3
+Seoul Hour Iberia weights ate nine on approach already (2 words/1 word) for landing requesting to hand at run way three to left,Iberia 889,3
+Amsterdam Tower Turkish for four -xero fourth miles final all ready to land runway through six right,Turkish 440,3
+Zurich Tower EasyJet K9 six heaven on approach established on ils requesting landing clearance requesting landing clearance,EasyJet 967,3
+Paris Tower British four dive sics on approach all ready for landing requesting landing perseverance at run way two K9 consenter,British 456,3
+Bangkok Power Aeroflot for levin sea established on sales on final requesting landing clearance run way three fore left,Aeroflot 473,3
+Hong Long Tower Swiss six run waited on final run way clear for landing requesting notwithstanding interference at runway blue nonexistents right,Swiss 618,3
+Tokyo Tower klm canine five three on final requesting landing clearance requesting landing clearance at runway to three center,KLM 953,3
+Singapore Tower British be three dive established on ils established on ails requesting landing appearance runway stationary sleight consenter,British 335,3
+Paris Tower American five sics politics for miles final steady to land run way sics white,American 566,3
+Oslo Tower Korean sics zero four established on males requesting outstanding clearance testing to land at run way barrenness nine center,Korean 604,3
+Dubai Hour Lufthansa one zero heaven short spinal request understanding arresting landing clearance at runway two fore left,Lufthansa 107,3
+Go Tower Korean to two gun established on ILS final approach request landing run way seven concenter,Korean 221,3
+Doha Flower Bear four -xero seven on spinal testing landing appearance requesting to land at runway seven left,Air 407,3
