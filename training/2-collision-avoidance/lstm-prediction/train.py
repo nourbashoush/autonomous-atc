@@ -123,7 +123,7 @@ if __name__ == "__main__":
     model = PlaneTrajectoryLSTM(input_size, hidden_size, num_layers, output_size)
 
     print("Loading Data...")
-    train_loader, val_loader = load_data("/content/drive/MyDrive/data/plane_states.csv")
+    train_loader, val_loader = load_data("data/plane_states.csv")
     print("Data Loaded!")
 
     print("Training Model...")

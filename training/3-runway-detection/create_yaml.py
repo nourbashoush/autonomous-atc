@@ -1,7 +1,8 @@
+import os
 import yaml
 
 data_config = {
-    "path": "dataset",
+    "path": os.path.abspath("dataset"),  # full path, so YOLO finds it wherever it runs from
     "train": "images/train",
     "val": "images/val",
     "nc": 1,
