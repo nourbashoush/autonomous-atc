@@ -171,3 +171,16 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+# macOS
+.DS_Store
+
+# Large files the training scripts regenerate, and model weights published as release
+# downloads instead (see the README in each training folder)
+training/2-collision-avoidance/lstm-prediction/data/plane_states.csv
+training/3-runway-detection/dataset/
+training/3-runway-detection/radar_images/
+training/3-runway-detection/labels/
+training/3-runway-detection/labels.csv
+training/4-pilot-requests/bert_request_classifier/
+training/4-pilot-requests/bert_flight_ranking/
+checkpoint-*/
