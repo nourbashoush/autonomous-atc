@@ -1,22 +1,46 @@
-# LSTM Conflict Prediction
+# LSTM prediction
 
-## Overview
+Training for the LSTM that predicts where aircraft will be, from Chapter 5.3 of the thesis. This is
+the approach the simulation uses. [`../README.md`](../README.md) explains how its predictions decide
+who gives way.
 
-This folder contains the training code for the LSTM-based model developed to predict future aircraft positions and support collision avoidance and conflict management, as described in Chapter 5.3 of the thesis.
-
-The LSTM model was trained on synthetic data collected directly from the simulation and was used to forecast future x, y positions and heading angles of aircraft across a defined time horizon. These predictions were later used to inform real-time conflict resolution decisions.
+The LSTM learns from data recorded in the simulation. It predicts each aircraft's x and y position
+and heading over the next few seconds.
 
 > [!NOTE]
-> While this is not the final iteration of the model that was integrated into the simulation, this version is a fully working training pipeline that successfully produced the original LSTM model used during development.
+> The model in the simulation is a later version than this code produces. This pipeline still works
+> end to end, and it's the one that trained the original LSTM during development.
 
-## Structure
+## Running it
 
--   `data_collection.py`: Script for generating the training dataset from the simulation environment. This exports a CSV file containing aircraft movement sequences.
--   `train.py`: Contains the full training loop and LSTM model definition.
--   `data/`: Folder containing the collected dataset (CSV format) used for training.
+There are two steps, both from this folder.
 
-## Disclaimer
+**1. Collect the data.** This runs 65 simulations with the trained taxiing model and records how the
+aircraft move:
+```bash
+python main.py
+```
+The data goes to `data/plane_states.csv`. The original dataset was about 2.1 GB, so it's not in the
+repository.
 
--   This version does not reflect the most recent changes made during simulation integration.
--   The code was not updated after successful model training, so structure and naming may differ slightly from what appears in later chapters of the thesis.
--   Despite this, the training pipeline is functional and can be used to inspect the architecture and methodology behind the conflict prediction model.
+> [!WARNING]
+> A new collection replaces any existing `data/plane_states.csv`.
+
+**2. Train the LSTM:**
+```bash
+python train.py
+```
+This trains for up to 50 epochs and stops early once the validation loss stops improving. The best
+model is saved to `models/best_model.pth`.
+
+## Files
+
+- `main.py` – Runs the simulations that make the dataset.
+- `data_collection.py` – The functions `main.py` uses to record each aircraft's movement and write it to the CSV.
+- `train.py` – The LSTM model and its training loop.
+- `data/` – The airport layout, and the dataset once you've collected it.
+- `models/` – The trained models.
+
+> [!NOTE]
+> I didn't update this code after the model trained successfully. Some names and structure differ
+> from later chapters of the thesis and from the simulation.

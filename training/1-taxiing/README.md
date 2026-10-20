@@ -1,25 +1,60 @@
-# Aircraft Agent Training Code
+# Taxiing
 
-## Overview
+Training for the model that steers each aircraft along the taxiways, from Chapter 4 of the thesis.
 
-This folder contains the original training scripts used to develop the aircraft movement policy via deep reinforcement learning, as outlined in Chapter 4 of the thesis.
+## How it works
 
-The model was trained to enable individual aircraft agents to navigate taxi routes autonomously, simulating realistic speed, turning behaviour, and adherence to centrelines.
+The model is a multi-headed deep Q-network (MHDQN). It's one small network with two outputs. One
+head steers (left, right or straight), and the other sets thrust (up, down or hold).
 
-> [!NOTE]
-> These files represent an early-stage development version. They are not maintained, and their structure may differ from the final integrated simulation environment.
+![The multi-headed network, with separate steering and thrust outputs](../../docs/images/taxiing-multi-headed-network.png)
 
-## How to Inspect the Code
-- The final Multi-Headed Deep Q-Network (MHDQN) architecture is implemented in `taxi_model.py`.
-- The training loop and environment interaction are handled within the `agent.py` file.
-- The training process can be initiated by running the main() function inside `agent.py`.
+It gets seven inputs:
+
+- The distance to the taxiway edge to the left, front and right, measured by ray tracing
+- The angle and distance to the next waypoint
+- Its speed and thrust setting
+
+Every episode uses a new random route. The agent gets rewards for turning towards the next waypoint,
+for reaching each waypoint, and for staying at 15–20 knots. If it stops or strays too far from the
+route, the episode ends with a penalty.
+
+![Two randomly generated routes](../../docs/images/taxiing-route-generation.png)
+
+*Random training routes. On the left, any angle between legs is allowed. On the right, turns are
+limited to 90°, like real taxiways.*
+
+## Result
+
+Developing the approach took over 200,000 training episodes. The final model then trained for 4,000
+episodes, which took about four hours. It learned to:
+
+- Stay within 3 pixels (about 7 metres) of the taxiway centreline
+- Taxi at an average of 16 knots, inside the 15–20 knot target
+- Reach its waypoints without swerving or oscillating
+
+![Training curve of the final model](../../docs/images/taxiing-training-curve.png)
+
+*The final model's training curve. The score rises fast, then levels off.*
+
+## Running it
+
+From this folder:
 ```bash
 python agent.py
 ```
+Every time the model gets a new best score, it's saved to `model/model.pth`. Progress shows as a
+graph, or in the terminal if you turn rendering on in `configuration.py`.
 
-### Disclaimer
-- This codebase is not guaranteed to run out-of-the-box.
-- Due to its experimental and resource-intensive nature, training is slow and may require GPU acceleration for reasonable runtimes.
-- This code was used solely to produce the trained models included in the final simulation. It has not been updated or tested beyond that purpose.
+## Files
 
-_For understanding the model’s behaviour and training process, it is best to review the code structure and comments rather than attempt to re-run the scripts. All implementation details and training methodology are fully documented in the thesis._
+- `taxi_model.py` – The final MHDQN architecture.
+- `agent.py` – The training loop.
+- `game.py` – The training environment: one aircraft on a random route, and the rewards.
+- `model/final_used_model.pth` – The trained model that the simulation uses.
+- `model/first_MHDQN_attempt.pth` – The first MHDQN, before the final changes.
+- [`early-experiments/`](early-experiments) – The attempts before this one, with their training graphs.
+
+> [!NOTE]
+> This is the code as it was during development. I didn't update it after training, so it's
+> structured differently from the final simulation.

@@ -1,66 +1,84 @@
-# Natural Language Processing (NLP) for Pilot Speech
+# Pilot requests
 
-## Overview
+Training and testing for the language models that understand pilot requests, from Chapter 7 of the
+thesis. There are two tasks:
 
-This folder contains all training and evaluation code related to the NLP models described in Chapter 7 of the thesis. The two key tasks include:
+1. **Request type:** what the pilot wants (pushback, taxi, take-off or landing).
+2. **Which flight:** which aircraft sent the request, out of a list of candidates.
 
-1. Request Classification – Identifying pilot intent (e.g. taxi, takeoff, pushback, landing)
-2. Flight Entity Extraction – Determining which aircraft sent the request from a list of candidates
+## How it works
 
-These components work together to simulate pilot-controller communication in an automated air traffic control system.
+The dataset started as 400 pilot requests, written to cover lots of ways of saying each one. Speech
+to text makes mistakes, so I copied every request and made the copy noisy. Words became homophones
+or rhymes, terms like "takeoff" got split in two, and numbers were written as words. That gave 800
+requests, half clean and half noisy. Each one has five candidate flights: the right one and four
+others, with at least one from the same airline.
 
-## Directory Structure
+- **Request type:** BERT, fine-tuned to sort a request into one of the four types.
+- **Which flight:** DistilBERT, trained to rank the candidate flights by how well each one matches
+  the request. I tried fuzzy text matching first, as a baseline.
 
--   `process_dataset.ipynb` – Preprocessing and augmentation pipeline for the NLP dataset
--   `train_classification.ipynb` – Fine-tuning of the BERT-based intent classification model
--   `fuzzy_extraction.ipynb` – Baseline Levenshtein distance approach for entity matching
--   `train_extraction.ipynb` – Final DistilBERT-based ranking model for flight entity recognition
--   `request_analysis.py` – Python script that runs the full practical experiment (as in Section 7.6 of the thesis)
--   `data/` – Contains the full NLP dataset including request texts and labels
--   `utils/` – Helper scripts such as homophone and rhyme generation
+## Result
 
-## Classifier Model Files
+On the test set:
 
-Due to Git storage constraints, the `bert_request_classifier` folder (required to run `request_analysis.py`) was compressed and split into five parts:
+| Task | Model | Result |
+| --- | --- | --- |
+| Request type | BERT | 100% accuracy |
+| Which flight | Fuzzy matching (baseline) | 31% top-1, 74% top-3 |
+| Which flight | DistilBERT | 96% top-1, 100% top-3 |
 
-    bert_classifier_part_aa
-    bert_classifier_part_ab
-    bert_classifier_part_ac
-    bert_classifier_part_ad
-    bert_classifier_part_ae
+![Confusion matrix of the request type model](../../docs/images/pilot-requests-bert-confusion.png)
 
-## Setup Instructions
+*Request types on the test set (0 pushback, 1 taxi, 2 take-off, 3 landing). Every one is correct.*
 
-1. **Reconstruct the Classifier Folder**
-   
-   To extract the bert_request_classifier directory from the split files, run the following command from within this folder:
-    ```bash
-    cat bert_classifier_part_* > bert_request_classifier.zip
-    unzip bert_request_classifier.zip
+![Training loss of the flight ranking model](../../docs/images/pilot-requests-distilbert-loss.png)
+
+*The flight ranking model's training loss, per batch and per epoch.*
+
+In the practical test, with real speech turned into text, the system was 92% accurate. Every time it
+got one wrong, the right answer was its second choice.
+
+## Running the practical test
+
+1. **Download the trained models.** They're too big for the repository (about 670 MB together), so
+   they're on the [Releases](https://github.com/nourbashoush/autonomous-atc/releases) page.
+   Download `bert_request_classifier.zip` and `bert_flight_ranking.zip`, and unzip both here:
+
+    ```
+    4-pilot-requests/
+    ├── bert_request_classifier/
+    └── bert_flight_ranking/
     ```
 
-    This will generate a folder named `bert_request_classifier/` containing the pretrained BERT model required for classification.
+    You only need them for `request_analysis.py`. The notebooks train new ones.
 
-    > [!NOTE]
-    > Ensure all five parts are present before running the cat command.
+2. **Install the packages** from [`requirements.txt`](../../requirements.txt), at the top of the
+   repository:
 
-2. **Install Required Libraries**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-    The code requires several Python libraries. To install them, run the following command:
-
-     ```bash
-     pip install -r requirements.txt
-     ```
-
-3. **Run the Practical NLP Experiment**
-
-    Once the model folder is reconstructed and libraries installed, you can run the `request_analysis.py` script to perform the full classification and entity extraction experiment:
+3. **Run it:**
 
     ```bash
     python request_analysis.py
     ```
 
-    This script simulates the evaluation procedure described in Section 7.6 of the thesis with request classification, and candidate ranking.
+    This is the experiment from Section 7.6 of the thesis. It shows five random pilot requests, one
+    at a time. Read each one aloud, then type in what your speech-to-text heard. It tells you which
+    flight and request type it understood.
 
-    > [!NOTE]
-    > You will require some transcription software such as MacBook's Built-in dictation to transcribe speech.
+> [!NOTE]
+> You need speech-to-text software for this, such as the dictation built into macOS.
+
+## Files
+
+- `process_dataset.ipynb` – Builds the dataset and makes the noisy copies.
+- `train_classification.ipynb` – Fine-tunes BERT for the request type.
+- `fuzzy_extraction.ipynb` – The fuzzy matching baseline, using Levenshtein distance.
+- `train_extraction.ipynb` – Trains the DistilBERT flight ranking model.
+- `request_analysis.py` – The practical test from Section 7.6.
+- `data/` – The dataset, with the requests and their labels.
+- `utils/` – Helper scripts, such as homophone and rhyme generation.

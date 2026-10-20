@@ -1,54 +1,71 @@
-# Autonomous ATC Airport Simulation
+# Simulation
 
-## Overview
-This repository contains the simulation code developed for the final year project “A Proof of Concept for Autonomous Air Traffic Control Using Deep Learning”. The simulation environment integrates reinforcement learning (RL), long short-term memory (LSTM) models, and computer vision to autonomously manage aircraft movement within a ground control context.
+A 2D, top-down simulation of Birmingham Airport (EGBB) with the trained models built in. It handles
+the ground side of air traffic control: taxiing, getting aircraft to the runway, landing clearances
+and keeping the runway safe. How each model was trained is in [`training/`](../training).
 
-The primary objective is to visualise and evaluate trained deep learning models within a 2D simulation of Birmingham Airport, focusing on ground operations such as taxiing, take-off preparation, landing clearance, and runway occupancy.
+## Setup
 
-> [!NOTE]
-This repository only includes the simulation code. Training scripts for the the mentioned models are located in other sections of the repository.
+You need Python 3.9 on Linux, macOS or Windows, and 8 GB of RAM is recommended. The packages are in
+[`requirements.txt`](../requirements.txt). From the top of the repository:
 
-## Requirements
-- Python 3.9 or higher (3.9 recommended)
-- Compatible operating system (Linux/macOS/Windows)
-- Recommended 8GB RAM
-
-## Requirements Installation
-Before running the simulation, install the dependencies listed in `requirements.txt`.
-
-_It is recommended to create a virtual environment to avoid conflicts with other projects._
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-Then, install the required packages:
-```bash
+python3.9 -m venv .venv
+source .venv/bin/activate  # on Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-## Running the Simulation
-Once dependencies are installed, the simulation can be launched using:
+## Running it
+
+From this folder:
 ```bash
 python main.py
 ```
-The simulation will automatically render a cleaned, top-down visual of Birmingham Airport (EGBB), with dynamic elements such as taxiways, holding points, stands, and a single operational runway.
 
-> [!NOTE]
-On the first execution, it may take up to 2 minutes to initialise assets, load packages, and render the environment. Subsequent runs will be significantly faster due to caching.
+The first run can take up to 2 minutes to load everything. Later runs start faster. It doesn't need
+internet access or any extra downloads.
 
-## Simulation Behaviour
+![The whole airport, with the taxiway network drawn over it](../docs/images/simulation-taxiway-network.jpg)
 
-By default:
-- 10 aircraft are spawned for departure (take-off).
-- Aircraft for landing are spawned continuously at safe intervals until the airport becomes full.
-- All aircraft are governed by reinforcement learning agents trained to navigate taxi routes autonomously.
-- Conflict management and intersection logic are handled using LSTM-based future prediction models.
-- Runway access is monitored via a YOLOv8 computer vision model that prevents incursions.
-- Aircraft wait and queue when necessary.
+*The airport with its taxiway network. The red dots are intersections and holding points, and the
+green lines are the taxiways between them.*
 
-### Notes
-- The simulation is fully self-contained and does not require any external datasets or internet access.
-- Trained model weights are preloaded and automatically initialised at runtime.
-- No GUI interaction is required; the simulation is fully automated.
-- Visual debugging features (e.g., taxi paths, decision markers) are enabled by default.
+## What happens
+
+- 10 aircraft start at stands, ready to depart.
+- Arrivals keep appearing at safe intervals until the airport is full.
+- The taxiing model (DQN) steers every aircraft along its route.
+- The LSTM predicts where aircraft are going, and decides who gives way at intersections and in queues.
+- The YOLO model watches the runway, so only one aircraft uses it at a time.
+
+Each aircraft goes through these states. A departure leaves after take-off and comes back as an
+arrival, so the simulation never ends.
+
+![The states an aircraft moves through](../docs/images/simulation-aircraft-states.png)
+
+## Overlays
+
+Click **Show Buttons** at the top left for these toggles. All the overlays start on.
+
+| Button | Shows |
+| --- | --- |
+| Show Future | Each aircraft's predicted positions, from the LSTM |
+| Show Nodes | The taxiway intersections and holding points |
+| Show Edges | The taxiways connecting them |
+| Show Stands | The aircraft stands |
+| Show Data | Each aircraft's speed and thrust |
+| Show Boxes | The YOLO detection boxes on the runway |
+| Normal Speed | The simulation normally runs as fast as it can. This slows it to real time (30 frames a second). |
+
+## Files
+
+- `main.py` – Starts the simulation and runs each frame, including pushback clearance, conflict checks and runway access.
+- `plane.py` – An aircraft: its movement, route and state.
+- `airport.py` – Loads the airport's taxiway network and draws it.
+- `utils.py` – Shared helpers, including route planning with Dijkstra's algorithm.
+- `gui.py` – The overlay toggles.
+- `configuration.py` – Settings such as the runway in use, landing distances and which overlays are on.
+- `model_taxi_DQN.py`, `model_future_LSTM.py` – The model definitions that the trained weights load into.
+- `models/` – The trained models: taxiing (DQN), collision avoidance (LSTM) and runway detection (YOLO).
+- `data/airport_EGBB.json` – The airport's stands, taxiways, runway, intersections and holding points.
+- `assets/` – The airport background, aircraft images and fonts.
